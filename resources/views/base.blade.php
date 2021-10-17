@@ -127,7 +127,7 @@
                                     class="dropdown-item text-warning text-primary display-7" href="{{ route('categorie-bien.index') }}"
                                     aria-expanded="false">Catégories de bien</a><a
                                     class="dropdown-item text-warning text-primary display-7"
-                                    href="reseaux-sociaux-list-admin.html" aria-expanded="false">Réseaux Sociaux</a><a
+                                    href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux Sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7" href="users.html"
                                     aria-expanded="false">Utilisateurs</a><a
                                     class="dropdown-item text-warning text-primary display-7" href="agences.html"

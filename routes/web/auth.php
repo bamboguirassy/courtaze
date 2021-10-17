@@ -61,7 +61,7 @@ Route::post('register', function(Request $request) {
             $agence = new Agence($request->all());
             if($request->has('logo')) {
                 $filename = $request->get('domain').'.'.$request->file('logo')->extension();
-                 $request->file('logo')->storeAs('agence/logos',$request->get('domain'));
+                 $request->file('logo')->storeAs('agence/logos',$filename);
                 $agence->logo = $filename;
             }
             $agence->user_id = $user->id;
