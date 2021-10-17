@@ -42,18 +42,20 @@ séjour, un terrain ou une maison à acheter...")
                         recherche.<br></p>
                     <div class="mbr-section-btn mt-3">
                         @auth
+                        @if(auth()->user()->type!='Client')
                         <a class="btn btn-lg btn-primary display-4" href=""><span
                                 class="mdi-maps-local-offer mbr-iconfont mbr-iconfont-btn"></span>Publier une
                             offre
                         </a>
+                        @endif
                         @endauth
-                            @guest
-                            <a class="btn btn-lg btn-info display-4" href="{{ route('register.page') }}"><span
-                               class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
-                               <a
-                           class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
-                               class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a></div> 
-                            @endguest
+                        @guest
+                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
+                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
+                        <a class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
+                                class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
+                    </div>
+                    @endguest
                 </div>
             </div>
         </div>

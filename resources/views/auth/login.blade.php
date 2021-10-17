@@ -148,7 +148,7 @@
 
             <div class="title col-md-12 col-lg-5">
                 <div class="mbr-section-btn align-center"><a class="btn btn-lg btn-primary display-7"
-                        href="{{ route('register.page') }}">Ouvrir un compte</a></div>
+                        href="{{ route('pre.register.page') }}">Ouvrir un compte</a></div>
 
             </div>
 

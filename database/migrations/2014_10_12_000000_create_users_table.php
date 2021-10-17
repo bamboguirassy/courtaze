@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('type')->require();
+            $table->string('telephoneWhatsapp')->nullable();
+            $table->string('telephonePersonnel')->nullable();
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }
