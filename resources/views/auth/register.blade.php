@@ -143,6 +143,12 @@
                             <textarea name="adresse" placeholder="Adresse" data-form-field="adresse" required="required"
                                 class="form-control display-7" id="adresse-formbuilder-u"></textarea>
                         </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="logo">
+                            <label for="logo-formbuilder-u"
+                                class="form-control-label mbr-fonts-style display-7">Logo</label>
+                            <input type="file" name="logo" data-form-field="logo" required="required"
+                                class="form-control display-7" value="" id="logo-formbuilder-u">
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
                         </div>

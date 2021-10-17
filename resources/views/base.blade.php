@@ -71,24 +71,23 @@
 </head>
 
 <body>
-
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
-
-
+        
+        
         <nav class="navbar navbar-dropdown navbar-expand-lg">
             <div class="container">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
                         <a href="#">
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                                style="height: 3rem;" loading="lazy" class="lazyload"
-                                data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png">
+                            style="height: 3rem;" loading="lazy" class="lazyload"
+                            data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png">
                         </a>
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-5"
-                            href="#">Courtaze</a></span>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
+                        href="#">Courtaze</a></span>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
                     data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="hamburger">
@@ -98,73 +97,75 @@
                         <span></span>
                     </div>
                 </button>
+                @auth
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="{{ route('home') }}"><span
-                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="agence-home.html"><span
-                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil Ag</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="services.html"><span
-                                    class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>Services</a>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
-                                href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside">Admin</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="categorie-list.html"
-                                    aria-expanded="false">Catégories de bien</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
-                                    href="reseaux-sociaux-list-admin.html" aria-expanded="false">Réseaux Sociaux</a><a
-                                    class="dropdown-item text-warning text-primary display-7" href="users.html"
-                                    aria-expanded="false">Utilisateurs</a><a
-                                    class="dropdown-item text-warning text-primary display-7" href="agences.html"
-                                    aria-expanded="false">Agences</a></div>
-                        </li>
-                        <li class="nav-item dropdown"><a
-                                class="nav-link link dropdown-toggle text-warning show display-7" href="#"
-                                data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                aria-expanded="true"><span
-                                    class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
-                            <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
-                                <a class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
-                                    publications</a><a class="dropdown-item text-warning text-primary display-7"
-                                    href="reseaux-sociaux.html">Réseaux sociaux</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
-                                    href="service-list.html">Nos services</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
-                                    href="agence-details.html">Mon agence</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
-                                    href="temoignage-list.html">Témoignages des clients</a></div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="contacts.html"><span
-                                    class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
-                                href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="profil.html"><span
-                                        class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
-                                    profil</a><a class="dropdown-item text-warning text-primary display-7"
-                                    href="list-envie.html"><span
-                                        class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Ma liste
-                                    d'envie</a><a class="dropdown-item text-warning display-7" href="#"><span
-                                        class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion</a>
-                            </div>
-                        </li>
-                    </ul>
+                            href="{{ route('home') }}"><span
+                                class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                            href="agence-home.html"><span
+                                class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil Ag</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                            href="services.html"><span
+                                class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>Services</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
+                            href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside">Admin</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
+                                class="dropdown-item text-warning text-primary display-7" href="categorie-list.html"
+                                aria-expanded="false">Catégories de bien</a><a
+                                class="dropdown-item text-warning text-primary display-7"
+                                href="reseaux-sociaux-list-admin.html" aria-expanded="false">Réseaux Sociaux</a><a
+                                class="dropdown-item text-warning text-primary display-7" href="users.html"
+                                aria-expanded="false">Utilisateurs</a><a
+                                class="dropdown-item text-warning text-primary display-7" href="agences.html"
+                                aria-expanded="false">Agences</a></div>
+                    </li>
+                    <li class="nav-item dropdown"><a
+                            class="nav-link link dropdown-toggle text-warning show display-7" href="#"
+                            data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                            aria-expanded="true"><span
+                                class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
+                        <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
+                            <a class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
+                                publications</a><a class="dropdown-item text-warning text-primary display-7"
+                                href="reseaux-sociaux.html">Réseaux sociaux</a><a
+                                class="dropdown-item text-warning text-primary display-7"
+                                href="service-list.html">Nos services</a><a
+                                class="dropdown-item text-warning text-primary display-7"
+                                href="agence-details.html">Mon agence</a><a
+                                class="dropdown-item text-warning text-primary display-7"
+                                href="temoignage-list.html">Témoignages des clients</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                            href="contacts.html"><span
+                                class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
+                            href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
+                                class="dropdown-item text-warning text-primary display-7" href="profil.html"><span
+                                    class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
+                                profil</a><a class="dropdown-item text-warning text-primary display-7"
+                                href="list-envie.html"><span
+                                    class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Ma liste
+                                d'envie</a><a class="dropdown-item text-warning display-7" href="#"><span
+                                    class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion</a>
+                        </div>
+                    </li>
+                </ul>
 
 
-                </div>
             </div>
-        </nav>
-    </section>
+            @endauth
+        </div>
+    </nav>
+</section>
 
     @yield('body')
 
