@@ -101,11 +101,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="index.html">Accueil</a></li>
+                                href="{{ route('home') }}"><span
+                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="agence-home.html">Accueil Ag</a></li>
+                                href="agence-home.html"><span
+                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil Ag</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="services.html">Services</a></li>
+                                href="services.html"><span
+                                    class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>Services</a>
+                        </li>
                         <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
                                 href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside">Admin</a>
@@ -119,11 +125,13 @@
                                     class="dropdown-item text-warning text-primary display-7" href="agences.html"
                                     aria-expanded="false">Agences</a></div>
                         </li>
-                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
-                                href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" aria-expanded="false">Gestion</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
+                        <li class="nav-item dropdown"><a
+                                class="nav-link link dropdown-toggle text-warning show display-7" href="#"
+                                data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                aria-expanded="true"><span
+                                    class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
+                            <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
+                                <a class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
                                     publications</a><a class="dropdown-item text-warning text-primary display-7"
                                     href="reseaux-sociaux.html">Réseaux sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7"
@@ -134,15 +142,21 @@
                                     href="temoignage-list.html">Témoignages des clients</a></div>
                         </li>
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="contacts.html">Contacts</a></li>
+                                href="contacts.html"><span
+                                    class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
+                        </li>
                         <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
                                 href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="profil.html">Mon
+                                    class="dropdown-item text-warning text-primary display-7" href="profil.html"><span
+                                        class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
                                     profil</a><a class="dropdown-item text-warning text-primary display-7"
-                                    href="list-envie.html">Ma liste d'envie</a><a
-                                    class="dropdown-item text-warning display-7" href="#">Déconnexion</a></div>
+                                    href="list-envie.html"><span
+                                        class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Ma liste
+                                    d'envie</a><a class="dropdown-item text-warning display-7" href="#"><span
+                                        class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion</a>
+                            </div>
                         </li>
                     </ul>
 
@@ -184,9 +198,9 @@
     <script>
         "use strict";if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"],iframe[loading="lazy"]').forEach(e=>{e.src=e.dataset.src,e.style.paddingTop=100*e.getAttribute("data-aspectratio")+"%",e.style.height=0,e.onload=function(){e.removeAttribute("style")}})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js",document.body.appendChild(e)}
     </script>
-@jquery
-@toastr_js
-@toastr_render
+    @jquery
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>

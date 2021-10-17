@@ -41,11 +41,11 @@
                         casse-tête. C’est pourquoi nous proposons beaucoup plus qu’une simple plateforme de
                         recherche.<br></p>
                     <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary display-4"
-                            href="new-post.html"><span
+                            href=""><span
                                 class="mdi-maps-local-offer mbr-iconfont mbr-iconfont-btn"></span>Publier une
-                            offre</a> <a class="btn btn-lg btn-info display-4" href="inscription.html"><span
+                            offre</a> <a class="btn btn-lg btn-info display-4" href="{{ route('register.page') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a> <a
-                            class="btn btn-lg btn-success display-4" href="login.html"><span
+                            class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a></div>
                 </div>
             </div>
