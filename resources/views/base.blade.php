@@ -39,6 +39,7 @@
         .colorpick-eyedropper-input-trigger {
             width: 50px;
         }
+
         .body-item {
             white-space: nowrap;
         }
@@ -107,7 +108,7 @@
                 @auth
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        @isset($agence)
+                        @isset($activeAgence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="agence-home.html"><span
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil Ag</a>
@@ -122,19 +123,25 @@
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @endisset
+                        @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
+                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                                href="agence-home.html"><span
+                                    class="mobi-mbri mobi-mbri-sites mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
+                        </li>
+                        @endif
                         @if (auth()->user()->type=='Admin')
                         <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
                                 href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside">Admin</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="{{ route('categorie-bien.index') }}"
-                                    aria-expanded="false">Catégories de bien</a><a
                                     class="dropdown-item text-warning text-primary display-7"
-                                    href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux Sociaux</a><a
-                                    class="dropdown-item text-warning text-primary display-7" href="{{ route('user.index') }}"
-                                    aria-expanded="false">Utilisateurs</a><a
-                                    class="dropdown-item text-warning text-primary display-7" href="{{ route('agence.index') }}"
-                                    aria-expanded="false">Agences</a></div>
+                                    href="{{ route('categorie-bien.index') }}" aria-expanded="false">Catégories de
+                                    bien</a><a class="dropdown-item text-warning text-primary display-7"
+                                    href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux
+                                    Sociaux</a><a class="dropdown-item text-warning text-primary display-7"
+                                    href="{{ route('user.index') }}" aria-expanded="false">Utilisateurs</a><a
+                                    class="dropdown-item text-warning text-primary display-7"
+                                    href="{{ route('agence.index') }}" aria-expanded="false">Agences</a></div>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Agence')
@@ -145,7 +152,8 @@
                                     class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
                             <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
                                 <a class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
-                                    publications</a><a class="dropdown-item text-warning text-primary display-7"
+                                    publications</a>
+                                <a class="dropdown-item text-warning text-primary display-7"
                                     href="reseaux-sociaux.html">Réseaux sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="service-list.html">Nos services</a><a
@@ -156,7 +164,7 @@
                             </div>
                         </li>
                         @endif
-                        @isset($agence)
+                        @isset($activeAgence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="contacts.html"><span
                                     class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
@@ -180,8 +188,8 @@
                                 <form style="display: inline;" action="{{ route('logout') }}" method="post">
                                     @csrf
                                     @method('post')
-                                    @isset($agence)
-                                    <input name="agence" type="number" value="{{$agence->id}}" hidden>
+                                    @isset($activeAgence)
+                                    <input name="agence" type="number" value="{{$activeAgence->id}}" hidden>
                                     @endisset
                                     <button class="dropdown-item text-warning display-7"><span
                                             class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion

@@ -11,13 +11,12 @@ Route::resource('categorie-bien', CategorieBienController::class)
 
 Route::resource('reseau-social', ReseauSocialController::class,[
     'only'=>['index','store']
-])
-->middleware('admin');
+])->middleware('admin');
 
 Route::resource('user', UserController::class,[
     'only'=>['index']
-]);
+])->middleware('admin');
 
 Route::resource('agence', AgenceController::class,[
     'only'=>['index']
-]);
+])->middleware('admin');

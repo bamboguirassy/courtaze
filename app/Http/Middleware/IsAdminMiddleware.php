@@ -21,8 +21,7 @@ class IsAdminMiddleware
             if(Auth::user()->type=="Admin") {
                 return $next($request);
             }
-        } else {
-            return redirect()->back();
-        }
+        } 
+        return redirect()->route('home');
     }
 }
