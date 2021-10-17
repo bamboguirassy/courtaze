@@ -62,125 +62,11 @@ séjour, un terrain ou une maison à acheter...")
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLVArdBbuJ" id="info3-g">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
-<section data-bs-version="5.1" class="features3 cid-sM19LqxmLU" id="features03-31">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
-                    <strong>Categories</strong>
-                </h3>
+<x-categories />
 
-            </div>
-        </div>
-        <div class="row">
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont imind-building"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4">
-                            <p><a href="categorie-show.html" class="text-primary"><strong>Appartements</strong></a>
-                            </p>
-                        </h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont imind-studio-lightbox"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Studios</strong></h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont icon54-v2-office-building"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Maisons</strong></h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont icon54-v1-bedroom"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Chambres</strong></h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont fa-building-o fa"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Immeubles</strong></h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont fa-text-width fa"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Terrains</strong></h5>
-
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-4 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont icon54-v1-starhotel1"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4"><strong>Hotels</strong></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="info3 cid-sLVOap953W" id="info3-n">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
@@ -291,18 +177,7 @@ séjour, un terrain ou une maison à acheter...")
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLVJxeSLii" id="info3-m">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section data-bs-version="5.1" class="features3 cid-sLVFDQGTOP" id="features03-i">
     <div class="container">
@@ -398,18 +273,7 @@ séjour, un terrain ou une maison à acheter...")
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLW649G5Eh" id="info3-p">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section data-bs-version="5.1" class="extFeatures cid-sLVGOAXOM0" id="extSocialButtons3-l">
     <div class="container">
