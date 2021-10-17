@@ -124,7 +124,7 @@
                                 href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside">Admin</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7" href="categorie-list.html"
+                                    class="dropdown-item text-warning text-primary display-7" href="{{ route('categorie-bien.index') }}"
                                     aria-expanded="false">Catégories de bien</a><a
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="reseaux-sociaux-list-admin.html" aria-expanded="false">Réseaux Sociaux</a><a
