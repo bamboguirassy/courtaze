@@ -1,8 +1,8 @@
 @extends('base')
 
-@section('title',"Liste des catégories de bien...");
+@section('title',"Liste des catégories de bien...")
 
-@section('description',"La liste des catégories de bien sur la plateforme...");
+@section('description',"La liste des catégories de bien sur la plateforme...")
 
 @section('body')
 <section data-bs-version="5.1" class="accordion1 cid-sLWhtFYIC3" id="accordions03-16">

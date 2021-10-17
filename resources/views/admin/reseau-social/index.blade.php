@@ -1,8 +1,8 @@
 @extends('base')
 
-@section('title',"Liste des réseaux sociaux...");
+@section('title',"Liste des réseaux sociaux...")
 
-@section('description',"La liste des réseaux sociaux de la plateforme...");
+@section('description',"La liste des réseaux sociaux de la plateforme...")
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sM1lAQXZRJ" id="header01-3k">

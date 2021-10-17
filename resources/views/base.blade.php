@@ -39,6 +39,9 @@
         .colorpick-eyedropper-input-trigger {
             width: 50px;
         }
+        .body-item {
+            white-space: nowrap;
+        }
     </style>
 
 
@@ -128,7 +131,7 @@
                                     aria-expanded="false">Catégories de bien</a><a
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux Sociaux</a><a
-                                    class="dropdown-item text-warning text-primary display-7" href="users.html"
+                                    class="dropdown-item text-warning text-primary display-7" href="{{ route('user.index') }}"
                                     aria-expanded="false">Utilisateurs</a><a
                                     class="dropdown-item text-warning text-primary display-7" href="agences.html"
                                     aria-expanded="false">Agences</a></div>
