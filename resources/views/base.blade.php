@@ -78,14 +78,14 @@
             <div class="container">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
-                        <a href="#">
+                        <a href="{{ route('home') }}">
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                             style="height: 3rem;" loading="lazy" class="lazyload"
                             data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png">
                         </a>
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-5"
-                        href="#">Courtaze</a></span>
+                        href="{{ route('home') }}">{{config('app.name')}}</a></span>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
                     data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"

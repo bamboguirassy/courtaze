@@ -2,7 +2,8 @@
 
 @section('title',"Accueil - ".config('app.name'))
 
-@section('description',"Bienvenue sur ".config('app.name').", votre plateforme pour trouver une location, un endroit de séjour, un terrain ou une maison à acheter...")
+@section('description',"Bienvenue sur ".config('app.name').", votre plateforme pour trouver une location, un endroit de
+séjour, un terrain ou une maison à acheter...")
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sBTN7vbAnD" id="header01-0">
@@ -14,8 +15,7 @@
             </clipPath>
         </defs>
         <g clip-path="url(#__lottie_element_56)">
-            <g transform="matrix(1,0,0,1,1389.843017578125,-225.20799255371094)" opacity="1"
-                style="display: block;">
+            <g transform="matrix(1,0,0,1,1389.843017578125,-225.20799255371094)" opacity="1" style="display: block;">
                 <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                     <path fill="rgb(255,237,168)" fill-opacity="1"
                         d=" M-419.624755859375,415.6952209472656 C17.504684448242188,354.5908203125 503.072998046875,568.8040161132812 708.1630249023438,382.1440124511719 C913.2529907226562,195.4739990234375 407.1830139160156,25.333999633789062 407.1830139160156,-114.36599731445312 C407.1830139160156,-283.6960144042969 431.1730041503906,-345.0660095214844 316.9930114746094,-426.3559875488281 C146.18299865722656,-547.9760131835938 69.49299621582031,-405.5559997558594 -319.84698486328125,-361.5459899902344 C-641.4569702148438,-325.1860046386719 -1008.0747680664062,-305.5247802734375 -870.084716796875,-3.934781312942505 C-732.0947265625,297.65521240234375 -740.6259765625,460.5013732910156 -419.624755859375,415.6952209472656z">
@@ -40,13 +40,20 @@
                     <p class="mbr-text mbr-fonts-style display-7">Trouver du logement au Sénégal est un véritable
                         casse-tête. C’est pourquoi nous proposons beaucoup plus qu’une simple plateforme de
                         recherche.<br></p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary display-4"
-                            href=""><span
+                    <div class="mbr-section-btn mt-3">
+                        @auth
+                        <a class="btn btn-lg btn-primary display-4" href=""><span
                                 class="mdi-maps-local-offer mbr-iconfont mbr-iconfont-btn"></span>Publier une
-                            offre</a> <a class="btn btn-lg btn-info display-4" href="{{ route('register.page') }}"><span
-                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a> <a
-                            class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
-                                class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a></div>
+                            offre
+                        </a>
+                        @endauth
+                            @guest
+                            <a class="btn btn-lg btn-info display-4" href="{{ route('register.page') }}"><span
+                               class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
+                               <a
+                           class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
+                               class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a></div> 
+                            @endguest
                 </div>
             </div>
         </div>
@@ -71,7 +78,8 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
-                    <strong>Categories</strong></h3>
+                    <strong>Categories</strong>
+                </h3>
 
             </div>
         </div>
@@ -193,8 +201,8 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie_id">
                             <label for="categorie_id-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Catégorie</label>
-                            <select name="categorie_id" data-form-field="categorie_id"
-                                class="form-control display-7" id="categorie_id-formbuilder-8">
+                            <select name="categorie_id" data-form-field="categorie_id" class="form-control display-7"
+                                id="categorie_id-formbuilder-8">
                                 <option value="Toute">Toute</option>
                                 <option value="Appartement">Appartement</option>
                                 <option value="Villa">Villa</option>
@@ -241,15 +249,14 @@
                             <div data-for="Cuisine" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Cuisine" data-form-field="Cuisine"
                                     class="form-check-input display-7" id="Cuisine-formbuilder-8">
-                                <label for="Cuisine-formbuilder-8"
-                                    class="form-check-label display-7">Cuisine</label>
+                                <label for="Cuisine-formbuilder-8" class="form-check-label display-7">Cuisine</label>
                             </div>
                             <div data-for="Toilette publique" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Toilette publique"
                                     data-form-field="Toilette publique" class="form-check-input display-7"
                                     id="Toilette publique-formbuilder-8">
-                                <label for="Toilette publique-formbuilder-8"
-                                    class="form-check-label display-7">Toilette publique</label>
+                                <label for="Toilette publique-formbuilder-8" class="form-check-label display-7">Toilette
+                                    publique</label>
                             </div>
                             <div data-for="Garage" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Garage" data-form-field="Garage"
@@ -481,8 +488,7 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="social-buttons2 luxurym4_social-buttons2 cid-sM17msauDb"
-    id="social-buttons2-2w">
+<section data-bs-version="5.1" class="social-buttons2 luxurym4_social-buttons2 cid-sM17msauDb" id="social-buttons2-2w">
     <div class="container">
         <div class="media-container-row">
             <div class="col-md-10 col-lg-8 align-center">
@@ -497,13 +503,11 @@
                         <i class="socicon socicon-twitter"></i>
                     </span>
 
-                    <span class="btn btn-social vkontakte socicon-bg-vkontakte mx-2"
-                        title="Share link on VKontakte">
+                    <span class="btn btn-social vkontakte socicon-bg-vkontakte mx-2" title="Share link on VKontakte">
                         <i class="socicon socicon-vkontakte"></i>
                     </span>
 
-                    <span class="btn btn-social pinterest socicon-bg-pinterest mx-2"
-                        title="Share link on Pinterest">
+                    <span class="btn btn-social pinterest socicon-bg-pinterest mx-2" title="Share link on Pinterest">
                         <i class="socicon socicon-pinterest"></i>
                     </span>
                     <span class="btn btn-social mailru socicon-bg-mail mx-2" title="Share link on Mailru">
