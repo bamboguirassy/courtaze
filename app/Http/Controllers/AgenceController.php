@@ -14,7 +14,8 @@ class AgenceController extends Controller
      */
     public function index()
     {
-        //
+        $agences = Agence::paginate(100);
+        return view('admin.agence.index',compact('agences'));
     }
 
     /**

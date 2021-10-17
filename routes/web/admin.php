@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgenceController;
 use App\Http\Controllers\CategorieBienController;
 use App\Http\Controllers\ReseauSocialController;
 use App\Http\Controllers\UserController;
@@ -14,5 +15,9 @@ Route::resource('reseau-social', ReseauSocialController::class,[
 ->middleware('admin');
 
 Route::resource('user', UserController::class,[
+    'only'=>['index']
+]);
+
+Route::resource('agence', AgenceController::class,[
     'only'=>['index']
 ]);
