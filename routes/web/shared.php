@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategorieBienController;
 use App\Http\Controllers\OffreController;
 use App\Models\CategorieBien;
 use App\Models\Offre;
@@ -24,3 +25,7 @@ $offreInactives = Offre::where('visible',false)->paginate(18);
 $categorieBiens = CategorieBien::orderby('nom')->get();
 return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens'));
 })->name('mes.publications')->middleware('auth');
+
+Route::resource('categorie-bien', CategorieBienController::class,[
+    'only'=>['show']
+]);

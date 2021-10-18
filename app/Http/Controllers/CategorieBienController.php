@@ -55,7 +55,7 @@ class CategorieBienController extends Controller
      */
     public function show(CategorieBien $categorieBien)
     {
-        //
+        return view('shared.categorie-bien.show',compact('categorieBien'));
     }
 
     /**

@@ -6,7 +6,9 @@ use App\Http\Controllers\ReseauSocialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::resource('categorie-bien', CategorieBienController::class)
+Route::resource('categorie-bien', CategorieBienController::class,[
+    'only'=>['index']
+])
 ->middleware('admin');
 
 Route::resource('reseau-social', ReseauSocialController::class,[

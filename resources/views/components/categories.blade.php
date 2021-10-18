@@ -11,21 +11,21 @@
         <div class="row">
             @foreach ($categorieList as $categorie)
             <div class="card col-4 col-sm-4 col-md-3 col-lg-2">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <div class="iconfont-wrapper">
-                            <span class="mbr-iconfont {{$categorie->icon}}"></span>
-                        </div>
-                        <h5 class="card-title mbr-fonts-style display-4">
-                            <p>
-                                <a href="categorie-show.html" class="text-primary">
+                <a href="{{ route('categorie-bien.show',['categorie_bien'=>$categorie]) }}" class="text-primary">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <div class="iconfont-wrapper">
+                                <span class="mbr-iconfont {{$categorie->icon}}"></span>
+                            </div>
+                            <h5 class="card-title mbr-fonts-style display-4">
+                                <p>
                                     <strong>{{$categorie->nom}}</strong>
-                                </a>
-                            </p>
-                        </h5>
+                                </p>
+                            </h5>
 
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             @endforeach
         </div>
