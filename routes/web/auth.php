@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 Route::get('login', function() {
 return view('auth.login');
-})->name('login.page')->middleware('guest');
+})->name('login')->middleware('guest');
 
 Route::post('login',function(Request $request) {
     $request->validate([

@@ -107,6 +107,7 @@
                 <div class="text-wrapper align-left">
                     <ul class="mbr-text mbr-fonts-style display-5">
                         <li><strong>{{ $offre }}</strong></li>
+                        <li> <span class="fa fa-check"></span> Prix: {{ $offre->prix }} FCFA</li>
                         @if ($offre->nombreEtage)
                         <li> <span class="fa fa-check"></span> {{ $offre->nombreEtage }} étage(s)</li>
                         @endif
@@ -124,7 +125,7 @@
                             toilette intérieure </li>
                         @endif
                         @if ($offre->superficie)
-                        <li> <span class="fa fa-check"></span> {{ $offre->superficie }} m²</li>
+                        <li> <span class="fa fa-check"></span> Superficie: {{ $offre->superficie }} m²</li>
                         @endif
                         @if ($offre->longueur && $offre->largeur)
                         <li> <span class="fa fa-check"></span> {{ $offre->longueur }} m / {{ $offre->largeur }} m</li>
