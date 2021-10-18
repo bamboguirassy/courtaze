@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('categorie-bien', CategorieBienController::class,[
-    'only'=>['index']
+    'only'=>['index','store']
 ])
 ->middleware('admin');
 

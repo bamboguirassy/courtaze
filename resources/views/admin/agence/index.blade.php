@@ -59,7 +59,7 @@
                             <div class="col-md-6">
                                 <div class="dataTables_filter">
                                     <label class="searchInfo mbr-fonts-style display-7">Rechercher:</label>
-                                    <input class="form-control input-sm" disabled="">
+                                    <input class="form-control input-sm">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 <tr>
                                     <td class="body-item mbr-fonts-style display-7">{{ $loop->index+1 }}</td>
                                     <td class="body-item">
-                                        <img style="width: 100px" src="{{ asset('uploads/agence/logos/'.$agence->logo) }}" class="img-fluid rounded-circle" alt="">
+                                        <img style="width: 50px" src="{{ asset('uploads/agence/logos/'.$agence->logo) }}" alt="">
                                     </td>
                                     <td class="body-item mbr-fonts-style display-7">{{$agence->user->name}}</td>
                                     <td class="body-item mbr-fonts-style display-7">{{ $agence->domain }}</td>

@@ -127,6 +127,11 @@
                 <x-offre-item :offre="$offre" />
             </div>
             @endforeach
+            @if(count($offreActives)<1)
+                <div class="alert alert-info" role="alert">
+                    <strong>Vous n'avez aucune offre active pour l'instant !</strong>
+                </div>
+            @endif
         </div>
     </div>
 </section>

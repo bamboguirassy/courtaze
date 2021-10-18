@@ -77,14 +77,12 @@ Route::post('register', function(Request $request) {
 })->middleware('guest')->name('register.request');
 
 Route::post('logout',function(Request $request) {
-    $user = Auth::user();
     if(Auth::logout()) {
         toastr()->success("Vous vous êtes déconnectés avec succès !");
         if($request->has('agence')) {
             // redirect to agence home
-        } else {
-            return redirect()->route('home');
-        }
+        } 
+        return redirect()->route('home');
     }
     return redirect()->back();
 })->middleware('auth')->name('logout');

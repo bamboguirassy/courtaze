@@ -61,7 +61,7 @@ séjour, un terrain ou une maison à acheter...")
                         @endif
                         @endauth
                         @guest
-                        <a class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
+                        <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
                         <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>

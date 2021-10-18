@@ -20,8 +20,8 @@ Route::resource('offre', OffreController::class,[
 ])->middleware('auth');
 
 Route::get('mes-offres',function() {
-$offreActives = Offre::where('visible',true)->paginate(18);
-$offreInactives = Offre::where('visible',false)->paginate(18);
+$offreActives = Offre::where('visible',true)->where('user_id',Auth()->user()->id)->paginate(18);
+$offreInactives = Offre::where('visible',false)->where('user_id',Auth()->user()->id)->paginate(18);
 $categorieBiens = CategorieBien::orderby('nom')->get();
 return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens'));
 })->name('mes.publications')->middleware('auth');
