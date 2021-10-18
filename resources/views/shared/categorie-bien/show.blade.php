@@ -150,13 +150,19 @@
 
 <section data-bs-version="5.1" class="features3 cid-sMbsvTwJ1S" id="features03-4i">
     <div class="container">
-
-        <div class="row justify-content-center">
+        <div class="row">
             @foreach ($categorieBien->offreActives as $offre)
             <div class="сol-12 col-md-12 col-lg-4 md-pb">
                 <x-offre-item :offre="$offre" />
             </div>
             @endforeach
+            @empty($categorieBien->offreActives)
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    <strong>Aucune offre n'est encore disponible dans la catégorie {{$categorieBien->nom}}</strong>
+                </div>
+            </div>
+            @endempty
         </div>
     </div>
 </section>

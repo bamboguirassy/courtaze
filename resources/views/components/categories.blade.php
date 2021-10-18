@@ -22,7 +22,6 @@
                                     <strong>{{$categorie->nom}}</strong>
                                 </p>
                             </h5>
-
                         </div>
                     </div>
                 </a>

@@ -49,9 +49,8 @@ class OffreController extends Controller
         try {
             if(Auth::user()->type=='agence') {
                 $offre->agence_id = Auth::user()->agence->id;
-            } else {
-                $offre->user_id = Auth::user()->id;
-            }
+            } 
+            $offre->user_id = Auth::user()->id;
             $offre->save();
             /** upload photos */
             foreach ($request->file('photos') as $photo) {

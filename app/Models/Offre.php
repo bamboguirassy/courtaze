@@ -61,6 +61,16 @@ class Offre extends Model
         return $this->belongsTo(CategorieBien::class);
     }
 
+    /**
+     * Get the user that owns the Offre
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function __toString()
     {
         return $this->proposition.' - '.$this->categorieBien->nom.' à '.$this->ville.', '.$this->adresse;

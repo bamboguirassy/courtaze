@@ -215,7 +215,7 @@
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
                     <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                        © Copyright 2021 <a href="https://bambogroup.net" class="text-white"
+                        © Copyright {{ date_format(new DateTime(),'Y') }} <a href="https://bambogroup.net" class="text-white"
                             target="_blank"><strong>Bambo GROUP</strong></a> - Tous droits réservés</p>
                 </div>
             </div>

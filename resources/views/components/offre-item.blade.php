@@ -7,8 +7,7 @@
     </div>
     <div class="item-wrapper">
         <div class="item-content">
-            <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-7">{{ $offre->categorieBien->nom }}</h6>
-            <h5 class="item-title2 align-left mb-3 mbr-fonts-style display-5">{{ $offre->ville }}</h5>
+            <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-8">{{ $offre->categorieBien->nom }} à {{$offre->proposition=="Vente"?"vendre":"louer"}} à {{ $offre->ville }}</h6>
             <div class="mbr-flex mt-3">
                 <div class="mbr-section-btn align-right">
                     <button class="btn item-btn btn-white display-8">
@@ -16,7 +15,7 @@
                 </div>
                 <p class="price align-right mb-0 mbr-fonts-style display-6">{{$offre->prix}}CFA</p>
             </div>
-            <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">{{ $offre->adresse }}</p>
+            <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">{{  \Illuminate\Support\Str::limit($offre->adresse,30,'...') }}</p>
         </div>
     </div>
 </div>
