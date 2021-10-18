@@ -125,7 +125,7 @@
                         @endisset
                         @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="agence-home.html"><span
+                                href="{{ route('mes.publications') }}"><span
                                     class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
                         </li>
                         @endif

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OffreController;
 use App\Models\CategorieBien;
+use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,10 @@ Route::post('post-init',function(Request $request) {
 Route::resource('offre', OffreController::class,[
     'only'=>['store','show']
 ])->middleware('auth');
+
+Route::get('mes-offres',function() {
+$offreActives = Offre::where('visible',true)->paginate(18);
+$offreInactives = Offre::where('visible',false)->paginate(18);
+$categorieBiens = CategorieBien::orderby('nom')->get();
+return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens'));
+})->name('mes.publications')->middleware('auth');

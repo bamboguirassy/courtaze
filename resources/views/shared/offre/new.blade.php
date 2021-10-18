@@ -92,7 +92,7 @@
                                 @endif
                             </select>
                         </div>
-                        @if ($categorieBien->code=="IMMO")
+                        @if ($categorieBien->code=="IMMO" || $categorieBien->code=="VILLA")
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreEtage">
                             <label for="nombreEtage-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
