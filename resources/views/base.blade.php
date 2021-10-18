@@ -13,19 +13,19 @@
 
 
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-    <link rel="stylesheet" href="assets/Material-Design-Icons/css/material.css">
-    <link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/icon54/style.css">
-    <link rel="stylesheet" href="assets/icon54-v2/style.css">
-    <link rel="stylesheet" href="assets/iconsMind/style.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="assets/socicon/css/styles.css">
-    <link rel="stylesheet" href="assets/dropdown/css/style.css">
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/recaptcha.css">
+    <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/Material-Design-Icons/css/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/FontAwesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/icon54/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/icon54-v2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/iconsMind/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-reboot.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/socicon/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dropdown/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/recaptcha.css') }}">
     <link rel="preload"
         href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,400,500,600,700,800,100i,200i,300i,400i,500i,600i,700i,800i&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -33,8 +33,8 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,400,500,600,700,800,100i,200i,300i,400i,500i,600i,700i,800i&display=swap">
     </noscript>
-    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="preload" as="style" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
     <style>
         .colorpick-eyedropper-input-trigger {
             width: 50px;
@@ -48,33 +48,33 @@
 
 
     <meta name="theme-color" content="#266e73">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
     <script src="sw-connect.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-startup-image"
         media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-        href="assets/images/apple-launch-640x1136.png">
+        href="{{ asset('assets/images/apple-launch-640x1136.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-        href="assets/images/apple-launch-750x1334.png">
+        href="{{ asset('assets/images/apple-launch-750x1334.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-        href="assets/images/apple-launch-1242x2208.png">
+        href="{{ asset('assets/images/apple-launch-1242x2208.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-        href="assets/images/apple-launch-1125x2436.png">
+        href="{{ asset('assets/images/apple-launch-1125x2436.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-        href="assets/images/apple-launch-1536x2048.png">
+        href="{{ asset('assets/images/apple-launch-1536x2048.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-        href="assets/images/apple-launch-1668x2224.png">
+        href="{{ asset('assets/images/apple-launch-1668x2224.png') }}">
     <link rel="apple-touch-startup-image"
         media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-        href="assets/images/apple-launch-2048x2732.png">
+        href="{{ asset('assets/images/apple-launch-2048x2732.png') }}">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @toastr_css
 </head>
 
@@ -89,7 +89,7 @@
                         <a href="{{ route('home') }}">
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                                 style="height: 3rem;" loading="lazy" class="lazyload"
-                                data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png">
+                                data-src="{{ asset('assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png') }}">
                         </a>
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-5"
@@ -126,7 +126,7 @@
                         @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="agence-home.html"><span
-                                    class="mobi-mbri mobi-mbri-sites mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
+                                    class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Admin')
@@ -223,18 +223,18 @@
     </section>
 
 
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/ytplayer/index.js"></script>
-    <script src="assets/sociallikes/social-likes.js"></script>
-    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/theme/js/script.js"></script>
-    <script src="assets/formoid.min.js"></script>
+    <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/smoothscroll/smooth-scroll.js') }}"></script>
+    <script src="{{ asset('assets/ytplayer/index.js') }}"></script>
+    <script src="{{ asset('assets/sociallikes/social-likes.js') }}"></script>
+    <script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
+    <script src="{{ asset('assets/theme/js/script.js') }}"></script>
+    <script src="{{ asset('assets/formoid.min.js') }}"></script>
 
 
 
-    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
-                class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    {{-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+                class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> --}}
     <script>
         "use strict";if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"],iframe[loading="lazy"]').forEach(e=>{e.src=e.dataset.src,e.style.paddingTop=100*e.getAttribute("data-aspectratio")+"%",e.style.height=0,e.onload=function(){e.removeAttribute("style")}})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js",document.body.appendChild(e)}
     </script>

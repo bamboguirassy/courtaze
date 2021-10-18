@@ -40,20 +40,31 @@ séjour, un terrain ou une maison à acheter...")
                     <p class="mbr-text mbr-fonts-style display-7">Trouver du logement au Sénégal est un véritable
                         casse-tête. C’est pourquoi nous proposons beaucoup plus qu’une simple plateforme de
                         recherche.<br></p>
-                    <div class="mbr-section-btn mt-3">
+                    <div class="mbr-section-btn mt-3 mb-2">
                         @auth
                         @if(auth()->user()->type!='Client')
-                        <a class="btn btn-lg btn-primary display-4" href=""><span
-                                class="mdi-maps-local-offer mbr-iconfont mbr-iconfont-btn"></span>Publier une
-                            offre
-                        </a>
+                        <form action="{{ route('offre.init.new') }}" method="post" style="display: inline;">
+                            @csrf
+                            @method('post')
+                            <div class="mb-3">
+                                <select class="form-control" name="categorie_bien_id" id="categorie_bien_id">
+                                    @foreach ($categorieBiens as $categorieBien)
+                                    <option value="{{$categorieBien->id}}}">{{$categorieBien->nom}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button class="btn btn-lg btn-primary display-4" type="submit"><span
+                                    class="mdi-maps-local-offer mbr-iconfont mbr-iconfont-btn"></span>Publier une
+                                offre
+                            </button>
+                        </form>
                         @endif
                         @endauth
                         @guest
-                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
-                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
                         <a class="btn btn-lg btn-success display-4" href="{{ route('login.page') }}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
+                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
+                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
                     </div>
                     @endguest
                 </div>
@@ -181,94 +192,12 @@ séjour, un terrain ou une maison à acheter...")
 
 <section data-bs-version="5.1" class="features3 cid-sLVFDQGTOP" id="features03-i">
     <div class="container">
-
-        <div class="row justify-content-center">
-            <div class="сol-12 col-md-12 col-lg-4 md-pb">
-                <div class="card1 card">
-
-                    <div class="item-img">
-                        <span class="offre-badge">Vente</span>
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                            loading="lazy" class="lazyload" data-src="assets/images/mbr-816x544.jpg">
-                    </div>
-                    <div class="item-wrapper">
-                        <div class="item-content">
-                            <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-7">Villa</h6>
-                            <h5 class="item-title2 align-left mb-3 mbr-fonts-style display-5">Thiès</h5>
-                            <div class="mbr-flex mt-3">
-
-                                <div class="mbr-section-btn align-right"><a href="post-details.html"
-                                        class="btn item-btn btn-white display-7" target="_blank"><span
-                                            class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span>Afficher</a>
-                                </div>
-                                <p class="price align-right mb-0 mbr-fonts-style display-5">12000CFA</p>
-
-
-                            </div>
-                            <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">Mbour 3, près de
-                                clinique coumba</p>
-
-
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            @foreach ($offres as $offre)
+            <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
+                <x-offre-item :offre="$offre" />
             </div>
-
-            <div class="сol-12 col-md-12 col-lg-4 md-pb">
-                <div class="card2 card">
-
-                    <div class="item-img">
-                        <span class="offre-badge">Vente</span>
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                            loading="lazy" class="lazyload" data-src="assets/images/mbr-816x540.jpg">
-                    </div>
-                    <div class="item-wrapper">
-                        <div class="item-content">
-                            <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-7">
-                                <p>Appartement</p>
-                            </h6>
-                            <h5 class="item-title2 align-left mb-3 mbr-fonts-style display-5">
-                                <p>Dakar</p>
-                            </h5>
-                            <div class="mbr-flex mt-3">
-
-                                <div class="mbr-section-btn align-right"><a href="post-details.html"
-                                        class="btn item-btn btn-white display-7" target="_blank"><span
-                                            class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span>Afficher</a>
-                                </div>
-                                <p class="price align-right mb-0 mbr-fonts-style display-5">250000FCFA</p>
-                            </div>
-                            <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">Lorem ipsum
-                                dolor sit amet.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="сol-12 col-md-12 col-lg-4">
-                <div class="card3 card">
-                    <div class="item-img">
-                        <span class="offre-badge">Vente</span>
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                            loading="lazy" class="lazyload" data-src="assets/images/mbr-816x459.jpg">
-                    </div>
-                    <div class="item-wrapper">
-                        <div class="item-content">
-                            <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-7">Terrain</h6>
-                            <h5 class="item-title2 align-left mb-3 mbr-fonts-style display-5">Sangalkam</h5>
-                            <div class="mbr-flex mt-3">
-
-                                <div class="mbr-section-btn align-right"><a href="page10.html"
-                                        class="btn item-btn btn-white display-7" target="_blank"><span
-                                            class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span>Afficher</a>
-                                </div>
-                                <p class="price align-right mb-0 mbr-fonts-style display-5">750000FCFA</p>
-                            </div>
-                            <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">Lorem ipsum
-                                dolor sit amet.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\CategorieBien;
+use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $categorieBiens = CategorieBien::orderby('nom')->get();
+    $offres = Offre::where('visible',true)->inRandomOrder()->paginate(18);
+    return view('home',compact('categorieBiens','offres'));
 })->name('home');
 
 include_once "web/auth.php";
 
 include_once "web/admin.php";
+
+include_once "web/shared.php";

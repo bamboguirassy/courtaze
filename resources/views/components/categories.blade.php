@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             @foreach ($categorieList as $categorie)
-            <div class="card col-12 col-md-4 col-lg-3">
+            <div class="card col-4 col-sm-4 col-md-3 col-lg-2">
                 <div class="card-wrapper">
                     <div class="card-box align-center">
                         <div class="iconfont-wrapper">
