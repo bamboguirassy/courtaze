@@ -13,9 +13,9 @@ class categories extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $categories)
     {
-        $this->categorieList = CategorieBien::all();
+        $this->categorieList = $categories;
     }
 
     /**

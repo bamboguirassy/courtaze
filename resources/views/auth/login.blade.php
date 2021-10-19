@@ -136,7 +136,6 @@
 </section>
 
 <section data-bs-version="5.1" class="content3 cid-sM0uLjhRQz" id="article04-28">
-
     <div class="container">
         <div class="row">
             <div class="title col-md-12 col-lg-7 md-pb">
@@ -145,7 +144,6 @@
                 <h4 class="mbr-section-subtitle align-left mbr-fonts-style display-7"><strong>Ouvrez un compte
                         directement ici !</strong></h4>
             </div>
-
             <div class="title col-md-12 col-lg-5">
                 <div class="mbr-section-btn align-center"><a class="btn btn-lg btn-primary display-7"
                         href="{{ route('pre.register.page') }}">Ouvrir un compte</a></div>

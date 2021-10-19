@@ -48,87 +48,122 @@
 
 <x-separator />
 
-<section class="form cid-sM3e9pgYXW" id="formbuilder-4d">
+<section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
                 <!--Formbuilder Form-->
                 <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
                     data-form-title="rechercheBienForm"><input type="hidden" name="email" data-form-email="true"
-                        value="fFg2qoxs40wDr1FmVhLEJOe8CG+L/uPgYs2mT+SjJcUM+Vp7/gx8e2R53iDQO7TXb7d6Ii9o/zYJgu7J34TkYZ1vOI+tEP/dbKay4g6+xKN5PLCv7a5oNdTvE7e4XzlT.M/0NkR8L3J36P76m0PA4VwyN/2rl+A5X3CES6vHu7Hi6nnqfeXmumwRpilCsS4sli5U8jR7TGO0jjfetlmlzPyef0cIni9nF4rq3zTqbsIdBfCuOQvkzdFEf/ipPVY8k">
+                        value="jJKLTKPdhV+o5MSgmvfPdmzK0lgNac5sIdCVX/oDZz9XskIimUQuhzppdOYLWmREfpsH5axUifu82Kbx2XKucJbTfCTCILh5s49w5VbKTwYx7j/b8nEbnLPj3obcXtZq.guuDrcjcpgnaHzRSW0w8Fa1+QoMgLV6m9E84MywDgoRPWWq55lNtbsm21DwQlWpdE6GCNQjCdMrXGWvcftz6baOwQHSf0bFtcu/2gc72QQ2i2AzrQik8h2IXCFO5Mjfi">
                     <div class="form-row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...!
+                            some problem!</div>
                     </div>
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h4 class="mbr-fonts-style display-5">Retrouvez rapidement ce que vous recherchez...</h4>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville">
-                            <label for="ville-formbuilder-4d"
-                                class="form-control-label mbr-fonts-style display-7">Ville</label>
-                            <input type="text" name="ville" data-form-field="ville" class="form-control display-7"
-                                value="" id="ville-formbuilder-4d">
+                            <h4 class="mbr-fonts-style display-5">Retrouvez rapidement ce que vous recherchez...
+                            </h4>
                         </div>
                         <div data-for="type" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="type-formbuilder-4d"
-                                class="form-control-label mbr-fonts-style display-7">Type</label>
+                            <label for="type-formbuilder-8"
+                                class="form-control-label mbr-fonts-style display-7">Proposition</label>
                             <select name="type" data-form-field="type" class="form-control display-7"
-                                id="type-formbuilder-4d">
+                                id="type-formbuilder-8">
                                 <option value="Tout">Tout</option>
                                 <option value="Location">Location</option>
                                 <option value="Vente">Vente</option>
                                 <option value="Nuitée">Nuitée</option>
                             </select>
                         </div>
+                        <div data-for="ville" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="ville-formbuilder-8"
+                                class="form-control-label mbr-fonts-style display-7">Ville</label>
+                            <input type="text" name="ville" data-form-field="ville" class="form-control display-7"
+                                value="" id="ville-formbuilder-8">
+                        </div>
                         <div data-for="nombreChambre" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="nombreChambre-formbuilder-4d"
+                            <label for="nombreChambre-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Nombre chambres</label>
-                            <input type="number" name="nombreChambre" max="10" min="0" step="1"
-                                data-form-field="nombreChambre" class="form-control display-7" value=""
-                                id="nombreChambre-formbuilder-4d">
+                            <input type="number" name="nombreChambre" data-form-field="nombreChambre"
+                                class="form-control display-7" max="10" min="0" step="1" value=""
+                                id="nombreChambre-formbuilder-8">
                         </div>
                         <div data-for="nombreToiletteInterieure" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="nombreToiletteInterieure-formbuilder-4d"
-                                class="form-control-label mbr-fonts-style display-7">Nombre de chambres avec toilette
-                                intérieure</label>
-                            <input type="number" name="nombreToiletteInterieure"
-                                data-form-field="nombreToiletteInterieure" class="form-control display-7" max="100"
-                                min="0" step="1" value="" id="nombreToiletteInterieure-formbuilder-4d">
+                            <label for="nombreToiletteInterieure-formbuilder-8"
+                                class="form-control-label mbr-fonts-style display-7">Nombre de chambres avec
+                                toilette intérieure</label>
+                            <input type="number" name="nombreToiletteInterieure" max="100" min="0" step="1"
+                                data-form-field="nombreToiletteInterieure" class="form-control display-7" value=""
+                                id="nombreToiletteInterieure-formbuilder-8">
+                        </div>
+                        <div class="col-12 form-group">
+                            <div class="form-control-label">
+                                <label for="Avec garage" class="mbr-fonts-style display-7">Niveau</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label display-7">
+                                    <input type="radio" class="form-check-input" name="niveau" id="niveau"
+                                        value="Rez-de-chaussée" checked>
+                                    Rez-de-chaussée
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label display-7">
+                                    <input type="radio" class="form-check-input" name="niveau" id="niveau"
+                                        value="Etage">
+                                    Etage
+                                </label>
+                            </div>
+                        </div>
+                        <div data-for="priceRange" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="priceRange-formbuilder-8"
+                                class="form-control-label mbr-fonts-style display-7">Fourchette de prix</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input placeholder="prix minimum" type="number" name="minPrice"
+                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
+                                        min="0" id="priceRange-formbuilder-8">
+                                </div>
+                                <div class="col-6">
+                                    <input placeholder="prix maximum" type="number" name="maxPrice"
+                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
+                                        min="0" id="priceRange-formbuilder-8">
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <div class="form-control-label">
-                                <label for="Toilette intérieure-formbuilder-4d"
-                                    class="mbr-fonts-style display-7">Options</label>
+                                <label for="Avec garage" class="mbr-fonts-style display-7">Options</label>
                             </div>
                             <div data-for="Cuisine" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Cuisine" data-form-field="Cuisine"
-                                    class="form-check-input display-7" id="Cuisine-formbuilder-4d">
-                                <label for="Cuisine-formbuilder-4d" class="form-check-label display-7">Cuisine</label>
+                                    class="form-check-input display-7" id="Cuisine-formbuilder-8">
+                                <label for="Cuisine-formbuilder-8" class="form-check-label display-7">Cuisine</label>
                             </div>
                             <div data-for="Toilette publique" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Toilette publique"
                                     data-form-field="Toilette publique" class="form-check-input display-7"
-                                    id="Toilette publique-formbuilder-4d">
-                                <label for="Toilette publique-formbuilder-4d"
-                                    class="form-check-label display-7">Toilette publique</label>
+                                    id="Toilette publique-formbuilder-8">
+                                <label for="Toilette publique-formbuilder-8" class="form-check-label display-7">Toilette
+                                    publique</label>
                             </div>
                             <div data-for="Garage" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Garage" data-form-field="Garage"
-                                    class="form-check-input display-7" id="Garage-formbuilder-4d">
-                                <label for="Garage-formbuilder-4d" class="form-check-label display-7">Garage</label>
+                                    class="form-check-input display-7" id="Garage-formbuilder-8">
+                                <label for="Garage-formbuilder-8" class="form-check-label display-7">Garage</label>
                             </div>
                             <div data-for="Meublé" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Meublé" data-form-field="Meublé"
-                                    class="form-check-input display-7" id="Meublé-formbuilder-4d">
-                                <label for="Meublé-formbuilder-4d" class="form-check-label display-7">Meublé</label>
+                                    class="form-check-input display-7" id="Meublé-formbuilder-8">
+                                <label for="Meublé-formbuilder-8" class="form-check-label display-7">Meublé</label>
                             </div>
                             <div data-for="Toilette intérieure" class="form-check form-check-inline">
                                 <input type="checkbox" value="Yes" name="Toilette intérieure"
                                     data-form-field="Toilette intérieure" class="form-check-input display-7"
-                                    id="Toilette intérieure-formbuilder-4d">
-                                <label for="Toilette intérieure-formbuilder-4d"
+                                    id="Toilette intérieure-formbuilder-8">
+                                <label for="Toilette intérieure-formbuilder-8"
                                     class="form-check-label display-7">Toilette intérieure</label>
                             </div>
                         </div>
@@ -136,7 +171,9 @@
                             <hr>
                         </div>
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary display-7">Filtrer</button>
+                            <button type="submit" class="btn btn-primary display-7">
+                                <span class="fa fa-filter mbr-iconfont mbr-iconfont-btn"></span>
+                                Filtrer</button>
                         </div>
                     </div>
                 </form>
