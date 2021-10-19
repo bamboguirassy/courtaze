@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $categorieBiens = CategorieBien::orderby('nom')->get();
-    $offres = Offre::where('visible',true)->inRandomOrder()->paginate(18);
+    $offres = Offre::where('visible',true)->inRandomOrder()->paginate(72);
     return view('home',compact('categorieBiens','offres'));
 })->name('home');
 

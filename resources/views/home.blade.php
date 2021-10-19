@@ -133,6 +133,22 @@ séjour, un terrain ou une maison à acheter...")
                                 class="form-control display-7" max="10" min="0" step="1" value=""
                                 id="nombreChambre-formbuilder-8">
                         </div>
+                        <div data-for="priceRange" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="priceRange-formbuilder-8"
+                                class="form-control-label mbr-fonts-style display-7">Fourchette de prix</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input placeholder="prix minimum" type="number" name="minPrice" data-form-field="priceRange"
+                                    class="form-control display-7" max="100000000" min="0" 
+                                    id="priceRange-formbuilder-8">
+                                </div>
+                                <div class="col-6">
+                                    <input placeholder="prix maximum" type="number" name="maxPrice" data-form-field="priceRange"
+                                        class="form-control display-7" max="100000000" min="0" 
+                                        id="priceRange-formbuilder-8">
+                                </div>
+                            </div>
+                        </div>
                         <div data-for="nombreToiletteInterieure" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="nombreToiletteInterieure-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Nombre de chambres avec
