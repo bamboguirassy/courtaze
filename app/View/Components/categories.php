@@ -7,15 +7,15 @@ use Illuminate\View\Component;
 
 class categories extends Component
 {
-    public $categorieList;
+    public $categoris;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(array $categories)
+    public function __construct($categoris)
     {
-        $this->categorieList = $categories;
+        $this->categoris = $categoris;
     }
 
     /**

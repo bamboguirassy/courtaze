@@ -48,7 +48,7 @@ séjour, un terrain ou une maison à acheter...")
                             @method('post')
                             <div class="mb-3">
                                 <select class="form-control" name="categorie_bien_id" id="categorie_bien_id">
-                                    @foreach ($categorieBiens as $categorieBien)
+                                    @foreach ($categories as $categorieBien)
                                     <option value="{{$categorieBien->id}}}">{{$categorieBien->nom}}</option>
                                     @endforeach
                                 </select>
@@ -75,19 +75,21 @@ séjour, un terrain ou une maison à acheter...")
 
 <x-separator />
 
-<x-categories :categorie-list="$categorieBiens" />
+<x-categories :categoris="$categories" />
 
 <x-separator />
 
 <section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+            <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
+                <form action="{{ route('offre.filter') }}" method="POST" class="mbr-form form-with-styler"
                     data-form-title="rechercheBienForm"><input type="hidden" name="email" data-form-email="true"
                         value="jJKLTKPdhV+o5MSgmvfPdmzK0lgNac5sIdCVX/oDZz9XskIimUQuhzppdOYLWmREfpsH5axUifu82Kbx2XKucJbTfCTCILh5s49w5VbKTwYx7j/b8nEbnLPj3obcXtZq.guuDrcjcpgnaHzRSW0w8Fa1+QoMgLV6m9E84MywDgoRPWWq55lNtbsm21DwQlWpdE6GCNQjCdMrXGWvcftz6baOwQHSf0bFtcu/2gc72QQ2i2AzrQik8h2IXCFO5Mjfi">
-                    <div class="form-row">
+                    @csrf
+                    @method('post')
+                        <div class="form-row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...!
                             some problem!</div>
@@ -100,21 +102,20 @@ séjour, un terrain ou une maison à acheter...")
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie_id">
                             <label for="categorie_id-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Catégorie</label>
-                            <select name="categorie_id" data-form-field="categorie_id" class="form-control display-7"
+                            <select name="categorie_bien_id" data-form-field="categorie_id" class="form-control display-7"
                                 id="categorie_id-formbuilder-8">
-                                <option value="Toute">Toute</option>
-                                <option value="Appartement">Appartement</option>
-                                <option value="Villa">Villa</option>
-                                <option value="Terrain">Terrain</option>
-                                <option value="Immeuble">Immeuble</option>
+                                <option value="">Toutes les catégories</option>
+                                @foreach ($categories as $categorie)
+                                <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+                                @endforeach
                             </select>
                         </div>
-                        <div data-for="type" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="type-formbuilder-8"
+                        <div data-for="proposition" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="proposition-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Proposition</label>
-                            <select name="type" data-form-field="type" class="form-control display-7"
-                                id="type-formbuilder-8">
-                                <option value="Tout">Tout</option>
+                            <select name="proposition" data-form-field="proposition" class="form-control display-7"
+                                id="proposition-formbuilder-8">
+                                <option value="">Tout</option>
                                 <option value="Location">Location</option>
                                 <option value="Vente">Vente</option>
                                 <option value="Nuitée">Nuitée</option>
@@ -126,21 +127,13 @@ séjour, un terrain ou une maison à acheter...")
                             <input type="text" name="ville" data-form-field="ville" class="form-control display-7"
                                 value="" id="ville-formbuilder-8">
                         </div>
-                        <div data-for="priceRange" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="priceRange-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Fourchette de prix</label>
-                            <div class="row">
-                                <div class="col-6">
-                                    <input placeholder="prix minimum" type="number" name="minPrice"
-                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
-                                        min="0" id="priceRange-formbuilder-8">
-                                </div>
-                                <div class="col-6">
-                                    <input placeholder="prix maximum" type="number" name="maxPrice"
-                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
-                                        min="0" id="priceRange-formbuilder-8">
-                                </div>
-                            </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix" style="">
+                            <label for="prix-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Budget
+                                    (CFA)</strong></label>
+                            <input type="number" name="prix" min="0" step="1" data-form-field="prix"
+                                class="form-control display-7" value=""
+                                id="prix-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>

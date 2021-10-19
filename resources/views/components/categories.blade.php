@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach ($categorieList as $categorie)
+            @foreach ($categoris as $categorie)
             <div class="card col-4 col-sm-4 col-md-3 col-lg-2">
                 <a href="{{ route('categorie-bien.show',['categorie_bien'=>$categorie]) }}" class="text-primary">
                     <div class="card-wrapper">

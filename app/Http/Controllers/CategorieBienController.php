@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieBien;
+use App\Models\Offre;
 use Illuminate\Http\Request;
 
 class CategorieBienController extends Controller
@@ -55,7 +56,8 @@ class CategorieBienController extends Controller
      */
     public function show(CategorieBien $categorieBien)
     {
-        return view('shared.categorie-bien.show',compact('categorieBien'));
+        $offres = Offre::where('visible',true)->where('categorie_bien_id',$categorieBien->id)->paginate(36);
+        return view('shared.categorie-bien.show',compact('categorieBien','offres'));
     }
 
     /**

@@ -53,128 +53,193 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
                 <!--Formbuilder Form-->
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
-                    data-form-title="rechercheBienForm"><input type="hidden" name="email" data-form-email="true"
-                        value="jJKLTKPdhV+o5MSgmvfPdmzK0lgNac5sIdCVX/oDZz9XskIimUQuhzppdOYLWmREfpsH5axUifu82Kbx2XKucJbTfCTCILh5s49w5VbKTwYx7j/b8nEbnLPj3obcXtZq.guuDrcjcpgnaHzRSW0w8Fa1+QoMgLV6m9E84MywDgoRPWWq55lNtbsm21DwQlWpdE6GCNQjCdMrXGWvcftz6baOwQHSf0bFtcu/2gc72QQ2i2AzrQik8h2IXCFO5Mjfi">
+                <form enctype="multipart/form-data" action="{{ route('categorie.offre.filter',['categorie'=>$categorieBien]) }}" method="POST"
+                    data-rcpha_sitekey="" data-rcpha_secretkey="" class="mbr-form form-with-styler">
+                    @csrf
+                    @method('post')
+                    <input hidden type="number" name="categorie_bien_id" value="{{$categorieBien->id}}">
                     <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...!
-                            some problem!</div>
+
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
+                            problem!</div>
                     </div>
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h4 class="mbr-fonts-style display-5">Retrouvez rapidement ce que vous recherchez...
-                            </h4>
-                        </div>
-                        <div data-for="type" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="type-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Proposition</label>
-                            <select name="type" data-form-field="type" class="form-control display-7"
-                                id="type-formbuilder-8">
-                                <option value="Tout">Tout</option>
-                                <option value="Location">Location</option>
-                                <option value="Vente">Vente</option>
-                                <option value="Nuitée">Nuitée</option>
-                            </select>
-                        </div>
-                        <div data-for="ville" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="ville-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Ville</label>
-                            <input type="text" name="ville" data-form-field="ville" class="form-control display-7"
-                                value="" id="ville-formbuilder-8">
-                        </div>
-                        <div data-for="nombreChambre" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="nombreChambre-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Nombre chambres</label>
-                            <input type="number" name="nombreChambre" data-form-field="nombreChambre"
-                                class="form-control display-7" max="10" min="0" step="1" value=""
-                                id="nombreChambre-formbuilder-8">
-                        </div>
-                        <div data-for="nombreToiletteInterieure" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="nombreToiletteInterieure-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Nombre de chambres avec
-                                toilette intérieure</label>
-                            <input type="number" name="nombreToiletteInterieure" max="100" min="0" step="1"
-                                data-form-field="nombreToiletteInterieure" class="form-control display-7" value=""
-                                id="nombreToiletteInterieure-formbuilder-8">
-                        </div>
-                        <div class="col-12 form-group">
-                            <div class="form-control-label">
-                                <label for="Avec garage" class="mbr-fonts-style display-7">Niveau</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label display-7">
-                                    <input type="radio" class="form-check-input" name="niveau" id="niveau"
-                                        value="Rez-de-chaussée" checked>
-                                    Rez-de-chaussée
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label display-7">
-                                    <input type="radio" class="form-check-input" name="niveau" id="niveau"
-                                        value="Etage">
-                                    Etage
-                                </label>
-                            </div>
-                        </div>
-                        <div data-for="priceRange" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="priceRange-formbuilder-8"
-                                class="form-control-label mbr-fonts-style display-7">Fourchette de prix</label>
-                            <div class="row">
-                                <div class="col-6">
-                                    <input placeholder="prix minimum" type="number" name="minPrice"
-                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
-                                        min="0" id="priceRange-formbuilder-8">
-                                </div>
-                                <div class="col-6">
-                                    <input placeholder="prix maximum" type="number" name="maxPrice"
-                                        data-form-field="priceRange" class="form-control display-7" max="100000000"
-                                        min="0" id="priceRange-formbuilder-8">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <div class="form-control-label">
-                                <label for="Avec garage" class="mbr-fonts-style display-7">Options</label>
-                            </div>
-                            <div data-for="Cuisine" class="form-check form-check-inline">
-                                <input type="checkbox" value="Yes" name="Cuisine" data-form-field="Cuisine"
-                                    class="form-check-input display-7" id="Cuisine-formbuilder-8">
-                                <label for="Cuisine-formbuilder-8" class="form-check-label display-7">Cuisine</label>
-                            </div>
-                            <div data-for="Toilette publique" class="form-check form-check-inline">
-                                <input type="checkbox" value="Yes" name="Toilette publique"
-                                    data-form-field="Toilette publique" class="form-check-input display-7"
-                                    id="Toilette publique-formbuilder-8">
-                                <label for="Toilette publique-formbuilder-8" class="form-check-label display-7">Toilette
-                                    publique</label>
-                            </div>
-                            <div data-for="Garage" class="form-check form-check-inline">
-                                <input type="checkbox" value="Yes" name="Garage" data-form-field="Garage"
-                                    class="form-check-input display-7" id="Garage-formbuilder-8">
-                                <label for="Garage-formbuilder-8" class="form-check-label display-7">Garage</label>
-                            </div>
-                            <div data-for="Meublé" class="form-check form-check-inline">
-                                <input type="checkbox" value="Yes" name="Meublé" data-form-field="Meublé"
-                                    class="form-check-input display-7" id="Meublé-formbuilder-8">
-                                <label for="Meublé-formbuilder-8" class="form-check-label display-7">Meublé</label>
-                            </div>
-                            <div data-for="Toilette intérieure" class="form-check form-check-inline">
-                                <input type="checkbox" value="Yes" name="Toilette intérieure"
-                                    data-form-field="Toilette intérieure" class="form-check-input display-7"
-                                    id="Toilette intérieure-formbuilder-8">
-                                <label for="Toilette intérieure-formbuilder-8"
-                                    class="form-check-label display-7">Toilette intérieure</label>
-                            </div>
+                            <h4 class="mbr-fonts-style display-5"><strong>Publication d'une offre</strong></h4>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
                         </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary display-7">
-                                <span class="fa fa-filter mbr-iconfont mbr-iconfont-btn"></span>
-                                Filtrer</button>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
+                            <label for="proposition" class="form-control-label mbr-fonts-style display-7">
+                                <strong>Proposition commerciale</strong>
+                            </label>
+                            <select class="form-control" name="proposition" id="proposition">
+                                @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART" ||
+                                $categorieBien->code=="VILLA" || $categorieBien->code=="IMMO" || $categorieBien->code=="CHAMBRE")
+                                <option>Location</option>
+                                @endif
+                                @if ($categorieBien->code=="TERRAIN" || $categorieBien->code=="STUDIO" ||
+                                $categorieBien->code=="APPART" || $categorieBien->code=="VILLA" ||
+                                $categorieBien->code=="IMMO")
+                                <option>Vente</option>
+                                @endif
+                                @if ($categorieBien->code=="HOTE")
+                                <option>Nuitée</option>
+                                @endif
+                            </select>
                         </div>
+                        @if ($categorieBien->code=="IMMO" || $categorieBien->code=="VILLA")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreEtage">
+                            <label for="nombreEtage-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre
+                                    d'étages</strong></label>
+                            <input type="number" name="nombreEtage" min="0" step="1"
+                                data-form-field="nombreEtage" class="form-control display-7" required="required"
+                                value="" id="nombreEtage-formbuilder-c">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
+                            <label for="nombreAppartement-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre
+                                    d'appartements</strong></label>
+                            <input type="number" name="nombreAppartement" min="0" step="1"
+                                data-form-field="nombreAppartement" class="form-control display-7" required="required"
+                                value="" id="nombreAppartement-formbuilder-c">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreStudio" style="">
+                            <label for="nombreStudio-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
+                                    studios</strong></label>
+                            <input type="number" name="nombreStudio" min="0" step="1"
+                                data-form-field="nombreStudio" class="form-control display-7" required="required"
+                                value="" id="nombreStudio-formbuilder-c">
+                        </div>
+                        @endif
+                        @if ($categorieBien->code=="TERRAIN")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="superficie" style="">
+                            <label for="superficie-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Superficie
+                                    (m²)</strong></label>
+                            <input type="number" name="superficie" min="0" step="1" data-form-field="superficie"
+                                class="form-control display-7" required="required" value=""
+                                id="superficie-formbuilder-c">
+                        </div>
+                        @endif
+                        @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="" data-for="nombreChambre">
+                            <label for="nombreChambre-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
+                                    chambres</strong></label>
+                            <input type="number" name="nombreChambre" min="1" step="1"
+                                data-form-field="nombreChambre" required="required" class="form-control display-7"
+                                value="" id="nombreChambre-formbuilder-c">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreChambreAvecToilette">
+                            <label for="nombreChambreAvecToilette-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre chambre avec
+                                    toilette intérieure</strong></label>
+                            <input type="number" name="nombreChambreAvecToilette" min="1" step="1"
+                                data-form-field="nombreChambreAvecToilette" required="required"
+                                class="form-control display-7" value="" id="nombreChambreAvecToilette-formbuilder-c">
+                        </div>
+                        @endif
+                        @if ($categorieBien->code!="HOTE" && $categorieBien->code!="TERRAIN")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="">
+                            <div class="form-control-label">
+                                <label for="checkbox" class="mbr-fonts-style display-7"><strong>Options</strong></label>
+                            </div>
+                            @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART" ||
+                            $categorieBien->code=="IMMO" || $categorieBien->code=="CHAMBRE")
+                            <div data-for="Meublé" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="isMeuble" data-form-field="Meublé"
+                                    class="form-check-input display-7" id="Meublé-formbuilder-c">
+                                <label for="Meublé-formbuilder-c" class="form-check-label display-7">Meublé</label>
+                            </div>
+                            @if ($categorieBien->code=="APPART" || $categorieBien->code=="VILLA")
+                            <div data-for="Garage" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="hasGarage" data-form-field="Garage"
+                                    class="form-check-input display-7" id="Garage-formbuilder-c">
+                                <label for="Garage-formbuilder-c" class="form-check-label display-7">Garage</label>
+                            </div>
+                            @endif
+                            @if ($categorieBien->code=="APPART" || $categorieBien->code=="STUDIO" ||
+                            $categorieBien->code=="VILLA")
+                            <div data-for="Cuisine" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="hasCuisine" data-form-field="Cuisine"
+                                    class="form-check-input display-7" id="Cuisine-formbuilder-c">
+                                <label for="Cuisine-formbuilder-c" class="form-check-label display-7">Cuisine</label>
+                            </div>
+                            <div data-for="hasToilettePublique" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="hasToilettePublique"
+                                    data-form-field="hasToilettePublique" class="form-check-input display-7"
+                                    id="hasToilettePublique-formbuilder-c">
+                                <label for="hasToilettePublique-formbuilder-c"
+                                    class="form-check-label display-7">Toilette
+                                    visiteur</label>
+                            </div>
+                            <div data-for="Avec salon" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="hasSalon" data-form-field="Avec salon"
+                                    class="form-check-input display-7" id="Avec salon-formbuilder-c">
+                                <label for="Avec salon-formbuilder-c" class="form-check-label display-7">Salon</label>
+                            </div>
+                            @endif
+                            @endif
+                            @if ($categorieBien->code=="CHAMBRE")
+                            <div data-for="Avec toilette intérieure" class="form-check form-check-inline">
+                                <input type="checkbox" value="1" name="hasToiletteInterieure"
+                                    data-form-field="Avec toilette intérieure" class="form-check-input display-7"
+                                    id="Avec toilette intérieure-formbuilder-c">
+                                <label for="Avec toilette intérieure-formbuilder-c"
+                                    class="form-check-label display-7">Avec toilette intérieure</label>
+                            </div>
+                            @endif
+                        </div>
+                        @endif
+                        @if ($categorieBien->code=="APPART" || $categorieBien->code=="STUDIO" || $categorieBien->code=="CHAMBRE")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="niveau" style="">
+                            <div class="form-control-label">
+                                <label for="niveau-formbuilder-c"
+                                    class="mbr-fonts-style display-7"><strong>Niveau</strong></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="niveau" data-form-field="niveau"
+                                    class="form-check-input display-7" value="Rez-de-chaussée" checked=""
+                                    id="niveau-formbuilder-c">
+                                <label class="form-check-label display-7">Rez-de-chaussée</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="niveau" data-form-field="niveau"
+                                    class="form-check-input display-7" value="Etage" id="niveau-formbuilder-c">
+                                <label class="form-check-label display-7">Etage</label>
+                            </div>
+                        </div>
+                        @endif
+                        @if ($categorieBien->code=="APPART" || $categorieBien->code=="VILLA")
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreCuisine">
+                            <label for="nombreCuisine-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
+                                    cuisines</strong></label>
+                            <input type="number" name="nombreCuisine" max="100" min="1" step="1"
+                                data-form-field="nombreCuisine" required="required" class="form-control display-7"
+                                value="" id="nombreCuisine-formbuilder-c">
+                        </div>
+                        @endif
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville" style="">
+                            <label for="ville-formbuilder-c"
+                                class="form-control-label mbr-fonts-style display-7"><strong>Ville</strong></label>
+                            <input type="text" name="ville" placeholder="Ville" data-form-field="ville"
+                                required="required" class="form-control display-7" value="" id="ville-formbuilder-c">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix">
+                            <label for="prix-formbuilder-c" class="form-control-label mbr-fonts-style display-7">
+                                <strong>Quel est votre budget ?</strong>
+                            </label>
+                            <input type="number" name="prix" placeholder="Prix" max="" min="5000" step="5"
+                                data-form-field="prix" required="required" class="form-control display-7" value=""
+                                id="prix-formbuilder-c">
+                        </div>
+                        <div class="col-auto"><button type="submit" class="btn btn-primary display-7">Publier
+                                maintenant</button></div>
                     </div>
                 </form>
                 <!--Formbuilder Form-->
@@ -188,12 +253,12 @@
 <section data-bs-version="5.1" class="features3 cid-sMbsvTwJ1S" id="features03-4i">
     <div class="container">
         <div class="row">
-            @foreach ($categorieBien->offreActives as $offre)
+            @foreach ($offres as $offre)
             <div class="сol-12 col-md-12 col-lg-4 md-pb">
                 <x-offre-item :offre="$offre" />
             </div>
             @endforeach
-            @empty($categorieBien->offreActives)
+            @empty($offres)
             <div class="col-12">
                 <div class="alert alert-info" role="alert">
                     <strong>Aucune offre n'est encore disponible dans la catégorie {{$categorieBien->nom}}</strong>

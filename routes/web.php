@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $categorieBiens = CategorieBien::orderby('nom')->get();
+    $categories = CategorieBien::orderby('nom')->get();
     $offres = Offre::where('visible',true)->inRandomOrder()->paginate(72);
-    return view('home',compact('categorieBiens','offres'));
+    return view('home',compact('categories','offres'));
 })->name('home');
 
 include_once "web/auth.php";
