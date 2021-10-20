@@ -2,16 +2,12 @@
 <html>
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon"
         href="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png" type="image/x-icon">
     <meta name="description" content="@yield('description')">
-
-
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Material-Design-Icons/css/material.css') }}">
@@ -44,9 +40,6 @@
             white-space: nowrap;
         }
     </style>
-
-
-
     <meta name="theme-color" content="#266e73">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <script src="sw-connect.js"></script>
@@ -77,11 +70,8 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @toastr_css
 </head>
-
 <body>
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
-
-
         <nav class="navbar navbar-dropdown navbar-expand-lg">
             <div class="container">
                 <div class="navbar-brand">
@@ -123,7 +113,7 @@
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @endisset
-                        @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
+                        @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier' || auth()->user()->type=='Admin')
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="{{ route('mes.publications') }}"><span
                                     class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
@@ -198,19 +188,13 @@
                             </div>
                         </li>
                     </ul>
-
-
                 </div>
                 @endauth
             </div>
         </nav>
     </section>
-
     @yield('body')
-
     <section data-bs-version="5.1" class="footer1 cid-sM0JCUalaO" once="footers" id="footer01-2c">
-
-
         <div class="container">
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
@@ -221,8 +205,6 @@
             </div>
         </div>
     </section>
-
-
     <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/smoothscroll/smooth-scroll.js') }}"></script>
     <script src="{{ asset('assets/ytplayer/index.js') }}"></script>
@@ -230,9 +212,6 @@
     <script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
     <script src="{{ asset('assets/theme/js/script.js') }}"></script>
     <script src="{{ asset('assets/formoid.min.js') }}"></script>
-
-
-
     {{-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> --}}
     <script>

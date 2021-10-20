@@ -47,7 +47,7 @@ Route::post('post-init',function(Request $request) {
 })->middleware('auth')->name('offre.init.new');
 
 Route::resource('offre', OffreController::class,[
-    'only'=>['store','show']
+    'only'=>['store','show','edit','update']
 ])->middleware('auth');
 
 Route::get('mes-offres',function() {
