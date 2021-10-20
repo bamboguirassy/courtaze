@@ -40,7 +40,8 @@ class CategorieBienController extends Controller
         $request->validate([
             'nom'=>'required|unique:categorie_biens,nom',
             'description'=>'required',
-            'icon'=>'required'
+            'icon'=>'required',
+            'code'=>"required"
         ]);
         $categorieBien = new CategorieBien($request->all());
         $categorieBien->save();
@@ -68,8 +69,7 @@ class CategorieBienController extends Controller
      */
     public function edit(CategorieBien $categorieBien)
     {
-        $categorieBiens = CategorieBien::all();
-        return view('admin.categorie-bien.edit',compact('categorieBiens'));
+        return view('admin.categorie-bien.edit',compact('categorieBien'));
     }
 
     /**
@@ -81,6 +81,12 @@ class CategorieBienController extends Controller
      */
     public function update(Request $request, CategorieBien $categorieBien)
     {
+        $request->validate([
+            'nom'=>'required',
+            'description'=>'required',
+            'icon'=>'required',
+            'code'=>"required"
+        ]);
         $categorieBien->update($request->all());
         toastr()->info("La todo <span class='badge badge-dark'>#$categorieBien->id</span> a bien été modifiée.");
         return back();

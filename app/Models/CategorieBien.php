@@ -13,7 +13,8 @@ class CategorieBien extends Model
     protected $fillable = [
         'icon',
         'nom',
-        'description'
+        'description',
+        'code'
     ];
 
     /**

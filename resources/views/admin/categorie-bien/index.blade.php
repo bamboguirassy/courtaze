@@ -39,13 +39,14 @@
                                         {{-- <span class="sign mbr-iconfont mobi-mbri-trash inactive"></span> --}}
                                     </a>
                                 </div>
-                                <div id="collapse{{$loop->index}}_35" class="panel-collapse noScroll collapse" role="tabpanel"
-                                    aria-labelledby="heading{{$loop->index}}" data-parent="#bootstrap-accordion_35"
-                                    data-bs-parent="#accordion">
+                                <div id="collapse{{$loop->index}}_35" class="panel-collapse noScroll collapse"
+                                    role="tabpanel" aria-labelledby="heading{{$loop->index}}"
+                                    data-parent="#bootstrap-accordion_35" data-bs-parent="#accordion">
                                     <div class="panel-body pt-4">
                                         <p
                                             class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                        <span class="mbr-iconfont {{$categorieBien->icon}}"></span> - {{$categorieBien->description}}    
+                                            <span class="mbr-iconfont {{$categorieBien->icon}}"></span> -
+                                            {{$categorieBien->description}}
                                         </p>
                                     </div>
                                 </div>
@@ -84,11 +85,15 @@
                     @method('post')
                     <input type="hidden" name="email" data-form-email="true"
                         value="Yf1ve3uKICVCbNBCHWlM+PMCdRLG4xlGkEa8lzvNWvODshRbTMhJGBJBCg0PVZLEKHpgSUoWuzeTb7H8Cd12zdB2qKSGK7jDEDqgjPv8vVtxL66DESZw1MA5MQ9exWjJ.SPjzyTHHQ3Znc+s525B98njh0qt2ICDhJlfWxCXNqqoulszwuAAe+xJZt7SIeBgzHZI15kpAR8a9NHnDNLYeGy8PUxpoidFBlT81lo9xRoTXm8/uhpK20aB5B3mYuHqS">
+                    @if (count($errors->all())>0)
                     <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
+                        <div data-form-alert-danger="" class="alert alert-danger col-12">
+                            @foreach ($errors->all() as $error)
+                            - {{ $error }} <br>
+                            @endforeach
+                        </div>
                     </div>
+                    @endif
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire création - Catégorie</h4>
@@ -100,13 +105,19 @@
                             <label for="nom-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Nom</label>
                             <input type="text" name="nom" data-form-field="nom" class="form-control display-7"
-                                required="required" value="" id="nom-formbuilder-18">
+                                required="required" value="{{ old('nom') }}" id="nom-formbuilder-18">
+                        </div>
+                        <div data-for="code" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="code-formbuilder-18"
+                                class="form-control-label mbr-fonts-style display-7">Code</label>
+                            <input type="text" name="code" data-form-field="code" class="form-control display-7"
+                                required="required" value="{{ old('') }}" id="code-formbuilder-18">
                         </div>
                         <div data-for="description" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="description-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Description</label>
                             <textarea name="description" data-form-field="description" class="form-control display-7"
-                                id="description-formbuilder-18"></textarea>
+                                id="description-formbuilder-18">{{ old('description') }}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -115,7 +126,7 @@
                             <label for="icon-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Icon</label>
                             <input type="text" name="icon" data-form-field="icon" required="required"
-                                class="form-control display-7" value="" id="icon-formbuilder-18">
+                                class="form-control display-7" value="{{ old('icon') }}" id="icon-formbuilder-18">
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary display-7">Enregistrer</button>

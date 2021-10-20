@@ -48,11 +48,15 @@
                     @method('post')
                     <input type="hidden" name="email" data-form-email="true"
                         value="Yf1ve3uKICVCbNBCHWlM+PMCdRLG4xlGkEa8lzvNWvODshRbTMhJGBJBCg0PVZLEKHpgSUoWuzeTb7H8Cd12zdB2qKSGK7jDEDqgjPv8vVtxL66DESZw1MA5MQ9exWjJ.SPjzyTHHQ3Znc+s525B98njh0qt2ICDhJlfWxCXNqqoulszwuAAe+xJZt7SIeBgzHZI15kpAR8a9NHnDNLYeGy8PUxpoidFBlT81lo9xRoTXm8/uhpK20aB5B3mYuHqS">
+                    @if (count($errors->all())>0)
                     <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
+                        <div data-form-alert-danger="" class="alert alert-danger col-12">
+                            @foreach ($errors->all() as $error)
+                            - {{ $error }} <br>
+                            @endforeach
+                        </div>
                     </div>
+                    @endif
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire de Modification - Catégorie</h4>
@@ -64,7 +68,8 @@
                             <label for="nom-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Nom</label>
                             <input type="text" name="nom" data-form-field="nom" class="form-control display-7"
-                                required="required" value="" id="nom-formbuilder-18">
+                                required="required" value="{{ old('nom') ?? $categorieBien->nom }}"
+                                id="nom-formbuilder-18">
                         </div>
                         <div data-for="code" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="code-formbuilder-18"
@@ -88,7 +93,7 @@
                                 class="form-control display-7" value="" id="icon-formbuilder-18">
                         </div>
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary display-7">Enregistrer</button>
+                            <button type="submit" class="btn btn-warning display-7">Mettre à jour</button>
                         </div>
                     </div>
                 </form>
