@@ -95,7 +95,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'étages</strong></label>
                             <input type="number" name="nombreEtage" min="0" step="1"
-                                data-form-field="nombreEtage" class="form-control display-7" required="required"
+                                data-form-field="nombreEtage" class="form-control display-7"
                                 value="" id="nombreEtage-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
@@ -103,7 +103,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'appartements</strong></label>
                             <input type="number" name="nombreAppartement" min="0" step="1"
-                                data-form-field="nombreAppartement" class="form-control display-7" required="required"
+                                data-form-field="nombreAppartement" class="form-control display-7"
                                 value="" id="nombreAppartement-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreStudio" style="">
@@ -111,7 +111,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     studios</strong></label>
                             <input type="number" name="nombreStudio" min="0" step="1"
-                                data-form-field="nombreStudio" class="form-control display-7" required="required"
+                                data-form-field="nombreStudio" class="form-control display-7"
                                 value="" id="nombreStudio-formbuilder-c">
                         </div>
                         @endif
@@ -121,7 +121,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Superficie
                                     (m²)</strong></label>
                             <input type="number" name="superficie" min="0" step="1" data-form-field="superficie"
-                                class="form-control display-7" required="required" value=""
+                                class="form-control display-7" value=""
                                 id="superficie-formbuilder-c">
                         </div>
                         @endif
@@ -131,7 +131,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     chambres</strong></label>
                             <input type="number" name="nombreChambre" min="1" step="1"
-                                data-form-field="nombreChambre" required="required" class="form-control display-7"
+                                data-form-field="nombreChambre" class="form-control display-7"
                                 value="" id="nombreChambre-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreChambreAvecToilette">
@@ -139,7 +139,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre chambre avec
                                     toilette intérieure</strong></label>
                             <input type="number" name="nombreChambreAvecToilette" min="1" step="1"
-                                data-form-field="nombreChambreAvecToilette" required="required"
+                                data-form-field="nombreChambreAvecToilette"
                                 class="form-control display-7" value="" id="nombreChambreAvecToilette-formbuilder-c">
                         </div>
                         @endif
@@ -203,6 +203,12 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input type="radio" name="niveau" data-form-field="niveau"
+                                    class="form-check-input display-7" value="" checked=""
+                                    id="niveau-formbuilder-c">
+                                <label class="form-check-label display-7">Pas précisé</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="niveau" data-form-field="niveau"
                                     class="form-check-input display-7" value="Rez-de-chaussée" checked=""
                                     id="niveau-formbuilder-c">
                                 <label class="form-check-label display-7">Rez-de-chaussée</label>
@@ -220,7 +226,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     cuisines</strong></label>
                             <input type="number" name="nombreCuisine" max="100" min="1" step="1"
-                                data-form-field="nombreCuisine" required="required" class="form-control display-7"
+                                data-form-field="nombreCuisine" class="form-control display-7"
                                 value="" id="nombreCuisine-formbuilder-c">
                         </div>
                         @endif
@@ -228,18 +234,17 @@
                             <label for="ville-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Ville</strong></label>
                             <input type="text" name="ville" placeholder="Ville" data-form-field="ville"
-                                required="required" class="form-control display-7" value="" id="ville-formbuilder-c">
+                                class="form-control display-7" value="" id="ville-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix">
                             <label for="prix-formbuilder-c" class="form-control-label mbr-fonts-style display-7">
                                 <strong>Quel est votre budget ?</strong>
                             </label>
                             <input type="number" name="prix" placeholder="Prix" max="" min="5000" step="5"
-                                data-form-field="prix" required="required" class="form-control display-7" value=""
+                                data-form-field="prix" class="form-control display-7" value=""
                                 id="prix-formbuilder-c">
                         </div>
-                        <div class="col-auto"><button type="submit" class="btn btn-primary display-7">Publier
-                                maintenant</button></div>
+                        <div class="col-auto"><button type="submit" class="btn btn-primary display-7">Filtrer</button></div>
                     </div>
                 </form>
                 <!--Formbuilder Form-->
