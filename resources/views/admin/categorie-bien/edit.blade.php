@@ -48,15 +48,7 @@
                     @method('post')
                     <input type="hidden" name="email" data-form-email="true"
                         value="Yf1ve3uKICVCbNBCHWlM+PMCdRLG4xlGkEa8lzvNWvODshRbTMhJGBJBCg0PVZLEKHpgSUoWuzeTb7H8Cd12zdB2qKSGK7jDEDqgjPv8vVtxL66DESZw1MA5MQ9exWjJ.SPjzyTHHQ3Znc+s525B98njh0qt2ICDhJlfWxCXNqqoulszwuAAe+xJZt7SIeBgzHZI15kpAR8a9NHnDNLYeGy8PUxpoidFBlT81lo9xRoTXm8/uhpK20aB5B3mYuHqS">
-                    @if (count($errors->all())>0)
-                    <div class="form-row">
-                        <div data-form-alert-danger="" class="alert alert-danger col-12">
-                            @foreach ($errors->all() as $error)
-                            - {{ $error }} <br>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
+                    <x-display-validation-errors />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire de Modification - Catégorie</h4>

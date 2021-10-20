@@ -42,7 +42,10 @@ class OffreController extends Controller
 
         $request->validate([
             'categorie_bien_id'=>'required|exists:categorie_biens,id',
-            'photos'=>'required'
+            'photos'=>'required',
+            'ville'=>'required',
+            'adresse'=>'required',
+            'prix'=>'required'
         ]);
         $offre = new Offre($request->all());
         DB::beginTransaction();

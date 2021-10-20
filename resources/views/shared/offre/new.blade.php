@@ -61,11 +61,7 @@
                     @csrf
                     @method('post')
                     <input hidden type="number" name="categorie_bien_id" value="{{$categorieBien->id}}">
-                    <div class="form-row">
-
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5"><strong>Publication d'une offre</strong></h4>
@@ -80,15 +76,15 @@
                             <select class="form-control" name="proposition" id="proposition">
                                 @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART" ||
                                 $categorieBien->code=="VILLA" || $categorieBien->code=="IMMO" || $categorieBien->code=="CHAMBRE")
-                                <option>Location</option>
+                                <option @if(old('proposition')=='Location') selected @endif>Location</option>
                                 @endif
                                 @if ($categorieBien->code=="TERRAIN" || $categorieBien->code=="STUDIO" ||
                                 $categorieBien->code=="APPART" || $categorieBien->code=="VILLA" ||
                                 $categorieBien->code=="IMMO")
-                                <option>Vente</option>
+                                <option @if(old('proposition')=='Vente') selected @endif>Vente</option>
                                 @endif
                                 @if ($categorieBien->code=="HOTE")
-                                <option>Nuitée</option>
+                                <option @if(old('proposition')=='Nuitée') selected @endif>Nuitée</option>
                                 @endif
                             </select>
                         </div>
@@ -97,25 +93,25 @@
                             <label for="nombreEtage-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'étages</strong></label>
-                            <input type="number" name="nombreEtage" min="0" step="1"
+                            <input type="number" name="nombreEtage"
                                 data-form-field="nombreEtage" class="form-control display-7" required="required"
-                                value="" id="nombreEtage-formbuilder-c">
+                                value="{{ old('nombreEtage') }}" id="nombreEtage-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
                             <label for="nombreAppartement-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'appartements</strong></label>
-                            <input type="number" name="nombreAppartement" min="0" step="1"
+                            <input type="number" name="nombreAppartement" 
                                 data-form-field="nombreAppartement" class="form-control display-7" required="required"
-                                value="" id="nombreAppartement-formbuilder-c">
+                                value="{{ old('nombreAppartement') }}" id="nombreAppartement-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreStudio" style="">
                             <label for="nombreStudio-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     studios</strong></label>
-                            <input type="number" name="nombreStudio" min="0" step="1"
+                            <input type="number" name="nombreStudio"
                                 data-form-field="nombreStudio" class="form-control display-7" required="required"
-                                value="" id="nombreStudio-formbuilder-c">
+                                value="{{ old('nombreStudio') }}" id="nombreStudio-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code=="TERRAIN")
@@ -124,7 +120,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Superficie
                                     (m²)</strong></label>
                             <input type="number" name="superficie" min="0" step="1" data-form-field="superficie"
-                                class="form-control display-7" required="required" value=""
+                                class="form-control display-7" required="required" value="{{ old('superficie') }}"
                                 id="superficie-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="longueur" style="">
@@ -132,14 +128,14 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Longueur (en
                                     mettre)</strong></label>
                             <input type="number" name="longueur" min="0" step="any" data-form-field="longueur"
-                                class="form-control display-7" value="" id="longueur-formbuilder-c">
+                                class="form-control display-7" value="{{ old('longueur') }}" id="longueur-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="largeur" style="">
                             <label for="largeur-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Largeur (en
                                     mettre)</strong></label>
                             <input type="number" name="largeur" min="0" step="any" data-form-field="largeur"
-                                class="form-control display-7" value="" id="largeur-formbuilder-c">
+                                class="form-control display-7" value="{{ old('largeur') }}" id="largeur-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART")
@@ -149,7 +145,7 @@
                                     chambres</strong></label>
                             <input type="number" name="nombreChambre" min="1" step="1"
                                 data-form-field="nombreChambre" required="required" class="form-control display-7"
-                                value="" id="nombreChambre-formbuilder-c">
+                                value="{{ old('nombreChambre') }}" id="nombreChambre-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreChambreAvecToilette">
                             <label for="nombreChambreAvecToilette-formbuilder-c"
@@ -157,7 +153,7 @@
                                     toilette intérieure</strong></label>
                             <input type="number" name="nombreChambreAvecToilette" min="1" step="1"
                                 data-form-field="nombreChambreAvecToilette" required="required"
-                                class="form-control display-7" value="" id="nombreChambreAvecToilette-formbuilder-c">
+                                class="form-control display-7" value="{{ old('nombreChambreAvecToilette') }}" id="nombreChambreAvecToilette-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code!="HOTE" && $categorieBien->code!="TERRAIN")
@@ -168,13 +164,13 @@
                             @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART" ||
                             $categorieBien->code=="IMMO" || $categorieBien->code=="CHAMBRE")
                             <div data-for="Meublé" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="isMeuble" data-form-field="Meublé"
+                                <input  @if(old('isMeuble')) checked @endif type="checkbox" value="1" name="isMeuble" data-form-field="Meublé"
                                     class="form-check-input display-7" id="Meublé-formbuilder-c">
                                 <label for="Meublé-formbuilder-c" class="form-check-label display-7">Meublé</label>
                             </div>
                             @if ($categorieBien->code=="APPART" || $categorieBien->code=="VILLA")
                             <div data-for="Garage" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hasGarage" data-form-field="Garage"
+                                <input  @if(old('hasGarage')) checked @endif type="checkbox" value="1" name="hasGarage" data-form-field="Garage"
                                     class="form-check-input display-7" id="Garage-formbuilder-c">
                                 <label for="Garage-formbuilder-c" class="form-check-label display-7">Garage</label>
                             </div>
@@ -182,12 +178,12 @@
                             @if ($categorieBien->code=="APPART" || $categorieBien->code=="STUDIO" ||
                             $categorieBien->code=="VILLA")
                             <div data-for="Cuisine" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hasCuisine" data-form-field="Cuisine"
+                                <input  @if(old('hasCuisine')) checked @endif type="checkbox" value="1" name="hasCuisine" data-form-field="Cuisine"
                                     class="form-check-input display-7" id="Cuisine-formbuilder-c">
                                 <label for="Cuisine-formbuilder-c" class="form-check-label display-7">Cuisine</label>
                             </div>
                             <div data-for="hasToilettePublique" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hasToilettePublique"
+                                <input  @if(old('hasToilettePublique')) checked @endif type="checkbox" value="1" name="hasToilettePublique"
                                     data-form-field="hasToilettePublique" class="form-check-input display-7"
                                     id="hasToilettePublique-formbuilder-c">
                                 <label for="hasToilettePublique-formbuilder-c"
@@ -195,7 +191,7 @@
                                     visiteur</label>
                             </div>
                             <div data-for="Avec salon" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hasSalon" data-form-field="Avec salon"
+                                <input  @if(old('hasSalon')) checked @endif type="checkbox" value="1" name="hasSalon" data-form-field="Avec salon"
                                     class="form-check-input display-7" id="Avec salon-formbuilder-c">
                                 <label for="Avec salon-formbuilder-c" class="form-check-label display-7">Salon</label>
                             </div>
@@ -203,7 +199,7 @@
                             @endif
                             @if ($categorieBien->code=="CHAMBRE")
                             <div data-for="Avec toilette intérieure" class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hasToiletteInterieure"
+                                <input  @if(old('hasToiletteInterieure')) checked @endif type="checkbox" value="1" name="hasToiletteInterieure"
                                     data-form-field="Avec toilette intérieure" class="form-check-input display-7"
                                     id="Avec toilette intérieure-formbuilder-c">
                                 <label for="Avec toilette intérieure-formbuilder-c"
@@ -219,13 +215,13 @@
                                     class="mbr-fonts-style display-7"><strong>Niveau</strong></label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="niveau" data-form-field="niveau"
+                                <input  @if(old('niveau')=='Rez-de-chaussée') checked @endif type="radio" name="niveau" data-form-field="niveau"
                                     class="form-check-input display-7" value="Rez-de-chaussée" checked=""
                                     id="niveau-formbuilder-c">
                                 <label class="form-check-label display-7">Rez-de-chaussée</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="niveau" data-form-field="niveau"
+                                <input  @if(old('niveau')=='Etage') checked @endif type="radio" name="niveau" data-form-field="niveau"
                                     class="form-check-input display-7" value="Etage" id="niveau-formbuilder-c">
                                 <label class="form-check-label display-7">Etage</label>
                             </div>
@@ -238,20 +234,20 @@
                                     cuisines</strong></label>
                             <input type="number" name="nombreCuisine" max="100" min="1" step="1"
                                 data-form-field="nombreCuisine" required="required" class="form-control display-7"
-                                value="" id="nombreCuisine-formbuilder-c">
+                                value="{{ old('nombreCuisine') }}" id="nombreCuisine-formbuilder-c">
                         </div>
                         @endif
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville" style="">
                             <label for="ville-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Ville</strong></label>
                             <input type="text" name="ville" placeholder="Ville" data-form-field="ville"
-                                required="required" class="form-control display-7" value="" id="ville-formbuilder-c">
+                                required="required" class="form-control display-7" value="{{ old('ville') }}" id="ville-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="adresse">
                             <label for="adresse-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Adresse</strong></label>
                             <textarea name="adresse" placeholder="Adresse" data-form-field="adresse" required="required"
-                                class="form-control display-7" id="adresse-formbuilder-c"></textarea>
+                                class="form-control display-7" id="adresse-formbuilder-c">{{ old('adresse') }}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix">
                             <label for="prix-formbuilder-c" class="form-control-label mbr-fonts-style display-7">
@@ -259,7 +255,7 @@
                                     Nuitée</strong>
                             </label>
                             <input type="number" name="prix" placeholder="Prix" max="" min="5000" step="5"
-                                data-form-field="prix" required="required" class="form-control display-7" value=""
+                                data-form-field="prix" required="required" class="form-control display-7" value="{{ old('prix') }}"
                                 id="prix-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="description">
@@ -267,7 +263,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Description</strong></label>
                             <textarea name="description" placeholder="Description de l'offre"
                                 data-form-field="description" required="required" class="form-control display-7"
-                                id="description-formbuilder-c"></textarea>
+                                id="description-formbuilder-c">{{ old('description') }}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="photos">
                             <label for="photos-formbuilder-c"
