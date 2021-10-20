@@ -48,6 +48,7 @@
                                             <span class="mbr-iconfont {{$categorieBien->icon}}"></span> -
                                             {{$categorieBien->description}}
                                         </p>
+                                        <button type="button" class="btn btn-warning btn-sm"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
                                     </div>
                                 </div>
                             </div>

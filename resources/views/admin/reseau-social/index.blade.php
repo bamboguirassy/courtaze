@@ -27,11 +27,12 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-12 col-lg-4 m-auto">
                 <div class="image-wrapper md-pb">
-                    <img class="w-100 lazyload"
+                   <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                         loading="lazy"
                         data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg">
-                </div>
+
+                                </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
@@ -63,10 +64,14 @@
         <div class="row justify-content-center">
             @forelse ($reseauSociaux as $reseauSocial)
             <div class="col-md-3 col-lg-3">
+
                 <div class="card md-pb">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" loading="lazy"
+                    <a href="{{ route('reseau-social.edit', $reseauSocial->id) }}">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" loading="lazy"
                         class="lazyload" data-src="{{ asset('uploads/reseau-social/'.$reseauSocial->photo) }}">
-                </div>
+
+                    </a>
+                           </div>
             </div>
             @empty
                 <div class="alert alert-info" role="alert">
