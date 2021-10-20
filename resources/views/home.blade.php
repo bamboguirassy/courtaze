@@ -1,8 +1,9 @@
 @extends('base')
 
-@section('title',"Accueil - ".config('app.name'))
+@section('title',"Accueil - ".(isset($agence)?$agence->nom:config('app.name')))
 
-@section('description',"Bienvenue sur ".config('app.name').", votre plateforme pour trouver une location, un endroit de
+@section('description',"Bienvenue sur ".(isset($agence)?$agence->nom:config('app.name')).", votre plateforme pour
+trouver une location, un endroit de
 séjour, un terrain ou une maison à acheter...")
 
 @section('body')
@@ -36,14 +37,23 @@ séjour, un terrain ou une maison à acheter...")
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>Courtaze</strong></h1>
-                    <p class="mbr-text mbr-fonts-style display-7">Trouver du logement au Sénégal est un véritable
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1">
+                        <strong>{{(isset($agence)?$agence->nom:config('app.name'))}}</strong></h1>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        @isset($agence)
+                        {{$agence->description}}
+                        @else
+                        Trouver du logement au Sénégal est un véritable
                         casse-tête. C’est pourquoi nous proposons beaucoup plus qu’une simple plateforme de
-                        recherche.<br></p>
+                        recherche.
+                        @endisset
+                        <br>
+                    </p>
                     <div class="mbr-section-btn mt-3 mb-2">
                         @auth
                         @if(auth()->user()->type!='Client')
-                        <form action="{{ route('offre.init.new') }}" method="post" style="display: inline;">
+                        <form action="{{ route('offre.init.new',compact('agence')) }}" method="post"
+                            style="display: inline;">
                             @csrf
                             @method('post')
                             <div class="mb-3">
@@ -63,7 +73,8 @@ séjour, un terrain ou une maison à acheter...")
                         @guest
                         <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
-                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
+                        <a class="btn btn-lg btn-info display-4"
+                            href="{{ route('pre.register.page') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
                     </div>
                     @endguest
@@ -75,7 +86,7 @@ séjour, un terrain ou une maison à acheter...")
 
 <x-separator />
 
-<x-categories :categoris="$categories" />
+<x-categories :categoris="$categories" :agence="$agence" />
 
 <x-separator />
 
@@ -84,16 +95,13 @@ séjour, un terrain ou une maison à acheter...")
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="{{ route('offre.filter') }}" method="POST" class="mbr-form form-with-styler"
-                    data-form-title="rechercheBienForm"><input type="hidden" name="email" data-form-email="true"
+                <form action="{{ route('offre.filter',compact('agence')) }}" method="POST"
+                    class="mbr-form form-with-styler" data-form-title="rechercheBienForm"><input type="hidden"
+                        name="email" data-form-email="true"
                         value="jJKLTKPdhV+o5MSgmvfPdmzK0lgNac5sIdCVX/oDZz9XskIimUQuhzppdOYLWmREfpsH5axUifu82Kbx2XKucJbTfCTCILh5s49w5VbKTwYx7j/b8nEbnLPj3obcXtZq.guuDrcjcpgnaHzRSW0w8Fa1+QoMgLV6m9E84MywDgoRPWWq55lNtbsm21DwQlWpdE6GCNQjCdMrXGWvcftz6baOwQHSf0bFtcu/2gc72QQ2i2AzrQik8h2IXCFO5Mjfi">
                     @csrf
                     @method('post')
-                        <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...!
-                            some problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Retrouvez rapidement ce que vous recherchez...
@@ -102,8 +110,8 @@ séjour, un terrain ou une maison à acheter...")
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie_id">
                             <label for="categorie_id-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Catégorie</label>
-                            <select name="categorie_bien_id" data-form-field="categorie_id" class="form-control display-7"
-                                id="categorie_id-formbuilder-8">
+                            <select name="categorie_bien_id" data-form-field="categorie_id"
+                                class="form-control display-7" id="categorie_id-formbuilder-8">
                                 <option value="">Toutes les catégories</option>
                                 @foreach ($categories as $categorie)
                                 <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
@@ -132,8 +140,7 @@ séjour, un terrain ou une maison à acheter...")
                                 class="form-control-label mbr-fonts-style display-7"><strong>Budget
                                     (CFA)</strong></label>
                             <input type="number" name="prix" min="0" step="1" data-form-field="prix"
-                                class="form-control display-7" value=""
-                                id="prix-formbuilder-c">
+                                class="form-control display-7" value="" id="prix-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -158,7 +165,7 @@ séjour, un terrain ou une maison à acheter...")
         <div class="row">
             @foreach ($offres as $offre)
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
-                <x-offre-item :offre="$offre" />
+                <x-offre-item :offre="$offre" :agence="$agence" />
             </div>
             @endforeach
         </div>

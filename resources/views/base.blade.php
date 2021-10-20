@@ -70,20 +70,34 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @toastr_css
 </head>
+
 <body>
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
         <nav class="navbar navbar-dropdown navbar-expand-lg">
             <div class="container">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('home',compact('agence')) }}">
+                            @isset($agence)
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
+                                style="height: 3rem;" loading="lazy" class="lazyload"
+                                data-src="{{ asset('uploads/agence/logos/'.$agence->logo) }}">
+                            @else
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                                 style="height: 3rem;" loading="lazy" class="lazyload"
                                 data-src="{{ asset('assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png') }}">
+
+                            @endisset
                         </a>
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-5"
-                            href="{{ route('home') }}">{{config('app.name')}}</a></span>
+                            href="{{ route('home',compact('agence')) }}">
+                            @isset($agence)
+                            {{ $agence->nom }}
+                            @else
+                            {{config('app.name')}}
+                            @endisset
+                        </a></span>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
                     data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
@@ -95,17 +109,18 @@
                         <span></span>
                     </div>
                 </button>
-                @auth
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        @isset($activeAgence)
+                        @isset($agence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="agence-home.html"><span
-                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil Ag</a>
+                                href="{{route('home',compact('agence'))}}"><span
+                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="services.html"><span
-                                    class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>Services</a>
+                        <li class="nav-item">
+                            <a class="nav-link link text-warning text-primary display-7" href="services.html">
+                                <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
+                                Services
+                            </a>
                         </li>
                         @else
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
@@ -113,10 +128,12 @@
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @endisset
-                        @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier' || auth()->user()->type=='Admin')
+                        @auth
+                        @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="{{ route('mes.publications') }}"><span
-                                    class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes publications</a>
+                                    class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes
+                                publications</a>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Admin')
@@ -154,12 +171,14 @@
                             </div>
                         </li>
                         @endif
-                        @isset($activeAgence)
+                        @endauth
+                        @isset($agence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
                                 href="contacts.html"><span
                                     class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
                         </li>
                         @endisset
+                        @auth
                         <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
                                 href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
@@ -178,18 +197,15 @@
                                 <form style="display: inline;" action="{{ route('logout') }}" method="post">
                                     @csrf
                                     @method('post')
-                                    @isset($activeAgence)
-                                    <input name="agence" type="number" value="{{$activeAgence->id}}" hidden>
-                                    @endisset
                                     <button class="dropdown-item text-warning display-7"><span
                                             class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion
                                     </button>
                                 </form>
                             </div>
                         </li>
+                        @endauth
                     </ul>
                 </div>
-                @endauth
             </div>
         </nav>
     </section>
@@ -199,8 +215,9 @@
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
                     <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                        © Copyright {{ date_format(new DateTime(),'Y') }} <a href="https://bambogroup.net" class="text-white"
-                            target="_blank"><strong>Bambo GROUP</strong></a> - Tous droits réservés</p>
+                        © Copyright {{ date_format(new DateTime(),'Y') }} <a href="https://bambogroup.net"
+                            class="text-white" target="_blank"><strong>Bambo GROUP</strong></a> - Tous droits réservés
+                    </p>
                 </div>
             </div>
         </div>

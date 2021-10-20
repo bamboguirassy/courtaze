@@ -10,6 +10,7 @@ class Agence extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nom',
         'slogan',
         'domain',
         'color',

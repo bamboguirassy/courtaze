@@ -11,7 +11,7 @@
         <div class="row">
             @foreach ($categoris as $categorie)
             <div class="card col-4 col-sm-4 col-md-3 col-lg-2">
-                <a href="{{ route('categorie-bien.show',['categorie_bien'=>$categorie]) }}" class="text-primary">
+                <a href="{{ route('categorie-bien.show',['categorie_bien'=>$categorie,'agence'=>$agence]) }}" class="text-primary">
                     <div class="card-wrapper">
                         <div class="card-box align-center">
                             <div class="iconfont-wrapper">

@@ -7,34 +7,39 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
-Route::get('login', function() {
-return view('auth.login');
+Route::get('login', function(Agence $agence=null) {
+return view('auth.login',compact('agence'));
 })->name('login')->middleware('guest');
 
-Route::post('login',function(Request $request) {
+Route::post('login',function(Request $request,Agence $agence=null) {
     $request->validate([
         'email'=>'required|exists:users,email',
         'password'=>'min:6'
     ]);
     Auth::attempt($request->only('email','password'), true);
+    if($agence!=null) {
+        if(Auth::user()->id!=$agence->user_id && Auth::user()->type!='Client' && Auth::user()->type!='Admin') {
+            Auth::logout();
+            toastr()->error("Vous n'êtes pas autorisés à vous connecter à cette agence !");
+        }
+    }
     return redirect()->route('home');
-return redirect()->route('home');
 })->name('login.request')->middleware('guest');
 
-Route::get('pre-register', function() {
- return view('auth.pre-register');
+Route::get('pre-register', function(Agence $agence=null) {
+ return view('auth.pre-register',compact('agence'));
 })->name('pre.register.page')->middleware('guest');
 
-Route::post('pre-register', function(Request $request) {
+Route::post('pre-register', function(Request $request,Agence $agence=null) {
     if(!$request->has('type')) {
         toastr()->error('Le type de compte est obligatoire !');
     }
-    return view('auth.register',['type'=>$request->get('type')]);
+    return view('auth.register',compact('agence'))->with(['type'=>$request->get('type')]);
 })->name('pre.register.request')->middleware('guest');
 
-Route::post('register', function(Request $request) {
+Route::post('register', function(Request $request,Agence $agence=null) {
     $request->validate([
         'name'=>'required',
         'telephoneWhatsapp'=>'required',
@@ -52,16 +57,17 @@ Route::post('register', function(Request $request) {
         if($request->get('type')=='Agence') {
             $request->validate([
                 'slogan'=>'required',
-                'domain'=>'required',
                 'slogan'=>'required',
                 'color'=>'required',
                 'description'=>'required',
                 'adresse'=>'required',
             ]);
             $agence = new Agence($request->all());
+            $agence->nom = $request->get('name');
+            $agence->domain = Str::slug($request->get('name'));
             if($request->has('logo')) {
-                $filename = $request->get('domain').'.'.$request->file('logo')->extension();
-                 $request->file('logo')->storeAs('agence/logos',$filename);
+                $filename = $agence->domain.'.'.$request->file('logo')->extension();
+                $request->file('logo')->storeAs('agence/logos',$filename);
                 $agence->logo = $filename;
             }
             $agence->user_id = $user->id;
@@ -73,10 +79,10 @@ Route::post('register', function(Request $request) {
         throw $e;
     }
     toastr()->success("Votre compte est créé avec succès sur la plateforme....");
-    return redirect()->route('login.page');
-})->middleware('guest')->name('register.request');
+    return redirect()->route('login',compact('agence'));
+})->name('register.request');
 
-Route::post('logout',function(Request $request) {
+Route::post('logout',function(Request $request,Agence $agence=null) {
     if(Auth::logout()) {
         toastr()->success("Vous vous êtes déconnectés avec succès !");
         if($request->has('agence')) {
@@ -84,9 +90,9 @@ Route::post('logout',function(Request $request) {
         } 
         return redirect()->route('home');
     }
-    return redirect()->back();
+    return redirect()->back()->with(['agence'=>$agence]);
 })->middleware('auth')->name('logout');
 
-Route::get('profile', function() {
-return view('auth.profile');
+Route::get('profile', function(Agence $agence=null) {
+return view('auth.profile',compact('agence'));
 })->middleware('auth')->name('profile');

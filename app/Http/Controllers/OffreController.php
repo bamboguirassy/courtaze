@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agence;
+use App\Models\CategorieBien;
 use App\Models\Image;
 use App\Models\Offre;
 use Exception;
@@ -16,7 +18,7 @@ class OffreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Agence $agence=null)
     {
         //
     }
@@ -26,7 +28,7 @@ class OffreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Agence $agence=null)
     {
         //
     }
@@ -37,9 +39,8 @@ class OffreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Agence $agence=null, Request $request)
     {
-
         $request->validate([
             'categorie_bien_id'=>'required|exists:categorie_biens,id',
             'photos'=>'required',
@@ -50,7 +51,7 @@ class OffreController extends Controller
         $offre = new Offre($request->all());
         DB::beginTransaction();
         try {
-            if(Auth::user()->type=='agence') {
+            if(Auth::user()->type=='Agence') {
                 $offre->agence_id = Auth::user()->agence->id;
             } 
             $offre->user_id = Auth::user()->id;
@@ -74,7 +75,7 @@ class OffreController extends Controller
             throw $e;
         }
         toastr()->success("L'offre a été publiée avec succès !");
-        return redirect()->route('offre.show',compact('offre'));
+        return redirect()->route('offre.show',compact('agence','offre'));
     }
 
     /**
@@ -83,9 +84,9 @@ class OffreController extends Controller
      * @param  \App\Models\Offre  $offre
      * @return \Illuminate\Http\Response
      */
-    public function show(Offre $offre)
+    public function show(Agence $agence=null,Offre $offre)
     {
-        return view('shared.offre.show',compact('offre'));
+        return view('shared.offre.show',compact('offre','agence'));
     }
 
     /**
@@ -94,9 +95,9 @@ class OffreController extends Controller
      * @param  \App\Models\Offre  $offre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Offre $offre)
+    public function edit(Agence $agence=null, Offre $offre)
     {
-        //
+        return view('shared.offre.edit',compact('offre'))->with(['categorieBien'=>$offre->categorieBien,'agence'=>$agence]);
     }
 
     /**
@@ -106,9 +107,17 @@ class OffreController extends Controller
      * @param  \App\Models\Offre  $offre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offre $offre)
+    public function update(Request $request,Agence $agence=null, Offre $offre)
     {
-        //
+        $request->validate([
+            'categorie_bien_id'=>'required|exists:categorie_biens,id',
+            'ville'=>'required',
+            'adresse'=>'required',
+            'prix'=>'required'
+        ]);
+        $offre->update($request->all());
+        toastr()->success("L'offre a été mise à jour avec succès !");
+        return redirect()->route('offre.show', ['offre'=>$offre,'agence'=>$agence]);
     }
 
     /**
@@ -117,7 +126,7 @@ class OffreController extends Controller
      * @param  \App\Models\Offre  $offre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offre $offre)
+    public function destroy(Agence $agence=null, Offre $offre)
     {
         //
     }

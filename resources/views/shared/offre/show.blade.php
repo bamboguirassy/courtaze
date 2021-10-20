@@ -44,7 +44,7 @@
                     <div class="mbr-section-btn mt-3">
                         @auth
                             @if($offre->user_id==auth()->user()->id)
-                                <a class="btn btn-lg btn-warning display-4" href="#">
+                                <a class="btn btn-lg btn-warning display-4" href="{{ route('offre.edit',['offre'=>$offre]) }}">
                                     <span class="mobi-mbri mobi-mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
                                 </a>
                                 @if($offre->visible)

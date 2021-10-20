@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
@@ -55,10 +56,14 @@ class CategorieBienController extends Controller
      * @param  \App\Models\CategorieBien  $categorieBien
      * @return \Illuminate\Http\Response
      */
-    public function show(CategorieBien $categorieBien)
+    public function show(Agence $agence=null, CategorieBien $categorieBien)
     {
-        $offres = Offre::where('visible',true)->where('categorie_bien_id',$categorieBien->id)->paginate(36);
-        return view('shared.categorie-bien.show',compact('categorieBien','offres'));
+        $query = Offre::where('visible',true)->where('categorie_bien_id',$categorieBien->id);
+        if($agence!=null) {
+            $query = $query->where('agence_id',$agence->id);
+        }
+        $offres = $query->paginate(36);
+        return view('shared.categorie-bien.show',compact('categorieBien','offres','agence'));
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
@@ -15,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+include "web/multitenant.php";
 
-Route::get('/', function () {
-    $categories = CategorieBien::orderby('nom')->get();
-    $offres = Offre::where('visible',true)->inRandomOrder()->paginate(72);
-    return view('home',compact('categories','offres'));
-})->name('home');
-
-include_once "web/auth.php";
+Route::get('mes-offres',function() {
+    $offreActives = Offre::where('visible',true)->where('user_id',Auth()->user()->id)->paginate(18);
+    $offreInactives = Offre::where('visible',false)->where('user_id',Auth()->user()->id)->paginate(18);
+    $categorieBiens = CategorieBien::orderby('nom')->get();
+    return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens'));
+    })->name('mes.publications')->middleware('auth');
 
 include_once "web/admin.php";
 
-include_once "web/shared.php";
+include "web/shared.php";

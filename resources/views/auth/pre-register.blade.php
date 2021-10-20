@@ -36,10 +36,21 @@
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>Katalog</strong></h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>
+                            @isset($agence)
+                            {{$agence->nom}}
+                            @else
+                            {{config('app.name')}}
+                            @endisset
+                        </strong></h1>
                     <p class="mbr-text mbr-fonts-style display-7">
+                        @isset($agence)
+                        Ouvrez vite un compte pour enregistrer l'ensemble de nos offres qui vous intéressent pour les
+                        revoir plus tard.
+                        @else
                         Ouvrez vite un compte sur la plateforme. Que vous soyez simple visiteur, propriétaire de bien,
                         courtier ou agence immobilière.</p>
+                    @endisset
 
                 </div>
             </div>
@@ -47,35 +58,14 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLWaB9hNXb" id="info3-v">
-
-
-
-
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section class="form cid-sLWaxOklPM" id="formbuilder-u">
-
-
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="{{ route('pre.register.request') }}" method="POST" class="mbr-form form-with-styler"
+                <form action="{{ route('pre.register.request',compact('agence')) }}" method="POST" class="mbr-form form-with-styler"
                     data-form-title="registerForm">
                     @csrf
                     @method('post')
@@ -83,11 +73,7 @@
                         value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06">
                     <input type="hidden" name="email" data-form-email="true"
                         value="uK53QrS3T24GDGuzh5TP+zyQ3rsTxLyoOHMDOowbNBkOaZffIIBiB7KGZF1Egiu09Ix6a5Sz/4NbWvpY9vlU7mxtzE1Cyi/+ovNQ93bl9PRJziqzRq7Blf5lWPYu4tRz.A4f03N3nsitNQnBMl7pwekTBitLkAyXwmz+ksPNuGphrwKJHDw1K5g7G10CsA8Ga8LvF7adlPCGj/TNBszd/aJlfv0XaCyj344myjUuJ+RefcC4/jzFTUrgIuztdzDDn.qAxZpS8XKbBepy17yXYVR/vh0XjdaTyfFX816v1dCKZi+4APucdF/P8srtXjw3QOMBI3jMAap8xmWsF3qIdXCmmT/1xG81XjkxW0YGGsm9cchAkAHKY8jo2V4UiWtU7X">
-                    <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire d'ouverture de compte</h4>
@@ -100,10 +86,13 @@
                                 class="form-control-label mbr-fonts-style display-7">Type</label>
                             <select name="type" data-form-field="type" class="form-control display-7"
                                 id="type-formbuilder-u">
+                                @isset($agence)
+                                <option value="Client">Client</option>
+                                @else
                                 <option value="Agence">Agence</option>
                                 <option value="Courtier">Courtier</option>
                                 <option value="Propriétaire">Propriétaire</option>
-                                <option value="Client">Client</option>
+                                @endisset
                             </select>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">

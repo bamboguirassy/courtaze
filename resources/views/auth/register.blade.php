@@ -6,8 +6,6 @@
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sLW9sfV5gE" id="header01-t">
-
-
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" class="lottie__svg"
         preserveAspectRatio="none">
         <defs>
@@ -31,43 +29,32 @@
                 <div class="image-wrapper md-pb">
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                        loading="lazy" data-src="assets/images/mbr-998x665.jpg">
+                        loading="lazy" data-src="{{ asset('assets/images/mbr-998x665.jpg') }}">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1">
-                        <strong>{{ config('app.name') }}</strong>
+                        <strong>
+                            @isset($agence)
+                            {{$agence->nom}}
+                            @else
+                            {{config('app.name')}}
+                            @endisset
+                        </strong>
                     </h1>
                     <p class="mbr-text mbr-fonts-style display-7">
                         Finalisez la création de votre compte en remplissant les informations ci-dessous pour votre
                         compte - {{$type}}</p>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLWaB9hNXb" id="info3-v">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section class="form cid-sLWaxOklPM" id="formbuilder-u">
-
-
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
@@ -78,14 +65,10 @@
                     @method('post')
                     <input name="type" type="text" value="{{$type}}" hidden="hidden">
                     <input type="hidden" name="g-recaptcha-response" data-form-captcha="true"
-                        value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06"><input type="hidden" name="email"
-                        data-form-email="true"
+                        value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06">
+                    <input type="hidden" name="email" data-form-email="true"
                         value="uK53QrS3T24GDGuzh5TP+zyQ3rsTxLyoOHMDOowbNBkOaZffIIBiB7KGZF1Egiu09Ix6a5Sz/4NbWvpY9vlU7mxtzE1Cyi/+ovNQ93bl9PRJziqzRq7Blf5lWPYu4tRz.A4f03N3nsitNQnBMl7pwekTBitLkAyXwmz+ksPNuGphrwKJHDw1K5g7G10CsA8Ga8LvF7adlPCGj/TNBszd/aJlfv0XaCyj344myjUuJ+RefcC4/jzFTUrgIuztdzDDn.qAxZpS8XKbBepy17yXYVR/vh0XjdaTyfFX816v1dCKZi+4APucdF/P8srtXjw3QOMBI3jMAap8xmWsF3qIdXCmmT/1xG81XjkxW0YGGsm9cchAkAHKY8jo2V4UiWtU7X">
-                    <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div data-for="name" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="name-formbuilder-u" class="form-control-label mbr-fonts-style display-7">
@@ -103,17 +86,17 @@
                         <div data-for="slogan" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="slogan-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Slogan de l'agence</label>
-                            <input value="{{ old('slogan') }}" type="text" name="slogan" placeholder="Slogan de l'agence"
-                                data-form-field="slogan" class="form-control display-7" required="required" value=""
-                                id="slogan-formbuilder-u">
+                            <input value="{{ old('slogan') }}" type="text" name="slogan"
+                                placeholder="Slogan de l'agence" data-form-field="slogan" class="form-control display-7"
+                                required="required" value="" id="slogan-formbuilder-u">
                         </div>
-                        <div data-for="domain" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                        {{-- <div data-for="domain" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="domain-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Domaine d'hébergement</label>
                             <input value="{{ old('domain') }}" type="text" name="domain" placeholder="Nom de domaine"
                                 data-form-field="domain" required="required" class="form-control display-7" value=""
                                 id="domain-formbuilder-u">
-                        </div>
+                        </div> --}}
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="color">
                             <label for="color-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Couleur du site WEB</label>
@@ -125,15 +108,15 @@
                                 class="form-control-label mbr-fonts-style display-7">Description de l'agence</label>
                             <textarea name="description" placeholder="Description de l'agence"
                                 data-form-field="description" required="required" class="form-control display-7"
-                                id="description-formbuilder-u">{{ old('description') }}</textarea>
+                                id="description-formbuilder-u">{{ old('description') ?? '' }}</textarea>
                         </div>
                         <div data-for="adresse" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="adresse-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Adresse de l'agence</label>
                             <textarea required="required" name="adresse" placeholder="Adresse" data-form-field="adresse"
                                 class="form-control display-7" id="adresse-formbuilder-u">
-                            {{old('adresse')}}
-                        </textarea>
+                            {{old('adresse') ?? ''}}
+                            </textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="logo">
                             <label for="logo-formbuilder-u"
@@ -157,9 +140,9 @@
                                 Numéro de Téléphone
                                 @endif
                             </label>
-                            <input value="{{ old('telephoneWhatsapp') }}" type="tel" name="telephoneWhatsapp" data-form-field="telephoneWhatsapp"
-                                required="required" class="form-control display-7" value=""
-                                id="telephoneWhatsapp-formbuilder-u">
+                            <input value="{{ old('telephoneWhatsapp') }}" type="tel" name="telephoneWhatsapp"
+                                data-form-field="telephoneWhatsapp" required="required" class="form-control display-7"
+                                value="" id="telephoneWhatsapp-formbuilder-u">
                         </div>
                         @if ($type=='Agence')
                         <div data-for="telephonePersonnel" class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -167,9 +150,9 @@
                                 class="form-control-label mbr-fonts-style display-7">Téléphone
                                 Personnel
                             </label>
-                            <input value="{{ old('telephonePersonnel') }}" type="tel" name="telephonePersonnel" placeholder="Téléphone personnel"
-                                data-form-field="telephonePersonnel" class="form-control display-7" value=""
-                                id="telephonePersonnel-formbuilder-u">
+                            <input value="{{ old('telephonePersonnel') }}" type="tel" name="telephonePersonnel"
+                                placeholder="Téléphone personnel" data-form-field="telephonePersonnel"
+                                class="form-control display-7" value="" id="telephonePersonnel-formbuilder-u">
                         </div>
                         @endif
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -181,14 +164,16 @@
                         <div data-for="email" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="email-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Email</label>
-                            <input value="{{ old('email') }}" type="text" name="email" placeholder="Email" data-form-field="email"
-                                required="required" class="form-control display-7" value="" id="email-formbuilder-u">
+                            <input value="{{ old('email') }}" type="text" name="email" placeholder="Email"
+                                data-form-field="email" required="required" class="form-control display-7" value=""
+                                id="email-formbuilder-u">
                         </div>
                         <div data-for="password" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="password-formbuilder-u" class="form-control-label mbr-fonts-style display-7">Mot
                                 de passe</label>
-                            <input value="{{ old('password') }}" type="password" name="password" placeholder="Mot de passe" data-form-field="password"
-                                required="required" class="form-control display-7" value="" id="password-formbuilder-u">
+                            <input value="{{ old('password') }}" type="password" name="password"
+                                placeholder="Mot de passe" data-form-field="password" required="required"
+                                class="form-control display-7" value="" id="password-formbuilder-u">
                         </div>
                         <div data-for="password_confirmation" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="password_confirmation-formbuilder-u"

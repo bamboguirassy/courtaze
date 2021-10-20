@@ -36,7 +36,13 @@
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>Katalog</strong></h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>
+                    @isset($agence)
+                    {{$agence->nom}}
+                        @else
+                        {{config('app.name')}}
+                    @endisset    
+                    </strong></h1>
                     <p class="mbr-text mbr-fonts-style display-7">
                         Connectez vous avec vos identifiants de connexion.</p>
 
@@ -68,8 +74,6 @@
 </section>
 
 <section class="form cid-sLWfBVvbIR" id="formbuilder-11">
-
-
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
@@ -78,15 +82,11 @@
                     data-form-title="loginForm">
                     @csrf
                     @method('post')
-                    <input type="hidden" name="g-recaptcha-response"
-                        data-form-captcha="true" value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06"><input type="hidden"
-                        name="email" data-form-email="true"
+                    <input type="hidden" name="g-recaptcha-response" data-form-captcha="true"
+                        value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06"><input type="hidden" name="email"
+                        data-form-email="true"
                         value="nHS4RP7h593/d6V49jHF67AvjrUbWtgx5GzRpsxk+JWR1UNz/7YnHFcasQ9N0tv5Qhc6pxnPqt5RgptwU0adHTplK4M348T5v6ZGyMnodBhd0v7B5bUSUh/7mHWqRfwA.MANH08t2XNrHDQ/Cx1yhzo+iXvZ9050rtZy3zqx4vrpGXZlj9kZ3DvikhNXnz0Qy40lhTrEv95XWUxwshH2M/3KfjXARBSjEC7H+MwGyyuehDz3O+lDfaFqZoK7PatFV.qnmtNQ82C10/+R6k3wL/+apNTK3PMRhF7jzZ9wYAVFqA5y08v3nmVtmsKeZ2uPZV7rh2rDwFdDsR6Vg2TTtFOcpEBZJb8+iXCzpqi6B0LhTHSUOdKpHaNlNlPdOTDwG5">
-                    <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire de connexion</h4>

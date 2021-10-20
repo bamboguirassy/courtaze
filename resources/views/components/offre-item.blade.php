@@ -1,4 +1,4 @@
-<a href="{{ route('offre.show',compact('offre')) }}">
+<a href="{{ route('offre.show',compact('offre','agence')) }}">
 <div class="card1 card">
     <div class="item-img">
         <span class="offre-badge">{{ $offre->proposition }}</span>
