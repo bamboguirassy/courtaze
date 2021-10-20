@@ -6,6 +6,7 @@ use App\Models\ReseauSocial;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ReseauSocialController extends Controller
 {
@@ -94,10 +95,29 @@ class ReseauSocialController extends Controller
         $request->validate([
             'nom'=>'required',
             'icon'=>'required',
-            'photo'=>'required'
         ]);
 
+        DB::beginTransaction();
+        try {
+            if($request->has('photo'))
+            {
+                Storage::delete('reseau-social/'.$reseauSocial->photo);
+                $photoName = $request->get('nom').'.'.$request->file('photo')->extension();
+                $request->file('photo')->storeAs('reseau-social',$photoName);
+            }
             $reseauSocial->update($request->all());
+            if($request->has('photo'))
+            {
+                $reseauSocial->photo = $photoName;
+                $reseauSocial->update();
+            }
+
+                DB::commit();
+            } catch(Exception $e) {
+                DB::rollback();
+                toastr()->error("Une erreur est survenue pendant la création du réseau social");
+                throw $e;
+            }
 
             toastr()->info("Le reseau  social <span class='badge badge-dark'>#$reseauSocial->id</span> a bien été modifiée.");
             return redirect()->route('reseau-social.index');

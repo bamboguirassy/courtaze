@@ -95,7 +95,7 @@
                             <label for="photo-formbuilder-3m"
                                 class="form-control-label mbr-fonts-style display-7">Photo</label>
                             <input type="file" name="photo" data-form-field="photo" class="form-control display-7"
-                                required="required" value="" id="photo-formbuilder-3m">
+                                 value="" id="photo-formbuilder-3m">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary display-7">Mettre à jour</button>
