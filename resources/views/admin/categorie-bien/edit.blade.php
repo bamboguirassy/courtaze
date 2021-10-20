@@ -42,10 +42,10 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="{{ route('categorie-bien.store') }}" method="POST" class="mbr-form form-with-styler"
+                <form action="{{ route('categorie-bien.update', $categorieBien->id) }}" method="POST" class="mbr-form form-with-styler"
                     data-form-title="categorieNewForm">
                     @csrf
-                    @method('post')
+                    @method('put')
                     <input type="hidden" name="email" data-form-email="true"
                         value="Yf1ve3uKICVCbNBCHWlM+PMCdRLG4xlGkEa8lzvNWvODshRbTMhJGBJBCg0PVZLEKHpgSUoWuzeTb7H8Cd12zdB2qKSGK7jDEDqgjPv8vVtxL66DESZw1MA5MQ9exWjJ.SPjzyTHHQ3Znc+s525B98njh0qt2ICDhJlfWxCXNqqoulszwuAAe+xJZt7SIeBgzHZI15kpAR8a9NHnDNLYeGy8PUxpoidFBlT81lo9xRoTXm8/uhpK20aB5B3mYuHqS">
                     @if (count($errors->all())>0)
@@ -75,13 +75,13 @@
                             <label for="code-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Code</label>
                             <input type="text" name="code" data-form-field="code" class="form-control display-7"
-                                required="required" value="" id="code-formbuilder-18">
+                                required="required" value="{{ old('code') ?? $categorieBien->code }}" id="code-formbuilder-18">
                         </div>
                         <div data-for="description" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="description-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Description</label>
-                            <textarea name="description" data-form-field="description" class="form-control display-7"
-                                id="description-formbuilder-18"></textarea>
+                            <textarea  name="description" data-form-field="description" class="form-control display-7"
+                                id="description-formbuilder-18">{{ old('description') ?? $categorieBien->description }}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -90,7 +90,7 @@
                             <label for="icon-formbuilder-18"
                                 class="form-control-label mbr-fonts-style display-7">Icon</label>
                             <input type="text" name="icon" data-form-field="icon" required="required"
-                                class="form-control display-7" value="" id="icon-formbuilder-18">
+                                class="form-control display-7" value="{{ old('icon') ?? $categorieBien->icon }}" id="icon-formbuilder-18">
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn btn-warning display-7">Mettre à jour</button>

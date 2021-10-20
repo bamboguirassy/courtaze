@@ -12,7 +12,7 @@ Route::resource('categorie-bien', CategorieBienController::class,[
 ->middleware('admin');
 
 Route::resource('reseau-social', ReseauSocialController::class,[
-    'only'=>['index','store']
+    'only'=>['index','store','edit','update']
 ])->middleware('admin');
 
 Route::resource('user', UserController::class,[

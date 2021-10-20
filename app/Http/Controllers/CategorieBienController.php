@@ -88,8 +88,8 @@ class CategorieBienController extends Controller
             'code'=>"required"
         ]);
         $categorieBien->update($request->all());
-        toastr()->info("La todo <span class='badge badge-dark'>#$categorieBien->id</span> a bien été modifiée.");
-        return back();
+        toastr()->info("La catégorie <span class='badge badge-dark'>#$categorieBien->id</span> a bien été modifiée.");
+        return redirect()->route('categorie-bien.index');
     }
 
     /**

@@ -79,7 +79,7 @@ class ReseauSocialController extends Controller
      */
     public function edit(ReseauSocial $reseauSocial)
     {
-        //
+        return view('admin.reseau-social.edit',compact('reseauSocial'));
     }
 
     /**
@@ -91,7 +91,16 @@ class ReseauSocialController extends Controller
      */
     public function update(Request $request, ReseauSocial $reseauSocial)
     {
-        //
+        $request->validate([
+            'nom'=>'required',
+            'icon'=>'required',
+            'photo'=>'required'
+        ]);
+
+            $reseauSocial->update($request->all());
+
+            toastr()->info("Le reseau  social <span class='badge badge-dark'>#$reseauSocial->id</span> a bien été modifiée.");
+            return redirect()->route('reseau-social.index');
     }
 
     /**
