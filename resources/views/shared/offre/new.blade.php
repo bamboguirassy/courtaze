@@ -94,7 +94,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'étages</strong></label>
                             <input type="number" name="nombreEtage"
-                                data-form-field="nombreEtage" class="form-control display-7" required="required"
+                                data-form-field="nombreEtage" class="form-control display-7"
                                 value="{{ old('nombreEtage') }}" id="nombreEtage-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
@@ -102,7 +102,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'appartements</strong></label>
                             <input type="number" name="nombreAppartement" 
-                                data-form-field="nombreAppartement" class="form-control display-7" required="required"
+                                data-form-field="nombreAppartement" class="form-control display-7"
                                 value="{{ old('nombreAppartement') }}" id="nombreAppartement-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreStudio" style="">
@@ -110,7 +110,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     studios</strong></label>
                             <input type="number" name="nombreStudio"
-                                data-form-field="nombreStudio" class="form-control display-7" required="required"
+                                data-form-field="nombreStudio" class="form-control display-7"
                                 value="{{ old('nombreStudio') }}" id="nombreStudio-formbuilder-c">
                         </div>
                         @endif
