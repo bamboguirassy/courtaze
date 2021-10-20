@@ -68,7 +68,8 @@ class CategorieBienController extends Controller
      */
     public function edit(CategorieBien $categorieBien)
     {
-        //
+        $categorieBiens = CategorieBien::all();
+        return view('admin.categorie-bien.edit',compact('categorieBiens'));
     }
 
     /**
@@ -80,7 +81,9 @@ class CategorieBienController extends Controller
      */
     public function update(Request $request, CategorieBien $categorieBien)
     {
-        //
+        $categorieBien->update($request->all());
+        toastr()->info("La todo <span class='badge badge-dark'>#$categorieBien->id</span> a bien été modifiée.");
+        return back();
     }
 
     /**
