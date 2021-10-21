@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agence;
 use App\Models\ReseauSocial;
 use Exception;
 use Illuminate\Http\Request;
@@ -15,10 +16,10 @@ class ReseauSocialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Agence $agence=null)
     {
         $reseauSociaux = ReseauSocial::all();
-        return view('admin.reseau-social.index',compact('reseauSociaux'));
+        return view('admin.reseau-social.index',compact('reseauSociaux','agence'));
     }
 
     /**
@@ -78,9 +79,9 @@ class ReseauSocialController extends Controller
      * @param  \App\Models\ReseauSocial  $reseauSocial
      * @return \Illuminate\Http\Response
      */
-    public function edit(ReseauSocial $reseauSocial)
+    public function edit(Agence $agence=null, ReseauSocial $reseauSocial)
     {
-        return view('admin.reseau-social.edit',compact('reseauSocial'));
+        return view('admin.reseau-social.edit',compact('reseauSocial','agence'));
     }
 
     /**
@@ -90,7 +91,7 @@ class ReseauSocialController extends Controller
      * @param  \App\Models\ReseauSocial  $reseauSocial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ReseauSocial $reseauSocial)
+    public function update(Request $request,Agence $agence=null, ReseauSocial $reseauSocial)
     {
         $request->validate([
             'nom'=>'required',
@@ -120,7 +121,7 @@ class ReseauSocialController extends Controller
             }
 
             toastr()->info("Le reseau  social <span class='badge badge-dark'>#$reseauSocial->id</span> a bien été modifiée.");
-            return redirect()->route('reseau-social.index');
+            return redirect()->route('reseau-social.index',compact('agence'));
     }
 
     /**
