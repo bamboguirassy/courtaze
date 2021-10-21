@@ -117,7 +117,7 @@
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link text-warning text-primary display-7" href="">
+                            <a class="nav-link link text-warning text-primary display-7" href="{{ route('agence.services',compact('agence')) }}">
                                 <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
                                 Services
                             </a>
@@ -174,7 +174,7 @@
                         @endauth
                         @isset($agence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="contacts.html"><span
+                                href="{{ route('agence.contact',compact('agence')) }}"><span
                                     class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
                         </li>
                         @endisset

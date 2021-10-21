@@ -14,7 +14,15 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
 
         Route::resource('service', ServiceController::class,[
             'only'=>['index','store','edit','update']
-        ]);
+        ])->middleware('auth');
+
+        Route::get('contact',function(Agence $agence) {
+            return view('agence.contact',compact('agence'));
+        })->name('agence.contact');
+
+        Route::get('services',function(Agence $agence) {
+            return view('agence.services',compact('agence'));
+        })->name('agence.services');
 
         include_once "shared.php";
 });
