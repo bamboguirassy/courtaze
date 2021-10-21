@@ -84,7 +84,7 @@
                         <div data-for="type" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="type-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Type</label>
-                            <select name="type" data-form-field="type" class="form-control display-7"
+                            <select name="type" data-form-field="type" class="form-control"
                                 id="type-formbuilder-u">
                                 @isset($agence)
                                 <option value="Client">Client</option>
