@@ -14,10 +14,10 @@ class CategorieBienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Agence $agence=null)
     {
         $categorieBiens = CategorieBien::all();
-        return view('admin.categorie-bien.index',compact('categorieBiens'));
+        return view('admin.categorie-bien.index',compact('categorieBiens','agence'));
     }
 
     /**
@@ -72,9 +72,9 @@ class CategorieBienController extends Controller
      * @param  \App\Models\CategorieBien  $categorieBien
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategorieBien $categorieBien)
+    public function edit(CategorieBien $categorieBien,Agence $agence=null)
     {
-        return view('admin.categorie-bien.edit',compact('categorieBien'));
+        return view('admin.categorie-bien.edit',compact('categorieBien','agence'));
     }
 
     /**
