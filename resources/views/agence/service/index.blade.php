@@ -173,7 +173,7 @@
                             </div>
                             @empty
                             <div class="alert alert-info" role="alert">
-                                <strong>Aucune catégorie...</strong>
+                                <strong>Aucun Service...</strong>
                             </div>
                             @endforelse
 
