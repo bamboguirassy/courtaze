@@ -6,8 +6,6 @@
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sM0Qt9UCPB" id="header01-2q">
-
-
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" class="lottie__svg"
         preserveAspectRatio="none">
         <defs>
@@ -51,11 +49,7 @@
 </section>
 
 <section data-bs-version="5.1" class="scial2 cid-sM0Rgy7UJf" id="social02-2r">
-
-
-
-
-    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+ <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
@@ -63,7 +57,6 @@
         <path class="st0" d="M-1,15.7c200.1,0,200.7,13.8,400.9,13.8C600,29.5,600.4,9.3,800.5,9.3S998.8,36.8,1199,36.8
 	s201.9-21.1,402-21.1v24.1L-1,40V15.7z"></path>
     </svg>
-
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="text-content align-left col-12 col-md-12 col-lg-6">
@@ -93,22 +86,13 @@
                 <a href="https://vimeo.com/mobirise" target="_blank">
                     <span class="mbr-iconfont mbr-iconfont-social socicon-snapchat socicon"></span>
                 </a>
-
-
-
-
             </div>
         </div>
     </div>
-
 </section>
 
 <section data-bs-version="5.1" class="accordion1 cid-sM0UCEvEnk" id="accordions01-2v">
-
-
-
-
-    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+ <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
@@ -121,8 +105,6 @@
             <div class="col-md-12 col-12">
                 <h2 class="mbr-fonts-style mbr-section-title pb-3 mb-1 mbr-white mbr-semibold align-left display-2">
                     <strong>Nos services</strong></h2>
-
-
                 <div class="content-block">
                     <div class="accordion-content">
                         <div id="bootstrap-accordion_81" class="panel-group accordionStyles accordion " role="tablist"
@@ -135,7 +117,6 @@
                                         <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">Vente
                                             et location</h4>
                                         <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
-
                                     </a>
                                 </div>
                                 <div id="collapse1_81" class="panel-collapse noScroll collapse" role="tabpanel"
@@ -151,7 +132,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingTwo">
                                     <a role="button" class="collapsed panel-title" data-toggle="collapse"
@@ -175,7 +155,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingThree">
                                     <a role="button" class="collapsed panel-title" data-toggle="collapse"
@@ -200,12 +179,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -215,9 +188,7 @@
 </section>
 
 <section data-bs-version="5.1" class="testimonials2 cid-sM0RWxrf3Z" id="testimonials02-2t">
-
-
-    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0

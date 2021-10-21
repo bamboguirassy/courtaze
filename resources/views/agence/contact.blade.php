@@ -6,8 +6,6 @@
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sLWsGuv2ut" id="header01-1n">
-
-
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" class="lottie__svg"
         preserveAspectRatio="none">
         <defs>
@@ -36,32 +34,15 @@
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>Sudo Immo</strong></h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>{{$agence}}</strong></h1>
                     <p class="mbr-text mbr-fonts-style display-7">
-                        Presentation de l'agence</p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-success display-4" href="#"><span
+                        {{$agence->description}}</p>
+                    <div class="mbr-section-btn mt-3">
+                        <a target="_blank" class="btn btn-lg btn-success display-4"
+                            href="https://wa.me/{{$agence->user->telephoneWhatsapp}}"><span
                                 class="socicon socicon-whatsapp mbr-iconfont mbr-iconfont-btn"></span>Contacter sur
-                            WhatsApp</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="info3 cid-sM0yJcM7Qs" id="info3-29">
-
-
-
-
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-
-
-
+                            WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
@@ -69,11 +50,9 @@
     </div>
 </section>
 
+<x-separator />
+
 <section data-bs-version="5.1" class="contacts2 cid-sLWtI0dtcJ" id="contacts02-1p">
-
-
-
-
     <div class="container">
         <div class="mbr-section-head pb-4">
             <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">Contacts
@@ -94,7 +73,7 @@
                         </h4>
                         <p class="mbr-text mbr-fonts-style mb-2 display-4">
                             Nous répondrons le plutôt possible</p>
-                        <h5 class="link mbr-fonts-style display-7"><a href="mailto:info@site.com"
+                        <h5 class="link mbr-fonts-style display-7"><a href="mailto:{{$agence->user->email}}"
                                 class="text-white">Nous envoyer un mail</a></h5>
                     </div>
                 </div>
@@ -111,7 +90,7 @@
                         <p class="mbr-text mbr-fonts-style mb-2 display-4">
                             Mon - Fri 09:00 - 18:00</p>
                         <h5 class="link mbr-black mbr-fonts-style display-7">
-                            <a href="tel:+12345678910" class="text-white">Appeler(221) 123 45 67</a>
+                            <a href="tel:{{$agence->user->telephonePersonnel}}" class="text-white">Appeler {{$agence->user->telephonePersonnel}}</a>
                         </h5>
                     </div>
                 </div>
@@ -121,8 +100,6 @@
 </section>
 
 <section data-bs-version="5.1" class="map1 cid-sLWttgdJjK" id="contacts01-1o">
-
-
     <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
@@ -132,11 +109,10 @@
 	s201.9-21.1,402-21.1v24.1L-1,40V15.7z"></path>
     </svg>
     <div class="container">
-
         <div class="google-map"><iframe frameborder="0" style="border:0"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" allowfullscreen=""
                 loading="lazy" class="lazyload"
-                data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q=350 5th Ave, New York, NY 10118"></iframe>
+                data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q={{$agence->adresse}}"></iframe>
         </div>
     </div>
 </section>
