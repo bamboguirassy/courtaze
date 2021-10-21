@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agence;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Agence $agence=null)
     {
         $users = User::paginate(100);
-        return view('admin.user.index',compact('users'));
+        return view('admin.user.index',compact('users','agence'));
     }
 
     /**
