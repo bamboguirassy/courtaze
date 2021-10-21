@@ -72,7 +72,7 @@
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
                             problem!</div>
                     </div>
-                    <x-display-validation-errors ::$error />
+                    <x-display-validation-errors />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire de modification - Réseau Social</h4>
