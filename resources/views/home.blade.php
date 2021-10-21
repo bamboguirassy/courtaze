@@ -145,9 +145,11 @@ séjour, un terrain ou une maison à acheter...")
                             <hr>
                         </div>
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary display-7">
-                                <span class="fa fa-filter mbr-iconfont mbr-iconfont-btn"></span>
-                                Filtrer</button>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary display-7">
+                                    Chercher
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
