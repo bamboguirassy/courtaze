@@ -17,7 +17,8 @@ class Agence extends Model
         'description',
         'adresse',
         'enabled',
-        'user_id'
+        'user_id',
+        'horaireOuverture'
     ];
 
     public function user() {

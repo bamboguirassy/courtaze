@@ -118,6 +118,14 @@
                             {{old('adresse') ?? ''}}
                             </textarea>
                         </div>
+                        <div data-for="horaireOuverture" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label for="horaireOuverture-formbuilder-u"
+                                class="form-control-label mbr-fonts-style display-7">Horaire d'ouverture</label>
+                            <textarea required="required" name="horaireOuverture" placeholder="Horaire" data-form-field="horaireOuverture"
+                                class="form-control display-7" id="horaireOuverture-formbuilder-u">
+                            {{old('horaireOuverture') ?? ''}}
+                            </textarea>
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="logo">
                             <label for="logo-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Logo</label>

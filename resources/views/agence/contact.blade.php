@@ -88,7 +88,8 @@
                         <h4 class="card-title mbr-fonts-style align-center mb-2 display-5">
                             Téléphone perso.</h4>
                         <p class="mbr-text mbr-fonts-style mb-2 display-4">
-                            Mon - Fri 09:00 - 18:00</p>
+                        {{ $agence->horaireOuverture ?? 'Aucun horaire défini' }}    
+                        </p>
                         <h5 class="link mbr-black mbr-fonts-style display-7">
                             <a href="tel:{{$agence->user->telephonePersonnel}}" class="text-white">Appeler {{$agence->user->telephonePersonnel}}</a>
                         </h5>
