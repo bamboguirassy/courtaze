@@ -141,14 +141,14 @@
             <div class="col-md-12 col-12">
                 <div class="content-block">
                     <div class="accordion-content">
-                        <div id="bootstrap-accordion_97" class="panel-group accordionStyles accordion " role="tablist"
+                        <div id="bootstrap-accordion_35" class="panel-group accordionStyles accordion " role="tablist"
                             aria-multiselectable="true">
                             @forelse ($services as $service )
 
                             <div class="card">
-                                <div class="card-header" role="tab" id="headingOne">
+                                <div class="card-header" role="tab" id="heading{{$loop->index}}">
                                     <a role="button" class="collapsed panel-title" data-toggle="collapse"
-                                        data-bs-toggle="collapse" data-core="" href="#collapse1_97"
+                                        data-bs-toggle="collapse" data-core="" href="#collapse{{$loop->index}}_35"
                                         aria-expanded="false" aria-controls="collapse1">
                                         <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">
                                             {{$service->nom}}
@@ -157,8 +157,8 @@
 
                                     </a>
                                 </div>
-                                <div id="collapse1_97" class="panel-collapse noScroll collapse" role="tabpanel"
-                                    aria-labelledby="headingOne" data-parent="#bootstrap-accordion_97"
+                                <div id="collapse{{$loop->index}}_35" class="panel-collapse noScroll collapse" role="tabpanel"
+                                    aria-labelledby="heading{{$loop->index}}" data-parent="#bootstrap-accordion_35"
                                     data-bs-parent="#accordion">
                                     <div class="panel-body pt-4">
                                         <p
