@@ -117,7 +117,7 @@
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link text-warning text-primary display-7" href="services.html">
+                            <a class="nav-link link text-warning text-primary display-7" href="">
                                 <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
                                 Services
                             </a>
@@ -163,7 +163,7 @@
                                 <a class="dropdown-item text-warning text-primary display-7"
                                     href="reseaux-sociaux.html">Réseaux sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7"
-                                    href="service-list.html">Nos services</a><a
+                                    href="{{ route('service.index',compact('agence')) }}">Nos services</a><a
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="agence-details.html">Mon agence</a><a
                                     class="dropdown-item text-warning text-primary display-7"
