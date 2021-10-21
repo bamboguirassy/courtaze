@@ -111,21 +111,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        @isset($agence)
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="{{route('home',compact('agence'))}}"><span
-                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
+                            href="{{route('home')}}"><span
+                            class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
+                        @isset($agence)
                         <li class="nav-item">
                             <a class="nav-link link text-warning text-primary display-7" href="{{ route('agence.services',compact('agence')) }}">
                                 <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
                                 Services
                             </a>
-                        </li>
-                        @else
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                                href="{{ route('home') }}"><span
-                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @endisset
                         @auth

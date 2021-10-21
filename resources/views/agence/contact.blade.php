@@ -38,7 +38,7 @@
                     <p class="mbr-text mbr-fonts-style display-7">
                         {{$agence->description}}</p>
                     <div class="mbr-section-btn mt-3">
-                        <a target="_blank" class="btn btn-lg btn-success display-4"
+                        <a style="background-color: #24CC63 !important" target="_blank" class="btn btn-lg btn-success display-4"
                             href="https://wa.me/{{$agence->user->telephoneWhatsapp}}"><span
                                 class="socicon socicon-whatsapp mbr-iconfont mbr-iconfont-btn"></span>Contacter sur
                             WhatsApp
