@@ -68,19 +68,21 @@
 <section class="form cid-sM1jK4sfqx" id="formbuilder-3d">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+            <div class="col-lg-8 mx-auto mbr-form" >
                 <!--Formbuilder Form-->
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
-                    data-form-title="serviceNewForm"><input type="hidden" name="email" data-form-email="true"
+                <form action="{{ route('service.store', compact('agence','services')) }}" method="POST" class="mbr-form form-with-styler"
+                    data-form-title="serviceNewForm">
+                    @csrf
+                    @method('post')
+                    <input type="hidden" name="email" data-form-email="true"
                         value="XJnn0pLhMLeEsKV/nfDPzk6v7baCed2joo338kmHMGkM+GOEiLg9y0OHvFH9eo1vg9sVLA0gKoz/Mz0b2/rYpIWorHTZF2zi9GR90yXiDhmYus0lNNejs2BgUHb6FDnC.u18YUpzKvP0hCwTPrZvH/8lQsp8l0I1agiP+TztqSdlM9cWcGLXAGiKk9ccmyJxAJ8Fl46z4WPaBqHrPBU1vxydA3wO6njplSxQRYfnFdyEznC4GPFd4h1UbEMwPgvoG">
-                    <div class="form-row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Formulaire d'ajout - Service</h4>
+                        </div>
+                        <div >
+                            <x-display-validation-errors :errors="$errors->all()"/>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -89,14 +91,17 @@
                             <label for="nom-formbuilder-3d" class="form-control-label mbr-fonts-style display-7">Nom du
                                 service</label>
                             <input type="text" name="nom" placeholder="Nom du service" data-form-field="nom"
-                                class="form-control display-7" required="required" value="" id="nom-formbuilder-3d">
+                                class="form-control display-7" required="required" value="{{old('nom')}}" id="nom-formbuilder-3d">
                         </div>
                         <div data-for="description" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="description-formbuilder-3d"
                                 class="form-control-label mbr-fonts-style display-7">Description du service</label>
                             <textarea name="description" placeholder="Description du service"
                                 data-form-field="description" class="form-control display-7" required="required"
-                                id="description-formbuilder-3d"></textarea>
+                                id="description-formbuilder-3d">
+                                {{ old('description')}}
+                            </textarea>
+
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary display-7">Enregistrer</button>
@@ -138,13 +143,16 @@
                     <div class="accordion-content">
                         <div id="bootstrap-accordion_97" class="panel-group accordionStyles accordion " role="tablist"
                             aria-multiselectable="true">
+                            @forelse ($services as $service )
+
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <a role="button" class="collapsed panel-title" data-toggle="collapse"
                                         data-bs-toggle="collapse" data-core="" href="#collapse1_97"
                                         aria-expanded="false" aria-controls="collapse1">
-                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">Vente
-                                            et location</h4>
+                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">
+                                            {{$service->nom}}
+                                        </h4>
                                         <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
 
                                     </a>
@@ -155,37 +163,22 @@
                                     <div class="panel-body pt-4">
                                         <p
                                             class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                            Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus,
-                                            voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa
-                                            asperiores, error ullam qui! Commodi nobis distinctio aperiam totam
-                                            perferendis quas.</p>
+                                            {{$service->description}}
+                                        </p>
+                                        <hr>
+                                        <button type="submit"  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('service.edit', compact('service','agence')) }}">Modifier</a></button>
+
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="card">
-                                <div class="card-header" role="tab" id="headingTwo">
-                                    <a role="button" class="collapsed panel-title" data-toggle="collapse"
-                                        data-bs-toggle="collapse" data-core="" href="#collapse2_97"
-                                        aria-expanded="false" aria-controls="collapse2">
-                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">
-                                            Assistance</h4>
-                                        <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
-                                    </a>
-
-                                </div>
-                                <div id="collapse2_97" class="panel-collapse noScroll collapse" role="tabpanel"
-                                    aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_97"
-                                    data-bs-parent="#accordion">
-                                    <div class="panel-body pt-4">
-                                        <p
-                                            class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                            Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint
-                                            repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas
-                                            inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>
-                                    </div>
-                                </div>
+                            @empty
+                            <div class="alert alert-info" role="alert">
+                                <strong>Aucune catégorie...</strong>
                             </div>
+                            @endforelse
+
+
+
                         </div>
                     </div>
                 </div>
