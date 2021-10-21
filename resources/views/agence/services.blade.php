@@ -35,13 +35,15 @@
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>Sudo Immo</strong></h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>{{ $agence }}</strong></h1>
                     <p class="mbr-text mbr-fonts-style display-7">
                         Nos proposons pas de services pour vous accompagner dans la vie de tous les jours.</p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-success display-4"
-                            href="https://wa.me/77"><span
+                    <div class="mbr-section-btn mt-3">
+                        <a style="background-color: #24cc63 !important" target="_blank" class="btn btn-lg btn-success display-4"
+                            href="https://wa.me/{{ $agence->user->telephoneWhatsapp }}"><span
                                 class="socicon socicon-whatsapp mbr-iconfont mbr-iconfont-btn"></span>Joindre sur
-                            WhatsApp</a></div>
+                            WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,7 +51,7 @@
 </section>
 
 <section data-bs-version="5.1" class="scial2 cid-sM0Rgy7UJf" id="social02-2r">
- <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
@@ -90,9 +92,9 @@
         </div>
     </div>
 </section>
-
+@if (count($agence->services)>0)
 <section data-bs-version="5.1" class="accordion1 cid-sM0UCEvEnk" id="accordions01-2v">
- <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
@@ -104,81 +106,35 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <h2 class="mbr-fonts-style mbr-section-title pb-3 mb-1 mbr-white mbr-semibold align-left display-2">
-                    <strong>Nos services</strong></h2>
+                    <strong>Nos services</strong>
+                </h2>
                 <div class="content-block">
                     <div class="accordion-content">
                         <div id="bootstrap-accordion_81" class="panel-group accordionStyles accordion " role="tablist"
                             aria-multiselectable="true">
+                            @foreach ($agence->services as $service)
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <a role="button" class="collapsed panel-title" data-toggle="collapse"
-                                        data-bs-toggle="collapse" data-core="" href="#collapse1_81"
+                                        data-bs-toggle="collapse" data-core="" href="#collapse{{$loop->index}}_81"
                                         aria-expanded="false" aria-controls="collapse1">
-                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">Vente
-                                            et location</h4>
+                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">{{
+                                            $service->nom }}</h4>
                                         <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
                                     </a>
                                 </div>
-                                <div id="collapse1_81" class="panel-collapse noScroll collapse" role="tabpanel"
+                                <div id="collapse{{$loop->index}}_81" class="panel-collapse noScroll collapse" role="tabpanel"
                                     aria-labelledby="headingOne" data-parent="#bootstrap-accordion_81"
                                     data-bs-parent="#accordion">
                                     <div class="panel-body pt-4">
                                         <p
                                             class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                            Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus,
-                                            voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa
-                                            asperiores, error ullam qui! Commodi nobis distinctio aperiam totam
-                                            perferendis quas.</p>
+                                            {{$service->description}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header" role="tab" id="headingTwo">
-                                    <a role="button" class="collapsed panel-title" data-toggle="collapse"
-                                        data-bs-toggle="collapse" data-core="" href="#collapse2_81"
-                                        aria-expanded="false" aria-controls="collapse2">
-                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">
-                                            Conseils &amp; Expertise</h4>
-                                        <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
-                                    </a>
-
-                                </div>
-                                <div id="collapse2_81" class="panel-collapse noScroll collapse" role="tabpanel"
-                                    aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_81"
-                                    data-bs-parent="#accordion">
-                                    <div class="panel-body pt-4">
-                                        <p
-                                            class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                            Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint
-                                            repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas
-                                            inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" role="tab" id="headingThree">
-                                    <a role="button" class="collapsed panel-title" data-toggle="collapse"
-                                        data-bs-toggle="collapse" data-core="" href="#collapse3_81"
-                                        aria-expanded="false" aria-controls="collapse3">
-                                        <h4 class="mbr-fonts-style header-text mbr-white mbr-semibold display-5">
-                                            Curabitur ut venenatis
-                                            urna</h4>
-                                        <span class="sign mbr-iconfont mobi-mbri-plus inactive"></span>
-
-                                    </a>
-                                </div>
-                                <div id="collapse3_81" class="panel-collapse noScroll collapse" role="tabpanel"
-                                    aria-labelledby="headingThree" data-parent="#bootstrap-accordion_81"
-                                    data-bs-parent="#accordion">
-                                    <div class="panel-body pt-4">
-                                        <p
-                                            class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
-                                            Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Illum sed
-                                            exercitationem reiciendis suscipit sunt enim, tempore ex debitis fuga
-                                            dolorum aliquid ea libero atque optio. Molestiae ullam at, quasi alias.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -186,9 +142,10 @@
         </div>
     </div>
 </section>
+@endif
 
 <section data-bs-version="5.1" class="testimonials2 cid-sM0RWxrf3Z" id="testimonials02-2t">
-<svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
@@ -249,8 +206,6 @@
 </section>
 
 <section data-bs-version="5.1" class="form3 cid-sM0S6naxp4" id="form03-2u">
-
-
     <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
@@ -267,9 +222,6 @@
                     loading="lazy"
                     data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg">
             </div>
-
-
-
             <div class="col-lg-6 mx-auto mbr-form" data-form-type="formoid">
                 <!--Formbuilder Form-->
                 <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
