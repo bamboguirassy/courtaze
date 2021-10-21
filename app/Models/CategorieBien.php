@@ -17,6 +17,11 @@ class CategorieBien extends Model
         'code'
     ];
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     /**
      * Get all of the offres for the CategorieBien
      *

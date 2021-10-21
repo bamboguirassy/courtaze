@@ -30,7 +30,7 @@
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                         loading="lazy"
-                        data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg">
+                        data-src="{{ asset('assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg') }}">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
@@ -53,19 +53,16 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
                 <!--Formbuilder Form-->
-                <form enctype="multipart/form-data" action="{{ route('categorie.offre.filter',['categorie'=>$categorieBien]) }}" method="POST"
+                <form enctype="multipart/form-data"
+                    action="{{ route('categorie.offre.filter',['categorie'=>$categorieBien]) }}" method="POST"
                     data-rcpha_sitekey="" data-rcpha_secretkey="" class="mbr-form form-with-styler">
                     @csrf
                     @method('post')
                     <input hidden type="number" name="categorie_bien_id" value="{{$categorieBien->id}}">
-                    <div class="form-row">
-
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
+                    <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h4 class="mbr-fonts-style display-5"><strong>Publication d'une offre</strong></h4>
+                            <h4 class="mbr-fonts-style display-5"><strong>Recherche *{{$categorieBien->nom}}*</strong></h4>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -76,7 +73,8 @@
                             </label>
                             <select class="form-control" name="proposition" id="proposition">
                                 @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART" ||
-                                $categorieBien->code=="VILLA" || $categorieBien->code=="IMMO" || $categorieBien->code=="CHAMBRE")
+                                $categorieBien->code=="VILLA" || $categorieBien->code=="IMMO" ||
+                                $categorieBien->code=="CHAMBRE")
                                 <option>Location</option>
                                 @endif
                                 @if ($categorieBien->code=="TERRAIN" || $categorieBien->code=="STUDIO" ||
@@ -94,25 +92,23 @@
                             <label for="nombreEtage-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'étages</strong></label>
-                            <input type="number" name="nombreEtage" min="0" step="1"
-                                data-form-field="nombreEtage" class="form-control display-7"
-                                value="" id="nombreEtage-formbuilder-c">
+                            <input type="number" name="nombreEtage" min="0" step="1" data-form-field="nombreEtage"
+                                class="form-control display-7" value="" id="nombreEtage-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreAppartement">
                             <label for="nombreAppartement-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre
                                     d'appartements</strong></label>
                             <input type="number" name="nombreAppartement" min="0" step="1"
-                                data-form-field="nombreAppartement" class="form-control display-7"
-                                value="" id="nombreAppartement-formbuilder-c">
+                                data-form-field="nombreAppartement" class="form-control display-7" value=""
+                                id="nombreAppartement-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreStudio" style="">
                             <label for="nombreStudio-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     studios</strong></label>
-                            <input type="number" name="nombreStudio" min="0" step="1"
-                                data-form-field="nombreStudio" class="form-control display-7"
-                                value="" id="nombreStudio-formbuilder-c">
+                            <input type="number" name="nombreStudio" min="0" step="1" data-form-field="nombreStudio"
+                                class="form-control display-7" value="" id="nombreStudio-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code=="TERRAIN")
@@ -121,8 +117,7 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Superficie
                                     (m²)</strong></label>
                             <input type="number" name="superficie" min="0" step="1" data-form-field="superficie"
-                                class="form-control display-7" value=""
-                                id="superficie-formbuilder-c">
+                                class="form-control display-7" value="" id="superficie-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code=="STUDIO" || $categorieBien->code=="APPART")
@@ -130,17 +125,16 @@
                             <label for="nombreChambre-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     chambres</strong></label>
-                            <input type="number" name="nombreChambre" min="1" step="1"
-                                data-form-field="nombreChambre" class="form-control display-7"
-                                value="" id="nombreChambre-formbuilder-c">
+                            <input type="number" name="nombreChambre" min="1" step="1" data-form-field="nombreChambre"
+                                class="form-control display-7" value="" id="nombreChambre-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="nombreChambreAvecToilette">
                             <label for="nombreChambreAvecToilette-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre chambre avec
                                     toilette intérieure</strong></label>
                             <input type="number" name="nombreChambreAvecToilette" min="1" step="1"
-                                data-form-field="nombreChambreAvecToilette"
-                                class="form-control display-7" value="" id="nombreChambreAvecToilette-formbuilder-c">
+                                data-form-field="nombreChambreAvecToilette" class="form-control display-7" value=""
+                                id="nombreChambreAvecToilette-formbuilder-c">
                         </div>
                         @endif
                         @if ($categorieBien->code!="HOTE" && $categorieBien->code!="TERRAIN")
@@ -195,7 +189,8 @@
                             @endif
                         </div>
                         @endif
-                        @if ($categorieBien->code=="APPART" || $categorieBien->code=="STUDIO" || $categorieBien->code=="CHAMBRE")
+                        @if ($categorieBien->code=="APPART" || $categorieBien->code=="STUDIO" ||
+                        $categorieBien->code=="CHAMBRE")
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="niveau" style="">
                             <div class="form-control-label">
                                 <label for="niveau-formbuilder-c"
@@ -203,8 +198,7 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input type="radio" name="niveau" data-form-field="niveau"
-                                    class="form-check-input display-7" value="" checked=""
-                                    id="niveau-formbuilder-c">
+                                    class="form-check-input display-7" value="" checked="" id="niveau-formbuilder-c">
                                 <label class="form-check-label display-7">Pas précisé</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -226,8 +220,8 @@
                                 class="form-control-label mbr-fonts-style display-7"><strong>Nombre de
                                     cuisines</strong></label>
                             <input type="number" name="nombreCuisine" max="100" min="1" step="1"
-                                data-form-field="nombreCuisine" class="form-control display-7"
-                                value="" id="nombreCuisine-formbuilder-c">
+                                data-form-field="nombreCuisine" class="form-control display-7" value=""
+                                id="nombreCuisine-formbuilder-c">
                         </div>
                         @endif
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville" style="">
@@ -241,10 +235,13 @@
                                 <strong>Quel est votre budget ?</strong>
                             </label>
                             <input type="number" name="prix" placeholder="Prix" max="" min="5000" step="5"
-                                data-form-field="prix" class="form-control display-7" value=""
-                                id="prix-formbuilder-c">
+                                data-form-field="prix" class="form-control display-7" value="" id="prix-formbuilder-c">
                         </div>
-                        <div class="col-auto"><button type="submit" class="btn btn-primary display-7">Filtrer</button></div>
+                        <div class="col-auto">
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-block display-7">Filtrer</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 <!--Formbuilder Form-->

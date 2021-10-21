@@ -29,8 +29,12 @@ Route::post('post-init',function(Request $request, Agence $agence=null) {
 })->middleware('auth')->name('offre.init.new');
 
 Route::resource('offre', OffreController::class,[
-    'only'=>['store','show','edit','update']
+    'only'=>['store','edit','update']
 ])->middleware('auth');
+
+Route::resource('offre', OffreController::class,[
+    'only'=>['show']
+]);
 
 Route::post('categorie-bien/{categorie}',function(Agence $agence=null, CategorieBien $categorie) {
     $query = Offre::where('visible',true)->where('categorie_bien_id',$categorie->id);
