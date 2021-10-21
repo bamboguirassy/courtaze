@@ -62,7 +62,7 @@
                     <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h4 class="mbr-fonts-style display-5"><strong>Recherche *{{$categorieBien->nom}}*</strong></h4>
+                            <h4 class="mbr-fonts-style display-5">Recherche <strong>{{$categorieBien->nom}}</strong></h4>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <hr>
@@ -239,7 +239,7 @@
                         </div>
                         <div class="col-auto">
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block display-7">Filtrer</button>
+                                <button type="submit" class="btn btn-primary btn-block display-7">Chercher</button>
                             </div>
                         </div>
                     </div>
