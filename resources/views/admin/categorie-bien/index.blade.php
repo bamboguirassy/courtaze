@@ -43,12 +43,14 @@
                                     role="tabpanel" aria-labelledby="heading{{$loop->index}}"
                                     data-parent="#bootstrap-accordion_35" data-bs-parent="#accordion">
                                     <div class="panel-body pt-4">
+
                                         <p
                                             class="mbr-fonts-style panel-text mbr-text mbr-white mb-3 mbr-regular display-4">
                                             <span class="mbr-iconfont {{$categorieBien->icon}}"></span> -
                                             {{$categorieBien->description}}
                                         </p>
-                                        <button type="button" class="btn btn-warning btn-sm"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
+                                        <hr>
+                                        <button  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
                                     </div>
                                 </div>
                             </div>
