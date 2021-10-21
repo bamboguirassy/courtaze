@@ -179,7 +179,7 @@
                                 href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined">
-                                <a class="dropdown-item text-warning text-primary display-7" href="profil.html"><span
+                                <a class="dropdown-item text-warning text-primary display-7" href="{{ route('profile',compact('agence')) }}"><span
                                         class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
                                     profil
                                 </a>

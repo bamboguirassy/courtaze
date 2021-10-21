@@ -3,6 +3,7 @@
 use App\Helpers\RoutingHelper;
 use App\Http\Controllers\CategorieBienController;
 use App\Http\Controllers\OffreController;
+use App\Http\Controllers\UserController;
 use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
@@ -43,6 +44,10 @@ Route::post('categorie-bien/{categorie}',function(Agence $agence=null, Categorie
 Route::resource('categorie-bien', CategorieBienController::class,[
     'only'=>['show']
 ]);
+
+Route::resource('user', UserController::class,[
+    'only'=>['update']
+])->middleware('auth');
 
 Route::post('/',function(Request $request, Agence $agence=null) {
     $query = Offre::where('visible',true);

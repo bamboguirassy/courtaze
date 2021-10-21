@@ -85,10 +85,7 @@ Route::post('register', function(Request $request,Agence $agence=null) {
 Route::post('logout',function(Request $request,Agence $agence=null) {
     if(Auth::logout()) {
         toastr()->success("Vous vous êtes déconnectés avec succès !");
-        if($request->has('agence')) {
-            // redirect to agence home
-        } 
-        return redirect()->route('home');
+        return redirect()->route('home'); 
     }
     return redirect()->back()->with(['agence'=>$agence]);
 })->middleware('auth')->name('logout');
@@ -96,3 +93,20 @@ Route::post('logout',function(Request $request,Agence $agence=null) {
 Route::get('profile', function(Agence $agence=null) {
 return view('auth.profile',compact('agence'));
 })->middleware('auth')->name('profile');
+
+Route::put('change-password',function(Request $request, Agence $agence=null) {
+    $request->validate([
+        'currentPassword'=>'required|min:6',
+        'password'=>'confirmed'
+    ]);
+    $user = User::find(Auth::user()->id);
+    if(Hash::check($request->get('currentPassword'), $user->password)) {
+        $user->password = Hash::make($request->get('password'));
+        $user->update();
+        toastr()->success("Votre mot de passe a été changé avec succès, merci de vous reconnecter !");
+        Auth::logout();
+    } else {
+        toastr()->error("Le mot de passe saisi est incorrect !");
+    }
+    return back();
+})->name('change.password.request')->middleware('auth');
