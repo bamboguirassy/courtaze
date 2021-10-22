@@ -52,7 +52,7 @@
                                         </p>
                                         <hr>
                                         <div class="form-inline justify-content-end my-1 p-0 col-sm">
-                                            <form action="">
+                                            <form >
                                                 <button  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
                                             </form>
                                             <form action="{{ route('categorie-bien.destroy', $categorieBien->id) }}" method="post">
