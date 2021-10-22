@@ -15,6 +15,11 @@ class CreateTemoignagesTable extends Migration
     {
         Schema::create('temoignages', function (Blueprint $table) {
             $table->id();
+            $table->string('clientName')->require();
+            $table->string('fonction')->nullable();
+            $table->string('message')->require();
+            $table->string('photo')->nullable();
+            $table->foreignId('agence_id')->constrained();
             $table->timestamps();
         });
     }
