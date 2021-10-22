@@ -69,6 +69,7 @@
     <meta name="apple-mobile-web-app-title" content="">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @toastr_css
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
 </head>
 
 <body>

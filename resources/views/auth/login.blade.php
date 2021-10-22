@@ -52,26 +52,7 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="info3 cid-sLWguqrDEo" id="info3-12">
-
-
-
-
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
-                <div class="card-wrapper">
-                    <div class="card-box align-center">
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-separator />
 
 <section class="form cid-sLWfBVvbIR" id="formbuilder-11">
     <div class="container">
@@ -123,6 +104,10 @@
                                     class="form-check-input display-7" value="Non" id="remember_me-formbuilder-11">
                                 <label class="form-check-label display-7">Non</label>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Confirmer que vous n'êtes pas un robot</label>
+                            <div class="col-md-6"> {!! htmlFormSnippet() !!} </div>
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary display-7">Se connecter</button>
