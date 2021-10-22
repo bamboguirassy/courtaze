@@ -166,7 +166,24 @@
                                             {{$service->description}}
                                         </p>
                                         <hr>
-                                        <button type="submit"  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('service.edit', compact('service','agence')) }}">Modifier</a></button>
+                                        <div class="form-inline justify-content-end my-1 p-0 col-sm">
+                                            <form action="">
+                                                <button type="submit"   class="btn btn-warning btn-sm mx-1 pull-right"><a  href="{{ route('service.edit', compact('service','agence')) }}">Modifier</a></button>
+
+                                            </form>
+                                            <form action="{{ route('service.destroy', compact('service','agence')) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"   class="btn btn-danger btn-sm mx-1 pull-right">Supprimer</button>
+
+                                            </form>
+
+
+                                        </div>
+
+
+
+
 
                                     </div>
                                 </div>

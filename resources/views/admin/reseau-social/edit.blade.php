@@ -98,9 +98,19 @@
                             <input type="file" name="photo" data-form-field="photo" class="form-control display-7"
                                  value="" id="photo-formbuilder-3m">
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <button type="submit" class="btn btn-primary display-7">Mettre à jour</button>
+                        <div class="form-inline justify-content-end my-1 p-0 col-sm">
+                            <form action="">
+                                <button type="submit" class="btn btn-primary mx-1 display-7">Mettre à jour</button>
+                            </form>
+
+                            <form action="{{ route('reseau-social.destroy', $reseauSocial->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"   class="btn btn-danger btn-sm mx-1 display-7 pull-right">Supprimer</button>
+
+                            </form>
                         </div>
+
                     </div>
                 </form>
                 <!--Formbuilder Form-->
