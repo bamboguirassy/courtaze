@@ -22,6 +22,7 @@
                 </h2>
                 <h3 class="mbr-fonts-style mbr-section-subtitle pb-3 mb-1 mbr-white mbr-regular align-left display-7">
                     Gestion des catégories de biens</h3>
+
                 <div class="content-block">
                     <div class="accordion-content">
                         <div id="bootstrap-accordion_35" class="panel-group accordionStyles accordion " role="tablist"
@@ -50,7 +51,20 @@
                                             {{$categorieBien->description}}
                                         </p>
                                         <hr>
-                                        <button  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
+                                        <div class="form-inline justify-content-end my-1 p-0 col-sm">
+                                            <form action="">
+                                                <button  type="button" class="btn btn-warning btn-sm pull-right"><a  href="{{ route('categorie-bien.edit', $categorieBien->id) }}">Modifier</a></button>
+                                            </form>
+                                            <form action="{{ route('categorie-bien.destroy', $categorieBien->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"   class="btn btn-danger btn-sm mx-1 pull-right">Supprimer</button>
+
+                                            </form>
+
+
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

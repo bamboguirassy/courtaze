@@ -13,7 +13,7 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
         })->name('home');
 
         Route::resource('service', ServiceController::class,[
-            'only'=>['index','store','edit','update']
+            'only'=>['index','store','edit','update','destroy']
         ])->middleware('auth');
 
         Route::get('contact',function(Agence $agence) {

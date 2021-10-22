@@ -6,6 +6,8 @@ use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use Exception;
 
 class CategorieBienController extends Controller
 {
@@ -105,11 +107,21 @@ class CategorieBienController extends Controller
      */
     public function destroy(CategorieBien $categorieBien)
     {
-        if($categorieBien->delete()) {
-            toastr()->success("La catégorie est supprimée avec succès !");
-        } else {
-            toastr()->error("Une erreur est survenue lors de la suppression de la catégorie.");
+        try{
+            if($categorieBien->delete())
+            {
+                toastr()->error("La catégorie est supprimée avec succès !");
+                return back();
+            }
+
         }
-        return back();
+        catch(Exception $e)
+        {
+            toastr()->error("Une erreur est survenue lors de la suppression de la catégorie  !");
+            return back();
+            throw   $e;
+        }
+
+
     }
 }

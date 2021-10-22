@@ -98,8 +98,11 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Agence $agence,Service $service)
     {
-        //
+        $service->delete();
+         toastr()->error("Le service <span class='badge badge-dark'>#$service->id</span> a bien été supprimé.");
+
+         return redirect()->route('service.index',compact('agence'));
     }
 }

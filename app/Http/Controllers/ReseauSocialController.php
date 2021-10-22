@@ -132,6 +132,8 @@ class ReseauSocialController extends Controller
      */
     public function destroy(ReseauSocial $reseauSocial)
     {
-        //
+        $reseauSocial->delete();
+        toastr()->error("Le reseau social <span class='badge badge-dark'>#$reseauSocial->id</span> a bien été supprimé.");
+        return redirect()->route('reseau-social.index');
     }
 }
