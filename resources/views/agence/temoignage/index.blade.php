@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
+                <form enctype="multipart/form-data" action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
                     data-form-title="newTemoignageForm"><input type="hidden" name="email" data-form-email="true"
                         value="ZL2euCHQou/yxqYPGtfHujuSqyhjB8M83HMZniBlNqeyoWJ8y5mfvc1GowTsXU6RSqX7pkQIdmD06Qv7YvX8GWLFpw84BxIRnKfNibLrNOShz3o0wE4Ry+VomFAxFL1D.vVe3V0iSYszGbBt+fS1AAcQtbH/nKXjinVDreJNxXlVBGiehh97EFNBP77IiQGJb1BOGjTmIQnQQG4tfEuZx/RyPf+eg153ShIYyFT6uyka2M94Nl7/PMQ7lMPFwkNT8">
                     <x-display-validation-errors :errors="$errors->all()" />
@@ -86,7 +86,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="photo">
                             <label for="photo-formbuilder-45" class="form-control-label mbr-fonts-style display-7">Photo
                                 du client</label>
-                            <input type="text" name="photo" data-form-field="photo" class="form-control display-7"
+                            <input type="file" accept="image/*" name="photo" data-form-field="photo" class="form-control display-7"
                                 value="" id="photo-formbuilder-45">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
