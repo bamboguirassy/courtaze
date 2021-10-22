@@ -256,6 +256,11 @@
     <div class="container">
         <div class="row">
             @foreach ($offres as $offre)
+            @if ($loop->index==3 || $loop->index==7 || $loop->index==10)
+            <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
+                {!! Adsense::ads('responsive') !!}
+            </div>
+            @endif
             <div class="сol-12 col-md-12 col-lg-4 md-pb">
                 <x-offre-item :offre="$offre" />
             </div>
