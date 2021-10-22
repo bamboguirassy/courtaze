@@ -36,12 +36,18 @@ Route::resource('offre', OffreController::class,[
     'only'=>['show']
 ]);
 
+/** Filtre des biens par catégorie bien */
 Route::post('categorie-bien/{categorie}',function(Agence $agence=null, CategorieBien $categorie) {
     $query = Offre::where('visible',true)->where('categorie_bien_id',$categorie->id);
     if($agence!=null) {
         $query = $query->where('agence_id',$agence->id);
     }
     $offres = RoutingHelper::filterOffres($query);
+    if(count($offres)) {
+        toastr()->info("Votre filtre a trouvé ".count($offres)." résultat(s)");
+    } else {
+        toastr()->warning("Aucun résultat n'est trouvé pour vos critères de recherche...");
+    }
     return view('shared.categorie-bien.show',['categorieBien'=>$categorie,'offres'=>$offres,'agence'=>$agence]);
 })->name('categorie.offre.filter');
 
@@ -59,6 +65,11 @@ Route::post('/',function(Request $request, Agence $agence=null) {
         $query = $query->where('agence_id',$agence->id);
     }
     $offres = RoutingHelper::filterOffres($query);
+    if(count($offres)) {
+        toastr()->info("Votre filtre a trouvé ".count($offres)." résultat(s)");
+    } else {
+        toastr()->warning("Aucun résultat n'est trouvé pour vos critères de recherche...");
+    }
     $categories = CategorieBien::orderby('nom')->get();
     return view('home',compact('offres','categories','agence'));
 })->name('offre.filter');
