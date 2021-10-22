@@ -81,30 +81,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($agences as $agence)
+                                @foreach ($agences as $agenceItem)
                                 <tr>
                                     <td class="body-item mbr-fonts-style display-7">{{ $loop->index+1 }}</td>
                                     <td class="body-item">
-                                        <img style="width: 50px" src="{{ asset('uploads/agence/logos/'.$agence->logo) }}" alt="">
+                                        <img style="width: 50px" src="{{ asset('uploads/agence/logos/'.$agenceItem->logo) }}" alt="">
                                     </td>
-                                    <td class="body-item mbr-fonts-style display-7">{{$agence->user->name}}</td>
-                                    <td class="body-item mbr-fonts-style display-7">{{ $agence->domain }}</td>
+                                    <td class="body-item mbr-fonts-style display-7">{{$agenceItem->user->name}}</td>
+                                    <td class="body-item mbr-fonts-style display-7">{{ $agenceItem->domain }}</td>
                                     <td class="body-item mbr-fonts-style display-7">
-                                        <a target="_blank" href="https://wa.me/{{ $agence->user->telephoneWhatsapp }}"
-                                            class="text-primary">{{ $agence->user->telephoneWhatsapp }}</a>
+                                        <a target="_blank" href="https://wa.me/{{ $agenceItem->user->telephoneWhatsapp }}"
+                                            class="text-primary">{{ $agenceItem->user->telephoneWhatsapp }}</a>
                                     </td>
                                     <td class="body-item mbr-fonts-style display-7"><a
-                                            href="mailto:{{ $agence->user->email }}" class="text-primary">{{
-                                            $agence->user->email }}</a></td>
+                                            href="mailto:{{ $agenceItem->user->email }}" class="text-primary">{{
+                                            $agenceItem->user->email }}</a></td>
                                     <td class="body-item mbr-fonts-style display-7">{{
-                                        date_format($agence->created_at,'d/m/Y à H:i:s') }}</td>
+                                        date_format($agenceItem->created_at,'d/m/Y à H:i:s') }}</td>
                                     <td class="body-item">
-                                        <div style="height: 20px; width: 50px; background-color: {{ $agence->color }}">
+                                        <div style="height: 20px; width: 50px; background-color: {{ $agenceItem->color }}">
                                         </div>
                                     </td>
                                     <td class="body-item mbr-fonts-style display-7">
                                         <div class="form-check form-check-inline">
-                                            <input disabled type="checkbox" @if($agence->enabled) checked @endif
+                                            <input disabled type="checkbox" @if($agenceItem->enabled) checked @endif
                                             class="form-check-input" name="checkbox">
                                         </div>
                                     </td>

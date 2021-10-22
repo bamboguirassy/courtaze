@@ -12,10 +12,10 @@ class AgenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Agence $agence=null)
     {
         $agences = Agence::paginate(100);
-        return view('admin.agence.index',compact('agences'));
+        return view('admin.agence.index',compact('agences','agence'));
     }
 
     /**

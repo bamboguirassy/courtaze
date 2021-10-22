@@ -38,14 +38,14 @@ séjour, un terrain ou une maison à acheter...")
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1">
-                        <strong>{{(isset($agence)?$agence->nom:config('app.name'))}}</strong></h1>
+                        <strong>{{(isset($agence)?$agence->nom:config('app.name'))}}</strong>
+                    </h1>
                     <p class="mbr-text mbr-fonts-style display-7">
                         @isset($agence)
                         {{$agence->description}}
                         @else
-                        Trouver du logement au Sénégal est un véritable
-                        casse-tête. C’est pourquoi nous proposons beaucoup plus qu’une simple plateforme de
-                        recherche.
+                        Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à <strong>{{config('app.name')}}</strong>.
+                        Vous êtes propriétaire, courtier ou agence ? Nous avons pensé à chacun.
                         @endisset
                         <br>
                     </p>
@@ -73,8 +73,7 @@ séjour, un terrain ou une maison à acheter...")
                         @guest
                         <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
-                        <a class="btn btn-lg btn-info display-4"
-                            href="{{ route('pre.register.page') }}"><span
+                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
                     </div>
                     @endguest
@@ -146,9 +145,11 @@ séjour, un terrain ou une maison à acheter...")
                             <hr>
                         </div>
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary display-7">
-                                <span class="fa fa-filter mbr-iconfont mbr-iconfont-btn"></span>
-                                Filtrer</button>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary display-7">
+                                    Chercher
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>

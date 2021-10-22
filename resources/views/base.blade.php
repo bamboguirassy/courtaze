@@ -112,12 +112,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
                         <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
-                            href="{{route('home')}}"><span
-                            class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
+                                href="{{route('home')}}"><span
+                                    class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @isset($agence)
                         <li class="nav-item">
-                            <a class="nav-link link text-warning text-primary display-7" href="{{ route('agence.services',compact('agence')) }}">
+                            <a class="nav-link link text-warning text-primary display-7"
+                                href="{{ route('agence.services',compact('agence')) }}">
                                 <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
                                 Services
                             </a>
@@ -178,7 +179,7 @@
                                 href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined">
-                                <a class="dropdown-item text-warning text-primary display-7" href="profil.html"><span
+                                <a class="dropdown-item text-warning text-primary display-7" href="{{ route('profile',compact('agence')) }}"><span
                                         class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
                                     profil
                                 </a>
@@ -199,6 +200,13 @@
                             </div>
                         </li>
                         @endauth
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link link text-warning text-primary display-7" href="{{ route('login') }}">
+                                <span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Se
+                                connecter</a>
+                        </li>
+                        @endguest
                     </ul>
                 </div>
             </div>

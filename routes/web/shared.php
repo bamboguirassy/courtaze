@@ -3,6 +3,7 @@
 use App\Helpers\RoutingHelper;
 use App\Http\Controllers\CategorieBienController;
 use App\Http\Controllers\OffreController;
+use App\Http\Controllers\UserController;
 use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
@@ -28,8 +29,12 @@ Route::post('post-init',function(Request $request, Agence $agence=null) {
 })->middleware('auth')->name('offre.init.new');
 
 Route::resource('offre', OffreController::class,[
-    'only'=>['store','show','edit','update']
+    'only'=>['store','edit','update']
 ])->middleware('auth');
+
+Route::resource('offre', OffreController::class,[
+    'only'=>['show']
+]);
 
 Route::post('categorie-bien/{categorie}',function(Agence $agence=null, CategorieBien $categorie) {
     $query = Offre::where('visible',true)->where('categorie_bien_id',$categorie->id);
@@ -43,6 +48,10 @@ Route::post('categorie-bien/{categorie}',function(Agence $agence=null, Categorie
 Route::resource('categorie-bien', CategorieBienController::class,[
     'only'=>['show']
 ]);
+
+Route::resource('user', UserController::class,[
+    'only'=>['update']
+])->middleware('auth');
 
 Route::post('/',function(Request $request, Agence $agence=null) {
     $query = Offre::where('visible',true);

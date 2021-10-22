@@ -43,28 +43,28 @@
                     </p>
                     <div class="mbr-section-btn mt-3">
                         @auth
-                            @if($offre->user_id==auth()->user()->id)
-                                <a class="btn btn-lg btn-warning display-4" href="{{ route('offre.edit',['offre'=>$offre]) }}">
-                                    <span class="mobi-mbri mobi-mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
-                                </a>
-                                @if($offre->visible)
-                                <a class="btn btn-lg btn-danger-outline display-4" href="#">
-                                    <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
-                                </a>
-                                @endif
-                                @if(!$offre->visible)
-                                <a class="btn btn-lg btn-primary-outline display-4" href="#">
-                                    <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
-                                </a>
-                                <a class="btn btn-lg btn-danger display-4" href="#">
-                                    <span class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer
-                                </a>
-                                @endif
-                                @if(!$offre->geolocalise)
-                                <a class="btn btn-lg btn-black display-4">
-                                    <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Géolocaliser
-                                </a>
-                                @endif
+                        @if($offre->user_id==auth()->user()->id)
+                        <a class="btn btn-lg btn-warning display-4" href="{{ route('offre.edit',['offre'=>$offre]) }}">
+                            <span class="mobi-mbri mobi-mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
+                        </a>
+                        @if($offre->visible)
+                        <a class="btn btn-lg btn-danger-outline display-4" href="#">
+                            <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
+                        </a>
+                        @endif
+                        @if(!$offre->visible)
+                        <a class="btn btn-lg btn-primary-outline display-4" href="#">
+                            <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
+                        </a>
+                        <a class="btn btn-lg btn-danger display-4" href="#">
+                            <span class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer
+                        </a>
+                        @endif
+                        @if(!$offre->geolocalise)
+                        <a class="btn btn-lg btn-black display-4">
+                            <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Géolocaliser
+                        </a>
+                        @endif
                         @endif
                         @if (auth()->user()->type=="Client")
                         <a class="btn btn-lg btn-secondary display-4" href="#">
@@ -152,11 +152,15 @@
                         <li>Niveau: {{ $offre->niveau }}</li>
                         @endif
                     </ul>
+                    @auth
+                    @if($offre->user_id==auth()->user()->id)
                     <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-white display-4" href="#"><span
                                 class="mobi-mbri mobi-mbri-plus mbr-iconfont mbr-iconfont-btn"></span>Ajouter des
                             photos</a> <a class="btn btn-lg btn-white display-4" href="#"><span
                                 class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer toutes
                             les photos</a></div>
+                    @endif
+                    @endauth
                 </div>
             </div>
         </div>
