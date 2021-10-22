@@ -27,10 +27,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-12 col-lg-4 m-auto">
                 <div class="image-wrapper md-pb">
-                    <img class="w-100 lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                        loading="lazy"
-                        data-src="{{ asset('assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg') }}">
+                    {!! Adsense::ads('responsive') !!}
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
@@ -171,6 +168,11 @@
     <div class="container">
         <div class="row mbr-gallery mt-4">
             @foreach ($offre->images as $image)
+            @if ($loop->index==3)
+            <div class="col-12 col-md-6 col-lg-6 item gallery-image">
+                {!! Adsense::ads('responsive') !!}
+            </div>
+            @endif
             <div class="col-12 col-md-6 col-lg-6 item gallery-image">
                 <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sMbCSG6bg5-modal"
                     data-bs-target="#sMbCSG6bg5-modal">
@@ -185,6 +187,11 @@
                 </div>
             </div>
             @endforeach
+            @if (count($offre->images)<3)
+            <div class="col-12 col-md-6 col-lg-6 item gallery-image">
+                {!! Adsense::ads('responsive') !!}
+            </div>
+            @endif
         </div>
 
         <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sMbCSG6bg5-modal">

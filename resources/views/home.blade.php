@@ -92,7 +92,10 @@ séjour, un terrain ou une maison à acheter...")
 <section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto mbr-form">
+            <div class="col-12 col-lg-6">
+                {!! Adsense::ads('responsive') !!}
+            </div>
+            <div class="col-lg-6 mbr-form">
                 <!--Formbuilder Form-->
                 <form action="{{ route('offre.filter',compact('agence')) }}" method="POST"
                     class="mbr-form form-with-styler" data-form-title="rechercheBienForm"><input type="hidden"
@@ -165,6 +168,11 @@ séjour, un terrain ou une maison à acheter...")
     <div class="container">
         <div class="row">
             @foreach ($offres as $offre)
+            @if ($loop->index==3 || $loop->index==7 || $loop->index==10)
+            <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
+                {!! Adsense::ads('responsive') !!}
+            </div>
+            @endif
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
                 <x-offre-item :offre="$offre" :agence="$agence" />
             </div>

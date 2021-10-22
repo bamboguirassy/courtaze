@@ -70,6 +70,7 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @toastr_css
     {!! ReCaptcha::htmlScriptTagJsApi() !!}
+    {!! Adsense::javascript() !!}
 </head>
 
 <body>
