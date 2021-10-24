@@ -37,6 +37,8 @@
                     </h1>
                     <p class="mbr-text mbr-fonts-style display-7">
                         {{$offre->description}}
+                        <hr>
+                        <span style="font-size: 12px;">Publié par <b>{{$offre->user->name}}</b>, le {{date_format($offre->created_at,'d/m/Y')}}</span>
                     </p>
                     <div class="mbr-section-btn mt-3">
                         @auth
