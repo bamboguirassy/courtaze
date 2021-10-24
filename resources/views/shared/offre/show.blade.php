@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',"Détails offre - ".$offre->id)
+@section('title',"Détails offre - ".$offre)
 
 @section('description',$offre->description)
 

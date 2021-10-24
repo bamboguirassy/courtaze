@@ -28,6 +28,13 @@ Route::post('post-init',function(Request $request, Agence $agence=null) {
     return view('shared.offre.new',['categorieBien'=>$categorieBien,'agence'=>$agence]);
 })->middleware('auth')->name('offre.init.new');
 
+Route::get('mes-offres',function(Agence $agence=null) {
+    $offreActives = Offre::where('visible',true)->where('user_id',Auth()->user()->id)->paginate(18);
+    $offreInactives = Offre::where('visible',false)->where('user_id',Auth()->user()->id)->paginate(18);
+    $categorieBiens = CategorieBien::orderby('nom')->get();
+    return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens','agence'));
+    })->name('mes.publications')->middleware('auth');
+
 Route::put('{offre}/change-visibility', 'App\Http\Controllers\OffreController@changeVisiility')
 ->name('offre.change.visibility')->middleware('auth');
 

@@ -156,8 +156,8 @@
                                 aria-expanded="true"><span
                                     class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
                             <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
-                                <a class="dropdown-item text-warning text-primary display-7" href="mes-posts.html">Mes
-                                    publications</a>
+                                <a class="dropdown-item text-warning text-primary display-7" href="{{ route('mes.publications') }}">Nos
+                                    offres</a>
                                 <a class="dropdown-item text-warning text-primary display-7"
                                     href="reseaux-sociaux.html">Réseaux sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7"

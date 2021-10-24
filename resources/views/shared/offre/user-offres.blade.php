@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<x-separator />
+{{-- <x-separator />
 
 <section class="form cid-sLWnFUpzCA" id="formbuilder-1e">
     <div class="container">
@@ -111,7 +111,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <x-separator />
 
