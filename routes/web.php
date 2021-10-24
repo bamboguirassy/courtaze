@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 include "web/multitenant.php";
 
-Route::get('mes-offres',function() {
+Route::get('mes-offres',function(Agence $agence=null) {
     $offreActives = Offre::where('visible',true)->where('user_id',Auth()->user()->id)->paginate(18);
     $offreInactives = Offre::where('visible',false)->where('user_id',Auth()->user()->id)->paginate(18);
     $categorieBiens = CategorieBien::orderby('nom')->get();
-    return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens'));
+    return view('shared.offre.user-offres',compact('offreActives','offreInactives','categorieBiens','agence'));
     })->name('mes.publications')->middleware('auth');
 
 include_once "web/admin.php";
