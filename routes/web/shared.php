@@ -28,8 +28,11 @@ Route::post('post-init',function(Request $request, Agence $agence=null) {
     return view('shared.offre.new',['categorieBien'=>$categorieBien,'agence'=>$agence]);
 })->middleware('auth')->name('offre.init.new');
 
+Route::put('{offre}/change-visibility', 'App\Http\Controllers\OffreController@changeVisiility')
+->name('offre.change.visibility')->middleware('auth');
+
 Route::resource('offre', OffreController::class,[
-    'only'=>['store','edit','update']
+    'only'=>['store','edit','update','destroy']
 ])->middleware('auth');
 
 Route::resource('offre', OffreController::class,[

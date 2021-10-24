@@ -46,19 +46,27 @@
                         <a class="btn btn-lg btn-warning display-4" href="{{ route('offre.edit',['offre'=>$offre]) }}">
                             <span class="mobi-mbri mobi-mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
                         </a>
-                        @if($offre->visible)
-                        <a class="btn btn-lg btn-danger-outline display-4" href="#">
-                            <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
-                        </a>
-                        @endif
-                        @if(!$offre->visible)
-                        <a class="btn btn-lg btn-primary-outline display-4" href="#">
-                            <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
-                        </a>
-                        <a class="btn btn-lg btn-danger display-4" href="#">
+                    <form  style="display: inline;" action="{{ route('offre.change.visibility',compact('agence','offre')) }}" method="post">
+                    @csrf
+                    @method('put')
+                    @if($offre->visible)
+                    <button class="btn btn-lg btn-danger-outline display-4">
+                        <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
+                    </button>
+                    @endif
+                    @if(!$offre->visible)
+                    <button class="btn btn-lg btn-primary-outline display-4">
+                        <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
+                    </button>
+                </form>
+                    <form style="display: inline;" action="{{ route('offre.destroy',compact('agence','offre')) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-lg btn-danger display-4 mt-1">
                             <span class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer
-                        </a>
+                        </button>
                         @endif
+                    </form>
                         @if(!$offre->geolocalise)
                         <a class="btn btn-lg btn-black display-4">
                             <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Géolocaliser
