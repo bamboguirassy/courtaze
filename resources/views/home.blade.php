@@ -92,9 +92,6 @@ séjour, un terrain ou une maison à acheter...")
 <section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6">
-                {!! Adsense::ads('responsive') !!}
-            </div>
             <div class="col-lg-6 mbr-form">
                 <!--Formbuilder Form-->
                 <form action="{{ route('offre.filter',compact('agence')) }}" method="POST"
@@ -157,6 +154,9 @@ séjour, un terrain ou une maison à acheter...")
                     </div>
                 </form>
                 <!--Formbuilder Form-->
+            </div>
+            <div class="col-12 col-lg-6">
+                {!! Adsense::ads('responsive') !!}
             </div>
         </div>
     </div>
@@ -261,12 +261,15 @@ séjour, un terrain ou une maison à acheter...")
         </div>
     </div>
 </section>
-
+<div class="row">
+    <div class="col-12">
+        {!! Adsense::ads('responsive') !!}
+    </div>
+</div>
 <section data-bs-version="5.1" class="social-buttons2 luxurym4_social-buttons2 cid-sM17msauDb" id="social-buttons2-2w">
     <div class="container">
         <div class="media-container-row">
             <div class="col-md-10 col-lg-8 align-center">
-
                 <h2 class="mbr-section-title mbr-fonts-style pb-3 display-2">
                     Partager sur</h2>
                 <div class="mbr-social-likes">
