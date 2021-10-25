@@ -39,15 +39,15 @@ return [
     'client_id' => 'ca-pub-1024803261208249', //Your Adsense client ID e.g. ca-pub-9508939161510421
     'ads' => [
         'responsive' => [
-            'ad_slot' => 1111111111,
-            'ad_format' => 'fluid',
+            'ad_slot' => 6626876772,
+            'ad_format' => 'auto',
             'ad_full_width_responsive' => true,
-            'ad_style' => 'display:inline-block',
+            'ad_style' => 'display:block',
         ],
         'rectangle' => [
-            'ad_slot' => 2222222222,
-            'ad_style' => 'display:inline-block;width:300px;height:250px',
-            'ad_full_width_responsive' => false,
+            'ad_slot' => 1126944566,
+            'ad_style' => 'display:block',
+            'ad_full_width_responsive' => true,
             'ad_format' => 'auto',
         ],
     ],
