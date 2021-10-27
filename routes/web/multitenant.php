@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TemoignageController;
 use App\Models\Agence;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -17,6 +18,10 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
             'only'=>['index','store','edit','update','destroy']
         ])->middleware('auth');
 
+        Route::resource('temoignage', TemoignageController::class,[
+            'only'=>['index','store','edit','update','destroy']
+        ])->middleware('auth');
+
         Route::get('contact',function(Agence $agence) {
             return view('agence.contact',compact('agence'));
         })->name('agence.contact');
@@ -26,6 +31,8 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
             ->get();
             return view('agence.services',compact('agence','services'));
         })->name('agence.services');
+
+
 
         include_once "shared.php";
 });

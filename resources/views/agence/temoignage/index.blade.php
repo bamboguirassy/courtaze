@@ -40,7 +40,7 @@
                     <p class="mbr-text mbr-fonts-style display-7">Ajoutez ici tous les témoignages de vos clients afin
                         que les autres puissent comprendre ce que vous savez faire...</p>
                     <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary-outline display-4"
-                            href="temoignage-list.html#timeline1-47">Afficher la liste</a></div>
+                            href="#timeline1-47">Afficher la liste</a></div>
                 </div>
             </div>
         </div>
@@ -54,8 +54,11 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form enctype="multipart/form-data" action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
-                    data-form-title="newTemoignageForm"><input type="hidden" name="email" data-form-email="true"
+                <form action="{{route('temoignage.store',compact('agence'))}}" method="POST" class="mbr-form form-with-styler"
+                    data-form-title="temoignageNewForm" enctype="multipart/form-data">
+                    @csrf
+                    @method('post')
+                    <input type="hidden" name="email" data-form-email="true"
                         value="ZL2euCHQou/yxqYPGtfHujuSqyhjB8M83HMZniBlNqeyoWJ8y5mfvc1GowTsXU6RSqX7pkQIdmD06Qv7YvX8GWLFpw84BxIRnKfNibLrNOShz3o0wE4Ry+VomFAxFL1D.vVe3V0iSYszGbBt+fS1AAcQtbH/nKXjinVDreJNxXlVBGiehh97EFNBP77IiQGJb1BOGjTmIQnQQG4tfEuZx/RyPf+eg153ShIYyFT6uyka2M94Nl7/PMQ7lMPFwkNT8">
                     <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
@@ -69,24 +72,24 @@
                             <label for="clientName-formbuilder-45"
                                 class="form-control-label mbr-fonts-style display-7">Nom du client</label>
                             <input type="text" name="clientName" data-form-field="clientName"
-                                class="form-control display-7" value="" id="clientName-formbuilder-45">
+                                class="form-control display-7" value="{{old('clientName')}}" id="clientName-formbuilder-45">
                         </div>
                         <div data-for="fonction" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="fonction-formbuilder-45"
                                 class="form-control-label mbr-fonts-style display-7">Fonction</label>
                             <input type="text" name="fonction" data-form-field="fonction" class="form-control display-7"
-                                value="" id="fonction-formbuilder-45">
+                                value="{{old('fonction')}}" id="fonction-formbuilder-45">
                         </div>
                         <div data-for="message" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="message-formbuilder-45"
                                 class="form-control-label mbr-fonts-style display-7">Message du témoignage</label>
                             <textarea name="message" data-form-field="message" required="required"
-                                class="form-control display-7" id="message-formbuilder-45"></textarea>
+                                class="form-control display-7" id="message-formbuilder-45">{{old('message')}}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="photo">
                             <label for="photo-formbuilder-45" class="form-control-label mbr-fonts-style display-7">Photo
                                 du client</label>
-                            <input type="file" accept="image/*" name="photo" data-form-field="photo" class="form-control display-7"
+                            <input type="file"  name="photo" data-form-field="photo" class="form-control display-7"
                                 value="" id="photo-formbuilder-45">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -106,94 +109,53 @@
     <div class="container align-center">
         <div class="timelines-container pt-4 reverseTimeline" mbri-timelines="">
             <!--1-->
+            @forelse ( $temoignages as $temoignage)
             <div class="row timeline-element first-separline">
                 <div class="timeline-date-panel col-xs-12 col-md-3 align-left">
                     <div class="time-line-date-content">
+                        @if ($temoignage->photo)
                         <div class="mbr-figure">
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                                title="" loading="lazy" class="lazyload" data-src="assets/images/01.jpg">
+                                title="" loading="lazy" class="lazyload" data-src="{{ asset('uploads/temoignage/client/'.$temoignage->photo) }}">
                         </div>
-                    </div>
-                </div>
-                <div class="date col-xs-12 col-md-2">
-                    <p class="mbr-timeline-date mbr-fonts-style display-7">
-                        2020
-                    </p>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-7">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title mbr-fonts-style display-5">
-                            First high-rise building
-                        </h4>
+                        @else
+                        <div class="mbr-figure">
+                            <img src="..." alt="..." class="img-thumbnail" style="font-size:68px">
+                        </div>
 
-                        <p class="mbr-timeline-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam erat libero, bibendum in libero
-                            tempor, luctus volutpat ligula.
-                            Integer fringilla porttitor pretium. Nam erat felis, iaculis id justo ut, ullamcorper
-                            feugiat
-                            elit. Proin vel lectus auctor, porttitor ligula vitae, convallis leo. In eget massa elit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--2-->
-            <div class="row timeline-element separline">
-                <div class="timeline-date-panel col-xs-12 col-md-3 align-left">
-                    <div class="time-line-date-content">
-                        <div class="mbr-figure">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                                title="" loading="lazy" class="lazyload" data-src="{{ asset('assets/images/02.jpg') }}">
-                        </div>
+                        @endif
+
                     </div>
                 </div>
                 <div class="date col-xs-12 col-md-2">
                     <p class="mbr-timeline-date mbr-fonts-style display-7">
-                        2021
-                    </p>
+                        {{$temoignage->clientName}}
+                    </p><br>
+                    <span> {{date_format($temoignage->created_at,'Y')}}</span>
                 </div>
+
                 <span class="iconBackground"></span>
                 <div class="col-xs-12 col-md-7">
                     <div class="timeline-text-content">
                         <h4 class="mbr-timeline-title mbr-fonts-style display-5">
-                            The new part of hospital
-                        </h4>
+                          {{$temoignage->fonction}}
+                        </h4><br>
+                        {{-- <h4 class="mbr-timeline-title mbr-fonts-style display-5">
+
+                          </h4> --}}
                         <p class="mbr-timeline-text mbr-fonts-style display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam erat libero, bibendum in libero
-                            tempor, luctus volutpat ligula.
-                            Integer fringilla porttitor pretium. Nam erat felis, iaculis id justo ut, ullamcorper
-                            feugiat
-                            elit. Proin vel lectus auctor, porttitor ligula vitae, convallis leo. In eget massa elit.
+                           {{$temoignage->message}}
                         </p>
                     </div>
                 </div>
             </div>
-            <!--3-->
-            <div class="row timeline-element separline">
-                <div class="timeline-date-panel col-xs-12 col-md-3 align-left">
-                    <div class="time-line-date-content">
-                        <div class="mbr-figure">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                                title="" loading="lazy" class="lazyload" data-src="assets/images/03.jpg">
-                        </div>
-                    </div>
-                </div>
-                <div class="date col-xs-12 col-md-2">
-                    <p class="mbr-timeline-date mbr-fonts-style display-7">
-                        2022
-                    </p>
-                </div>
-                <span class="iconBackground"></span>
-                <div class="col-xs-12 col-md-7">
-                    <div class="timeline-text-content">
-                        <h4 class="mbr-timeline-title mbr-fonts-style display-5">
-                            Chef d'agence</h4>
-                        <p class="mbr-timeline-text mbr-fonts-style display-7">
-                            Sunu Immo m'a aidé à trouver mes 3 logements, elle m'a également aider à acheter mon
-                            terrain. Les agents sont efficaces et cordiales.</p>
-                    </div>
-                </div>
+            @empty
+            <div class="alert alert-info" role="alert">
+                <strong>Aucun Service...</strong>
             </div>
+            @endforelse
+
+
         </div>
     </div>
 </section>
