@@ -158,49 +158,8 @@
             <strong>Témoignage de nos clients</strong>
         </h3>
         <div class="row justify-content-center">
-            <div class="card col-12 col-md-6">
-                <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                    <em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra turpis amet erat
-                        maximus,
-                        et scelerisque justo posuere. Nullam iaculis, est id malesuada vulputate, felis justo pulvinar
-                        quam, vel varius nisl odio at felis."</em>
-                </p>
-                <div class="d-flex mb-md-0 mb-4">
-                    <div class="image-wrapper">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                            loading="lazy" class="lazyload" data-src="assets/images/team2.jpg">
-                    </div>
-                    <div class="text-wrapper my-auto">
-                        <p class="name mbr-fonts-style mb-1 display-5">
-                            <strong>Ann Smith</strong>
-                        </p>
-                        <p class="position mbr-fonts-style display-4">
-                            <strong>Client</strong>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-6">
-                <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                    <em>"Aliquam feugiat justo non tortor tincidunt, nec ullamcorper massa auctor. In nec posuere ex.
-                        Proin consequat placerat eros, vel hendrerit massa mollis nec. Duis volutpat, diam sed laoreet
-                        interdum, orci lorem eleifend ante, efficitur ultricies nibh risus."</em>
-                </p>
-                <div class="d-flex mb-md-0 mb-4">
-                    <div class="image-wrapper">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                            loading="lazy" class="lazyload" data-src="assets/images/team3.jpg">
-                    </div>
-                    <div class="text-wrapper my-auto">
-                        <p class="name mbr-fonts-style mb-1 display-5">
-                            <strong>Jessica Brown</strong>
-                        </p>
-                        <p class="position mbr-fonts-style display-4">
-                            <strong>Client</strong>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <x-temoignage-public-item/>
+            {{-- <x-temoignage-public-item/> --}}
         </div>
     </div>
 </section>
