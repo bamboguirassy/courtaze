@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgenceSocialLinkController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TemoignageController;
 use App\Models\Agence;
@@ -13,6 +14,10 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
         Route::get('/',function(Agence $agence) {
             return view('home',compact('agence'));
         })->name('home');
+
+        Route::resource('agence-social-link', AgenceSocialLinkController::class,[
+            'except'=>['show','create']
+        ])->middleware('auth');
 
         Route::resource('service', ServiceController::class,[
             'only'=>['index','store','edit','update','destroy']

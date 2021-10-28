@@ -13,7 +13,7 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Agence $agence=null)
+    public function index(Agence $agence)
     {
         $services = Service::where('agence_id',$agence->id)->get();
         return view('agence.service.index',compact('agence','services'));

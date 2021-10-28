@@ -150,6 +150,7 @@
                         </li>
                         @endif
                         @if (auth()->user()->type=='Agence')
+                        @isset($agence)
                         <li class="nav-item dropdown"><a
                                 class="nav-link link dropdown-toggle text-warning show display-7" href="#"
                                 data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
@@ -159,7 +160,7 @@
                                 <a class="dropdown-item text-warning text-primary display-7" href="{{ route('mes.publications') }}">Nos
                                     offres</a>
                                 <a class="dropdown-item text-warning text-primary display-7"
-                                    href="reseaux-sociaux.html">Réseaux sociaux</a><a
+                                    href="{{ route('agence-social-link.index',compact('agence')) }}">Réseaux sociaux</a><a
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="{{ route('service.index',compact('agence')) }}">Nos services</a><a
                                     class="dropdown-item text-warning text-primary display-7"
@@ -167,7 +168,8 @@
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="temoignage-list.html">Témoignages des clients</a>
                             </div>
-                        </li>
+                        </li> 
+                        @endisset
                         @endif
                         @endauth
                         @isset($agence)
