@@ -40,7 +40,7 @@
             white-space: nowrap;
         }
     </style>
-    <meta name="theme-color" content="#266e73">
+    <meta name="theme-color" content="#ff7b00">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <script src="sw-connect.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
