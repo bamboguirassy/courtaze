@@ -69,6 +69,12 @@ Route::resource('user', UserController::class,[
     'only'=>['update']
 ])->middleware('auth');
 
+Route::get('/ads.txt', function () {
+    $content = view('ads');
+    return response($content, 200)
+        ->header('content-Type', 'text');
+});
+
 Route::post('/',function(Request $request, Agence $agence=null) {
     $query = Offre::where('visible',true);
     if($agence!=null) {

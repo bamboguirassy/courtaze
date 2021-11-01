@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title', 'Services proposés par ' . $agence)
+@section('title', 'Services proposés par ' . $agence->nom)
 
 @section('description', "Retrouvez l'ensemble des services que nous proposons dans notre agence " . $agence)
 
