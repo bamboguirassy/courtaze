@@ -1,5 +1,4 @@
-<div class="card col-12 col-md-6">
-    @foreach ($temoignages as $temoignage)
+<div>
     <p class="mbr-text mbr-fonts-style mb-4 display-7">
         <em>{{$temoignage->message}}</em>
     </p>
@@ -17,7 +16,4 @@
             </p>
         </div>
     </div>
-    @endforeach ()
-
-
 </div>

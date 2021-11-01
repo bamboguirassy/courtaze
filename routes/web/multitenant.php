@@ -4,7 +4,9 @@ use App\Http\Controllers\AgenceSocialLinkController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TemoignageController;
 use App\Models\Agence;
+use App\Models\AgenceSocialLink;
 use App\Models\Service;
+use App\Models\Temoignage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +36,11 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
         Route::get('services',function(Agence $agence) {
             $services = Service::where('agence_id',$agence->id)
             ->get();
-            return view('agence.services',compact('agence','services'));
+            $temoignages = Temoignage::where('agence_id',$agence->id)
+            ->get();
+            $socialLinks = AgenceSocialLink::where('agence_id',$agence->id)
+            ->get();
+            return view('agence.services',compact('agence','services','socialLinks','temoignages'));
         })->name('agence.services');
 
 

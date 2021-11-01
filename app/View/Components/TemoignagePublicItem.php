@@ -8,15 +8,15 @@ use Illuminate\View\Component;
 
 class TemoignagePublicItem extends Component
 {
-   public  $temoignages;
+   public  $temoignage;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Temoignage $temoignage)
     {
-
+        $this->temoignage = $temoignage;
     }
 
     /**
@@ -26,8 +26,6 @@ class TemoignagePublicItem extends Component
      */
     public function render()
     {
-        $temoignages=DB::table('temoignages')->latest()->take(2)->get();
-       $this->temoignages=$temoignages;
         return view('components.temoignage-public-item');
     }
 
