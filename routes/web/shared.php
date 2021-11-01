@@ -75,6 +75,10 @@ Route::get('/ads.txt', function () {
         ->header('content-Type', 'text');
 });
 
+Route::get('liste-envie',function(Agence $agence=null) {
+return view('shared.liste-envie',compact('agence'));
+})->name('user.liste.envie')->middleware('auth');
+
 Route::post('/',function(Request $request, Agence $agence=null) {
     $query = Offre::where('visible',true);
     if($agence!=null) {

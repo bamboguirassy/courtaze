@@ -105,10 +105,10 @@
                                 <label class="form-check-label display-7">Non</label>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Confirmer que vous n'êtes pas un robot</label>
                             <div class="col-md-6"> {!! htmlFormSnippet() !!} </div>
-                        </div>
+                        </div> --}}
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary display-7">Se connecter</button>
                         </div>

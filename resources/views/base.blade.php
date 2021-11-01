@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon"
-        href="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png" type="image/x-icon">
+        href="assets/images/logox512.png" type="image/x-icon">
     <meta name="description" content="@yield('description')">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
@@ -72,7 +72,6 @@
     {!! ReCaptcha::htmlScriptTagJsApi() !!}
     {!! Adsense::javascript() !!}
 </head>
-
 <body>
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
         <nav class="navbar navbar-dropdown navbar-expand-lg">
@@ -87,12 +86,12 @@
                             @else
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                                 style="height: 3rem;" loading="lazy" class="lazyload"
-                                data-src="{{ asset('assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521-512x512.png') }}">
+                                data-src="{{ asset('assets/images/logox512.png') }}">
 
                             @endisset
                         </a>
                     </span>
-                    <span class="navbar-caption-wrap"><a class="navbar-caption text-danger display-5"
+                    <span class="navbar-caption-wrap"><a class="navbar-caption  text-black display-5"
                             href="{{ route('home',compact('agence')) }}">
                             @isset($agence)
                             {{ $agence->nom }}
@@ -113,13 +112,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                        <li class="nav-item"><a class="nav-link link text-black display-7"
                                 href="{{route('home')}}"><span
                                     class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Accueil</a>
                         </li>
                         @isset($agence)
                         <li class="nav-item">
-                            <a class="nav-link link text-warning text-primary display-7"
+                            <a class="nav-link link  text-black display-7"
                                 href="{{ route('agence.services',compact('agence')) }}">
                                 <span class="mobi-mbri mobi-mbri-paperclip mbr-iconfont mbr-iconfont-btn"></span>
                                 Services
@@ -128,44 +127,44 @@
                         @endisset
                         @auth
                         @if (auth()->user()->type=='Propriétaire' || auth()->user()->type=='Courtier')
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                        <li class="nav-item"><a class="nav-link link  text-black display-7"
                                 href="{{ route('mes.publications') }}"><span
                                     class="mobi-mbri mobi-mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>Mes
                                 publications</a>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Admin')
-                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
+                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-black display-7"
                                 href="#" aria-expanded="false" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside">Admin</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined"><a
-                                    class="dropdown-item text-warning text-primary display-7"
+                                    class="dropdown-item  text-black display-7"
                                     href="{{ route('categorie-bien.index') }}" aria-expanded="false">Catégories de
-                                    bien</a><a class="dropdown-item text-warning text-primary display-7"
+                                    bien</a><a class="dropdown-item  text-black display-7"
                                     href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux
-                                    Sociaux</a><a class="dropdown-item text-warning text-primary display-7"
+                                    Sociaux</a><a class="dropdown-item  text-black display-7"
                                     href="{{ route('user.index') }}" aria-expanded="false">Utilisateurs</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
+                                    class="dropdown-item  text-black display-7"
                                     href="{{ route('agence.index') }}" aria-expanded="false">Agences</a></div>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Agence')
                         @isset($agence)
                         <li class="nav-item dropdown"><a
-                                class="nav-link link dropdown-toggle text-warning show display-7" href="#"
+                                class="nav-link link dropdown-toggle  text-black show display-7" href="#"
                                 data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 aria-expanded="true"><span
                                     class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
                             <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
-                                <a class="dropdown-item text-warning text-primary display-7" href="{{ route('mes.publications') }}">Nos
+                                <a class="dropdown-item  text-black display-7" href="{{ route('mes.publications') }}">Nos
                                     offres</a>
-                                <a class="dropdown-item text-warning text-primary display-7"
+                                <a class="dropdown-item  text-black display-7"
                                     href="{{ route('agence-social-link.index',compact('agence')) }}">Réseaux sociaux</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
+                                    class="dropdown-item  text-black display-7"
                                     href="{{ route('service.index',compact('agence')) }}">Nos services</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
-                                    href="agence-details.html">Mon agence</a><a
-                                    class="dropdown-item text-warning text-primary display-7"
+                                    class="dropdown-item  text-black display-7"
+                                    href="{{ route('agence.details',compact('agence')) }}">Mon agence</a><a
+                                    class="dropdown-item  text-black display-7"
                                     href="{{ route('temoignage.index',['agence'=>$agence]) }}">Témoignages des clients</a>
                             </div>
                         </li>
@@ -173,31 +172,30 @@
                         @endif
                         @endauth
                         @isset($agence)
-                        <li class="nav-item"><a class="nav-link link text-warning text-primary display-7"
+                        <li class="nav-item"><a class="nav-link link  text-black display-7"
                                 href="{{ route('agence.contact',compact('agence')) }}"><span
                                     class="mobi-mbri mobi-mbri-contact-form mbr-iconfont mbr-iconfont-btn"></span>Contacts</a>
                         </li>
                         @endisset
                         @auth
-                        <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-warning display-7"
+                        <li class="nav-item dropdown">
+                            <a class="nav-link link dropdown-toggle  text-black display-7"
                                 href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined">
-                                <a class="dropdown-item text-warning text-primary display-7" href="{{ route('profile',compact('agence')) }}"><span
+                                <a class="dropdown-item  text-black display-7" href="{{ route('profile',compact('agence')) }}"><span
                                         class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
                                     profil
                                 </a>
-                                @if (auth()->user()->type=='Client')
-                                <a class="dropdown-item text-warning text-primary display-7"
-                                    href="list-envie.html"><span
-                                        class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Ma liste
+                                <a class="dropdown-item  text-black display-7"
+                                    href="{{ route('user.liste.envie') }}"><span
+                                        class="mobi-mbri mobi-mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>Liste
                                     d'envie
                                 </a>
-                                @endif
                                 <form style="display: inline;" action="{{ route('logout') }}" method="post">
                                     @csrf
                                     @method('post')
-                                    <button class="dropdown-item text-warning display-7"><span
+                                    <button class="dropdown-item  text-black display-7"><span
                                             class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Déconnexion
                                     </button>
                                 </form>
@@ -206,7 +204,7 @@
                         @endauth
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link link text-warning text-primary display-7" href="{{ route('login') }}">
+                            <a class="nav-link link  text-black display-7" href="{{ route('login') }}">
                                 <span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Se
                                 connecter</a>
                         </li>

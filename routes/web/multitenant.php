@@ -33,6 +33,10 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
             return view('agence.contact',compact('agence'));
         })->name('agence.contact');
 
+        Route::get('agence-details', function(Agence $agence) {
+            return view('agence.details',compact('agence'));
+        })->name('agence.details')->middleware('auth');
+
         Route::get('services',function(Agence $agence) {
             $services = Service::where('agence_id',$agence->id)
             ->get();

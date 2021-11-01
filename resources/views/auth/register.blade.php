@@ -191,10 +191,10 @@
                                 data-form-field="password_confirmation" required="required"
                                 class="form-control display-7" value="" id="password_confirmation-formbuilder-u">
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Confirmer que vous n'êtes pas un robot</label>
                             <div class="col-md-6"> {!! htmlFormSnippet() !!} </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <button type="submit" class="btn btn-primary display-7">Créer le compte</button>
                         </div>

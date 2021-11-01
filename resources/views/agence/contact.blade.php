@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',"Page de contact de ".$agence)
+@section('title',"Page de contact de ".$agence->nom)
 
 @section('description',"Contactez nous directement sur cette page...")
 

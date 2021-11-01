@@ -31,7 +31,7 @@
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                         loading="lazy"
-                        data-src="assets/images/vente-achat-location-hypotheque-maison-108855-1795-626x521.jpg">
+                        data-src="assets/images/logo.png">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">

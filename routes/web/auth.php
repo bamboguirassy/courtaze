@@ -17,8 +17,8 @@ Route::post('login',function(Request $request,Agence $agence=null) {
     $request->validate([
         'email'=>'required|exists:users,email',
         'password'=>'min:6',
-        'g-recaptcha-response' => 'recaptcha',
     ]);
+    // 'g-recaptcha-response' => 'recaptcha',
     Auth::attempt($request->only('email','password'), true);
     if($agence!=null) {
         if(Auth::user()->id!=$agence->user_id && Auth::user()->type!='Client' && Auth::user()->type!='Admin') {
@@ -47,8 +47,8 @@ Route::post('register', function(Request $request,Agence $agence=null) {
         'email'=>'required|unique:users',
         'password'=>'required|min:6|confirmed',
         'type'=>'required',
-        'g-recaptcha-response' => 'recaptcha',
     ]);
+    // 'g-recaptcha-response' => 'recaptcha',
     DB::beginTransaction();
     $user = new User($request->all());
     try {
