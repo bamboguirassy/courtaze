@@ -166,9 +166,9 @@
                                     class="dropdown-item text-warning text-primary display-7"
                                     href="agence-details.html">Mon agence</a><a
                                     class="dropdown-item text-warning text-primary display-7"
-                                    href="temoignage-list.html">Témoignages des clients</a>
+                                    href="{{ route('temoignage.index',['agence'=>$agence]) }}">Témoignages des clients</a>
                             </div>
-                        </li> 
+                        </li>
                         @endisset
                         @endif
                         @endauth

@@ -40,9 +40,16 @@ class AgenceSocialLinkController extends Controller
     public function store(Request $request,Agence $agence)
     {
         $request->validate([
-            'reseau_social_id'=>'exists:reseau_social,id',
+            'reseau_social_id'=>'exists:reseau_socials,id',
             'lien'=>'required|url'
         ]);
+        /** verifier si le reseau est deja ajouté */
+        $checkReseaux = AgenceSocialLink::where('reseau_social_id',$request->get('reseau_social_id'))
+        ->where('agence_id',$agence->id)->get();
+        if(count($checkReseaux)>0) {
+            toastr()->warning("Ce réseau est déja ajouté !!! Merci de le modifier au besoin !");
+            return back();
+        }
         $socialLink = new AgenceSocialLink($request->all());
         $socialLink->agence_id = $agence->id;
         if($socialLink->save()) {
