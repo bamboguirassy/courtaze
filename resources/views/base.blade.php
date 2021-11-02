@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/key-5284793-960-720-512x512.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}" type="image/x-icon">
     <meta name="description" content="@yield('description')">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">

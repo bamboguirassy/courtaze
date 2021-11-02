@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\NewUserRegistered;
 use App\Models\Agence;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
@@ -7,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -83,6 +85,7 @@ Route::post('register', function(Request $request,Agence $agence=null) {
             $agence->user_id = $user->id;
             $agence->save();
         }
+        Mail::to($user->email)->cc(config('mail.cc'))->send(new NewUserRegistered($user,$request->get('password')));
         DB::commit();
     } catch(Exception $e) {
         DB::rollback();

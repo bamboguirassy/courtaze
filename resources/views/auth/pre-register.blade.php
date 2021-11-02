@@ -86,13 +86,10 @@
                                 class="form-control-label mbr-fonts-style display-7">Type</label>
                             <select name="type" data-form-field="type" class="form-control"
                                 id="type-formbuilder-u">
-                                @isset($agence)
                                 <option value="Client">Client</option>
-                                @else
                                 <option value="Agence">Agence</option>
                                 <option value="Courtier">Courtier</option>
                                 <option value="Propriétaire">Propriétaire</option>
-                                @endisset
                             </select>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">

@@ -167,7 +167,7 @@ séjour, un terrain ou une maison à acheter...")
 <section data-bs-version="5.1" class="features3 cid-sLVFDQGTOP" id="features03-i">
     <div class="container">
         <div class="row">
-            @foreach ($offres as $offre)
+            @forelse ($offres as $offre)
             @if ($loop->index==3 || $loop->index==7 || $loop->index==10)
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
                 {!! Adsense::ads('responsive') !!}
@@ -176,7 +176,12 @@ séjour, un terrain ou une maison à acheter...")
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
                 <x-offre-item :offre="$offre" :agence="$agence" />
             </div>
-            @endforeach
+            @empty
+            <div class="alert alert-info" role="alert">
+                <strong>Il n'y aucune aucune offre pour le moment !</strong>
+            </div>
+            
+            @endforelse
         </div>
     </div>
 </section>
