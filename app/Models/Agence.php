@@ -40,4 +40,15 @@ class Agence extends Model
     {
         return $this->hasMany(Service::class);
     }
+
+
+    /**
+     * Get all of the socialLinks for the Agence
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function socialLinks(): HasMany
+    {
+        return $this->hasMany(AgenceSocialLink::class);
+    }
 }

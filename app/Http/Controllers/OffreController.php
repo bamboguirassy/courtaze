@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agence;
 use App\Models\CategorieBien;
+use App\Models\Favorite;
 use App\Models\Image;
 use App\Models\Offre;
 use Exception;
@@ -151,6 +152,38 @@ class OffreController extends Controller
         $offre->visible = !$offre->visible;
         $offre->update();
         $offre->visible ? toastr()->success("L'offre est maintenant visible par les clients.") : toastr()->warning("L'offre n'est plus visible par les clients.");
+        return back();
+    }
+
+    public function geolocaliser(Request $request, Agence $agence=null, Offre $offre) {
+        $request->validate([
+            'longitude'=>'required',
+            'latitude'=>'required'
+        ]);
+        $offre->geolocalise = true;
+        $offre->update($request->all());
+        toastr()->success("Le produit a bien été localisé selon votre position courante !");
+        return back();
+    }
+
+    public function pin(Offre $offre) {
+        $favorite = new Favorite();
+        $favorite->user_id = Auth::user()->id;
+        $favorite->offre_id = $offre->id;
+        $favorite->save();
+        toastr()->success("Produit bien enregistré pour lecture ultérieure !");
+        return back();
+    }
+
+    public function unpin(Offre $offre) {
+        $favorite = Favorite::where('user_id',Auth::user()->id)
+        ->where('offre_id',$offre->id)
+        ->first();
+        if($favorite->delete()) {
+            toastr()->success("Offre supprimée des favoris !");
+        } else {
+            toastr()->error("Une erreur est survenue pendant la suppression de l'offre des favoris");
+        }
         return back();
     }
 }

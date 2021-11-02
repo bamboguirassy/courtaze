@@ -15,10 +15,10 @@ Route::resource('reseau-social', ReseauSocialController::class,[
     'only'=>['index','store','edit','update','destroy']
 ])->middleware('admin');
 
-Route::resource('user', UserController::class,[
+Route::resource('agence', AgenceController::class,[
     'only'=>['index']
 ])->middleware('admin');
 
-Route::resource('agence', AgenceController::class,[
+Route::resource('user', UserController::class,[
     'only'=>['index']
 ])->middleware('admin');

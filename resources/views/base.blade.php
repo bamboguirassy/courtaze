@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon"
-        href="assets/images/logox512.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/key-5284793-960-720-512x512.png" type="image/x-icon">
     <meta name="description" content="@yield('description')">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
@@ -40,7 +39,7 @@
             white-space: nowrap;
         }
     </style>
-    <meta name="theme-color" content="#ff7b00">
+    <meta name="theme-color" content="#8aceb5">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <script src="sw-connect.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -71,7 +70,17 @@
     @toastr_css
     {!! ReCaptcha::htmlScriptTagJsApi() !!}
     {!! Adsense::javascript() !!}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLXFYMR2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3CLXFYMR2H');
+    </script>
 </head>
+
 <body>
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
         <nav class="navbar navbar-dropdown navbar-expand-lg">
@@ -86,12 +95,12 @@
                             @else
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                                 style="height: 3rem;" loading="lazy" class="lazyload"
-                                data-src="{{ asset('assets/images/logox512.png') }}">
+                                data-src="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}">
 
                             @endisset
                         </a>
                     </span>
-                    <span class="navbar-caption-wrap"><a class="navbar-caption  text-black display-5"
+                    <span class="navbar-caption-wrap"><a class="navbar-caption display-5" style="color: #C2C2C2;"
                             href="{{ route('home',compact('agence')) }}">
                             @isset($agence)
                             {{ $agence->nom }}
@@ -144,8 +153,8 @@
                                     href="{{ route('reseau-social.index') }}" aria-expanded="false">Réseaux
                                     Sociaux</a><a class="dropdown-item  text-black display-7"
                                     href="{{ route('user.index') }}" aria-expanded="false">Utilisateurs</a><a
-                                    class="dropdown-item  text-black display-7"
-                                    href="{{ route('agence.index') }}" aria-expanded="false">Agences</a></div>
+                                    class="dropdown-item  text-black display-7" href="{{ route('agence.index') }}"
+                                    aria-expanded="false">Agences</a></div>
                         </li>
                         @endif
                         @if (auth()->user()->type=='Agence')
@@ -156,16 +165,18 @@
                                 aria-expanded="true"><span
                                     class="mobi-mbri mobi-mbri-setting mbr-iconfont mbr-iconfont-btn"></span>Gestion</a>
                             <div class="dropdown-menu show" aria-labelledby="dropdown-undefined" data-bs-popper="none">
-                                <a class="dropdown-item  text-black display-7" href="{{ route('mes.publications') }}">Nos
+                                <a class="dropdown-item  text-black display-7"
+                                    href="{{ route('mes.publications') }}">Nos
                                     offres</a>
                                 <a class="dropdown-item  text-black display-7"
-                                    href="{{ route('agence-social-link.index',compact('agence')) }}">Réseaux sociaux</a><a
-                                    class="dropdown-item  text-black display-7"
+                                    href="{{ route('agence-social-link.index',compact('agence')) }}">Réseaux
+                                    sociaux</a><a class="dropdown-item  text-black display-7"
                                     href="{{ route('service.index',compact('agence')) }}">Nos services</a><a
                                     class="dropdown-item  text-black display-7"
                                     href="{{ route('agence.details',compact('agence')) }}">Mon agence</a><a
                                     class="dropdown-item  text-black display-7"
-                                    href="{{ route('temoignage.index',['agence'=>$agence]) }}">Témoignages des clients</a>
+                                    href="{{ route('temoignage.index',['agence'=>$agence]) }}">Témoignages des
+                                    clients</a>
                             </div>
                         </li>
                         @endisset
@@ -179,11 +190,12 @@
                         @endisset
                         @auth
                         <li class="nav-item dropdown">
-                            <a class="nav-link link dropdown-toggle  text-black display-7"
-                                href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" aria-expanded="false">Mon compte</a>
+                            <a class="nav-link link dropdown-toggle  text-black display-7" href="#"
+                                data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                aria-expanded="false">Mon compte</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-undefined">
-                                <a class="dropdown-item  text-black display-7" href="{{ route('profile',compact('agence')) }}"><span
+                                <a class="dropdown-item  text-black display-7"
+                                    href="{{ route('profile',compact('agence')) }}"><span
                                         class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"></span>Mon
                                     profil
                                 </a>
@@ -204,7 +216,7 @@
                         @endauth
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link link  text-black display-7" href="{{ route('login') }}">
+                            <a class="nav-link link  text-black display-7" href="{{ route('login') }}?ret={{Request::url()}}">
                                 <span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Se
                                 connecter</a>
                         </li>
@@ -227,6 +239,28 @@
             </div>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('#geoButton').click(function() {
+            if(confirm("Etes-vous à l'emplacement du bien ? Si oui, localiser")) {
+                if ("geolocation" in navigator) {
+                /* la géolocalisation est disponible */
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    $('#longitude').val(position.coords.longitude);
+                    $('#latitude').val(position.coords.latitude);
+                    $('#geoForm').submit();
+                });
+                } else {
+                /* la géolocalisation n'est pas disponible */
+                alert("Cet appareil ne supporte pas la géolocalisation !");
+                }
+            } else {
+                alert("Merci de localiser le bien une fois sur place.");
+            }
+        });
+    </script>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/smoothscroll/smooth-scroll.js') }}"></script>
     <script src="{{ asset('assets/ytplayer/index.js') }}"></script>

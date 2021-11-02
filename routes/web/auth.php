@@ -2,6 +2,7 @@
 
 use App\Models\Agence;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +10,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
-Route::get('login', function(Agence $agence=null) {
+Route::get('login', function(Request $request, Agence $agence=null) {
+    if($request->has('ret')) {
+        $request->session()->put('ret',$request->get('ret'));
+    }
 return view('auth.login',compact('agence'));
 })->name('login')->middleware('guest');
 
@@ -25,6 +29,11 @@ Route::post('login',function(Request $request,Agence $agence=null) {
             Auth::logout();
             toastr()->error("Vous n'êtes pas autorisés à vous connecter à cette agence !");
         }
+    }
+    if(session()->exists('ret')) {
+        $url = session('ret');
+        session()->remove('ret');
+        return redirect($url);
     }
     return redirect()->route('home');
 })->name('login.request')->middleware('guest');
@@ -58,7 +67,6 @@ Route::post('register', function(Request $request,Agence $agence=null) {
         /** si agence */
         if($request->get('type')=='Agence') {
             $request->validate([
-                'slogan'=>'required',
                 'slogan'=>'required',
                 'color'=>'required',
                 'description'=>'required',

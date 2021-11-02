@@ -28,7 +28,7 @@
                 <img class="w-100 md-pb lazyload"
                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                     loading="lazy"
-                    data-src="assets/images/logo.png">
+                    data-src="assets/images/key-5284793-960-720-512x512.png">
             </div>
         </div>
     </div>
