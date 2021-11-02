@@ -1,5 +1,4 @@
 @component('mail::message')
-@component('mail::message')
 [![Logo Bambo GROUP](https://katalog.tech/assets/images/key-5284793-960-720-512x512.png)
 
 
@@ -19,6 +18,4 @@ Cordialement.
 
 
 [![Signature {{ config('app.name') }}](https://katalog.tech/assets/images/mail-signature.png "Signature {{config('app.name')}}")](https://katalog.tech/assets/images/mail-signature.png)
-@endcomponent
-
 @endcomponent
