@@ -45,7 +45,10 @@ séjour, un terrain ou une maison à acheter...")
                         {{$agence->description}}
                         @else
                         Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à <strong>{{config('app.name')}}</strong>.
-                        Vous êtes propriétaire, courtier ou agence ? Nous avons pensé à chacun.
+                        Vous êtes propriétaire, courtier ou agence ? Chacun y trouve son compte. <br>
+                        - Si vous êtes une agence, ouvrez votre agence en ligne et obtenez un site professionnel pour exposer vos services et biens. <br>
+                        - Si vous êtes courtier ou propriétaire de biens, il suffit de créer un compte. <br>
+                        - Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent aussi, vous pouvez vous inscrire.
                         @endisset
                         <br>
                     </p>
@@ -53,7 +56,7 @@ séjour, un terrain ou une maison à acheter...")
                         @auth
                         @if(auth()->user()->type!='Client')
                         <form action="{{ route('offre.init.new',compact('agence')) }}" method="post"
-                            style="display: inline;">
+                            style="display: inline-block;">
                             @csrf
                             @method('post')
                             <div class="mb-3">
@@ -74,7 +77,7 @@ séjour, un terrain ou une maison à acheter...")
                         <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}?ret={{Request::url()}}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
                         <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
-                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
+                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>Ouvrir un compte</a>
                     </div>
                     @endguest
                 </div>

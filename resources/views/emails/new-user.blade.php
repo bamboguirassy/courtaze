@@ -10,7 +10,7 @@ Vous venez d'ouvrir un compte en utilisant l'adresse email {{$user->email}}.
 - Mot de passe (à ne surtout pas partager): **{{$password}}**
 @if ($user->type=="Agence")
 |   Votre agence est en cours d'activation, une fois fait, vous serez contacté avec les informations d'hébergement.  
-@endif
+@endif  
 Cordialement.  
 
 ---
