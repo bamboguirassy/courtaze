@@ -5,12 +5,11 @@
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
                     <strong>Categories</strong>
                 </h3>
-
             </div>
         </div>
         <div class="row">
             @foreach ($categoris as $categorie)
-            <div class="card col-4 col-sm-4 col-md-3 col-lg-2">
+            <div class="card col-4 col-md-3 col-lg-2">
                 <a href="{{ route('categorie-bien.show',['categorie_bien'=>$categorie]) }}" class="text-primary">
                     <div class="card-wrapper">
                         <div class="card-box align-center">

@@ -114,14 +114,12 @@
                             <label for="adresse-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Adresse de l'agence</label>
                             <textarea required="required" name="adresse" placeholder="Adresse" data-form-field="adresse"
-                                class="form-control display-7" id="adresse-formbuilder-u">
-                            {{old('adresse') ?? ''}}
-                            </textarea>
+                                class="form-control display-7" id="adresse-formbuilder-u">{{old('adresse') ?? ''}}</textarea>
                         </div>
                         <div data-for="horaireOuverture" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="horaireOuverture-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Horaire d'ouverture</label>
-                            <textarea required="required" name="horaireOuverture" placeholder="Horaire" data-form-field="horaireOuverture"
+                            <textarea name="horaireOuverture" placeholder="Horaire" data-form-field="horaireOuverture"
                                 class="form-control display-7" id="horaireOuverture-formbuilder-u">
                             {{old('horaireOuverture') ?? ''}}
                             </textarea>

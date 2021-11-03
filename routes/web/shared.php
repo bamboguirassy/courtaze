@@ -38,6 +38,15 @@ Route::get('mes-offres',function(Agence $agence=null) {
 Route::put('{offre}/change-visibility', 'App\Http\Controllers\OffreController@changeVisiility')
 ->name('offre.change.visibility')->middleware('auth');
 
+Route::post('offre/{offre}/localiser','App\Http\Controllers\OffreController@geolocaliser')
+->name('offre.geolocaliser')->middleware('auth');
+
+Route::post('offre/{offre}/pin','App\Http\Controllers\OffreController@pin')
+->name('offre.pin')->middleware('auth');
+
+Route::delete('offre/{offre}/unpin','App\Http\Controllers\OffreController@unpin')
+->name('offre.unpin')->middleware('auth');
+
 Route::resource('offre', OffreController::class,[
     'only'=>['store','edit','update','destroy']
 ])->middleware('auth');
@@ -95,3 +104,4 @@ Route::post('/',function(Request $request, Agence $agence=null) {
 })->name('offre.filter');
 
 include "auth.php";
+

@@ -1,9 +1,6 @@
 <?php
 
-use App\Models\Agence;
-use App\Models\CategorieBien;
-use App\Models\Offre;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AgenceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 include "web/multitenant.php";
 
 include_once "web/admin.php";
+
+Route::resource('agence', AgenceController::class,[
+    'only'=>['edit','update']
+])->middleware('auth');
 
 include "web/shared.php";

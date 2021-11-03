@@ -25,11 +25,6 @@
     </svg>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-12 col-lg-4 m-auto">
-                <div class="image-wrapper md-pb">
-                    {!! Adsense::ads('responsive') !!}
-                </div>
-            </div>
             <div class="col-12 col-md-12 col-lg m-auto">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
@@ -38,7 +33,8 @@
                     <p class="mbr-text mbr-fonts-style display-7">
                         {{$offre->description}}
                         <hr>
-                        <span style="font-size: 12px;">Publié par <b>{{$offre->user->name}}</b>, le {{date_format($offre->created_at,'d/m/Y')}}</span>
+                        <span style="font-size: 12px;">Publié par <b>{{$offre->user->name}}</b>, le
+                            {{date_format($offre->created_at,'d/m/Y')}}</span>
                     </p>
                     <div class="mbr-section-btn mt-3">
                         @auth
@@ -46,44 +42,72 @@
                         <a class="btn btn-lg btn-warning display-4" href="{{ route('offre.edit',['offre'=>$offre]) }}">
                             <span class="mobi-mbri mobi-mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
                         </a>
-                    <form  style="display: inline;" action="{{ route('offre.change.visibility',compact('agence','offre')) }}" method="post">
-                    @csrf
-                    @method('put')
-                    @if($offre->visible)
-                    <button class="btn btn-lg btn-danger-outline display-4">
-                        <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
-                    </button>
-                    @endif
-                    @if(!$offre->visible)
-                    <button class="btn btn-lg btn-primary-outline display-4">
-                        <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
-                    </button>
-                </form>
-                    <form style="display: inline;" action="{{ route('offre.destroy',compact('agence','offre')) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-lg btn-danger display-4 mt-1">
-                            <span class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer
-                        </button>
-                        @endif
-                    </form>
-                        @if(!$offre->geolocalise)
-                        <a class="btn btn-lg btn-black display-4">
-                            <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Géolocaliser
-                        </a>
-                        @endif
+                        <form style="display: inline-block;"
+                            action="{{ route('offre.change.visibility',compact('agence','offre')) }}" method="post">
+                            @csrf
+                            @method('put')
+                            @if($offre->visible)
+                            <button class="btn btn-lg btn-danger-outline display-4 mr-1">
+                                <span class="fa fa-eye-slash mbr-iconfont mbr-iconfont-btn"></span>Cacher aux clients
+                            </button>
+                            @endif
+                            @if(!$offre->visible)
+                            <button class="btn btn-lg btn-primary-outline display-4">
+                                <span class="fa fa-eye mbr-iconfont mbr-iconfont-btn"></span>Montrer aux clients
+                            </button>
+                        </form>
+                        <form style="display: inline-block;"
+                            action="{{ route('offre.destroy',compact('agence','offre')) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-lg btn-danger display-4 mt-1">
+                                <span class="mobi-mbri mobi-mbri-trash mbr-iconfont mbr-iconfont-btn"></span>Supprimer
+                            </button>
+                            @endif
+                        </form>
+                        <form id="geoForm" action="{{ route('offre.geolocaliser',compact('agence','offre')) }}"
+                            method="post" style="display: inline-block;">
+                            @csrf
+                            @method('post')
+                            <input hidden="hidden" required="required" class="form-control" type="number" step="any"
+                                name="longitude" id="longitude">
+                            <input hidden="hidden" required="required" class="form-control" type="number" step="any"
+                                name="latitude" id="latitude">
+                            @if(!$offre->geolocalise)
+                            <button id="geoButton" type="button" class="btn btn-lg btn-black display-4">
+                                <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Géolocaliser
+                            </button>
+                            @else
+                            <button id="geoButton" type="button" class="btn btn-lg btn-secondary display-4">
+                                <span class="fa fa-map-marker mbr-iconfont mbr-iconfont-btn"></span>Relocaliser
+                            </button>
+                            @endif
+                        </form>
                         @endif
                         @if (auth()->user()->type=="Client")
-                        <a class="btn btn-lg btn-secondary display-4" href="#">
-                            <span class="mobi-mbri mobi-mbri-pin mbr-iconfont mbr-iconfont-btn"></span>Epingler
-                        </a>
-                        <a class="btn btn-lg btn-secondary-outline display-4" href="#"><span
-                                class="mdi-content-remove-circle mbr-iconfont mbr-iconfont-btn"></span>Désépingler
-                        </a>
+                        @if(!$offre->pinned)
+                        <form style="display: inline-block;" action="{{ route('offre.pin',compact('agence','offre')) }}"
+                            method="post">
+                            @csrf
+                            @method('post')
+                            <button class="btn btn-lg btn-secondary display-4">
+                                <span class="mobi-mbri mobi-mbri-pin mbr-iconfont mbr-iconfont-btn"></span>Epingler
+                            </button>
+                        </form>
+                        @else
+                        <form style="display: inline-block;" action="{{ route('offre.unpin',compact('agence','offre')) }}"
+                            method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-lg btn-secondary-outline display-4" href="#"><span
+                                    class="mdi-content-remove-circle mbr-iconfont mbr-iconfont-btn"></span>Désépingler
+                            </button>
+                        </form>
+                        @endif
                         @endif
                         @endauth
                         <a class="btn btn-lg btn-success display-4" target="_blank"
-                            href="https://wa.me/{{ $offre->user->telephoneWhatsapp }}">
+                            href="https://wa.me/{{ $offre->user->telephoneWhatsapp }}?text={{Request::url()}}">
                             <span class="socicon socicon-whatsapp mbr-iconfont mbr-iconfont-btn"></span>Prendre contact
                         </a>
                     </div>
@@ -197,52 +221,50 @@
                 </div>
             </div>
             @endforeach
-            @if (count($offre->images)<3)
-            <div class="col-12 col-md-6 col-lg-6 item gallery-image">
+            @if (count($offre->images)<3) <div class="col-12 col-md-6 col-lg-6 item gallery-image">
                 {!! Adsense::ads('responsive') !!}
-            </div>
-            @endif
         </div>
+        @endif
+    </div>
 
-        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sMbCSG6bg5-modal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="carousel slide" id="lb-sMbCSG6bg5" data-interval="5000" data-bs-interval="5000">
-                            <div class="carousel-inner">
-                                @foreach ($offre->images as $image)
-                                <div class="carousel-item @if($loop->first) active @endif">
-                                    <img class="d-block w-100 lazyload"
-                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                        alt="" loading="lazy"
-                                        data-src="{{ asset('uploads/offre/images/'.$image->nom) }}">
-                                </div>
-                                @endforeach
+    <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sMbCSG6bg5-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="carousel slide" id="lb-sMbCSG6bg5" data-interval="5000" data-bs-interval="5000">
+                        <div class="carousel-inner">
+                            @foreach ($offre->images as $image)
+                            <div class="carousel-item @if($loop->first) active @endif">
+                                <img class="d-block w-100 lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                    alt="" loading="lazy" data-src="{{ asset('uploads/offre/images/'.$image->nom) }}">
                             </div>
-                            <ol class="carousel-indicators">
-                                @foreach ($offre->images as $image)
-                                <li data-slide-to="{{ $loop->index }}" data-bs-slide-to="{{ $loop->index }}"
-                                    class="active" data-target="#lb-sMbCSG6bg5" data-bs-target="#lb-sMbCSG6bg5"></li>
-                                @endforeach
-                            </ol>
-                            <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal"
-                                aria-label="Close">
-                            </a>
-                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev"
-                                data-bs-slide="prev" href="#lb-sMbCSG6bg5">
-                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
-                                <span class="sr-only visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next carousel-control" role="button" data-slide="next"
-                                data-bs-slide="next" href="#lb-sMbCSG6bg5">
-                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
-                                <span class="sr-only visually-hidden">Next</span>
-                            </a>
+                            @endforeach
                         </div>
+                        <ol class="carousel-indicators">
+                            @foreach ($offre->images as $image)
+                            <li data-slide-to="{{ $loop->index }}" data-bs-slide-to="{{ $loop->index }}" class="active"
+                                data-target="#lb-sMbCSG6bg5" data-bs-target="#lb-sMbCSG6bg5"></li>
+                            @endforeach
+                        </ol>
+                        <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        </a>
+                        <a class="carousel-control-prev carousel-control" role="button" data-slide="prev"
+                            data-bs-slide="prev" href="#lb-sMbCSG6bg5">
+                            <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                            <span class="sr-only visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next carousel-control" role="button" data-slide="next"
+                            data-bs-slide="next" href="#lb-sMbCSG6bg5">
+                            <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                            <span class="sr-only visually-hidden">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 @endsection

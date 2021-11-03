@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 
 class Offre extends Model
 {
@@ -74,5 +75,17 @@ class Offre extends Model
     public function __toString()
     {
         return $this->proposition.' - '.$this->categorieBien->nom.' à '.$this->ville.', '.$this->adresse;
+    }
+
+    public function getPinnedAttribute() {
+       if(Auth::user()) {
+            $favorites = Favorite::where('user_id',Auth::user()->id)
+            ->where('offre_id',$this->id)
+            ->get(); 
+            if(count($favorites)>0) {
+                return true;
+            }
+       }
+       return false;
     }
 }

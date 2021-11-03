@@ -32,7 +32,7 @@ séjour, un terrain ou une maison à acheter...")
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                         loading="lazy"
-                        data-src="assets/images/logo.png">
+                        data-src="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
@@ -45,7 +45,10 @@ séjour, un terrain ou une maison à acheter...")
                         {{$agence->description}}
                         @else
                         Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à <strong>{{config('app.name')}}</strong>.
-                        Vous êtes propriétaire, courtier ou agence ? Nous avons pensé à chacun.
+                        Vous êtes propriétaire, courtier ou agence ? Chacun y trouve son compte. <br>
+                        - Si vous êtes une agence, ouvrez votre agence en ligne et obtenez un site professionnel pour exposer vos services et biens. <br>
+                        - Si vous êtes courtier ou propriétaire de biens, il suffit de créer un compte. <br>
+                        - Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent aussi, vous pouvez vous inscrire.
                         @endisset
                         <br>
                     </p>
@@ -53,7 +56,7 @@ séjour, un terrain ou une maison à acheter...")
                         @auth
                         @if(auth()->user()->type!='Client')
                         <form action="{{ route('offre.init.new',compact('agence')) }}" method="post"
-                            style="display: inline;">
+                            style="display: inline-block;">
                             @csrf
                             @method('post')
                             <div class="mb-3">
@@ -71,10 +74,10 @@ séjour, un terrain ou une maison à acheter...")
                         @endif
                         @endauth
                         @guest
-                        <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}"><span
+                        <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}?ret={{Request::url()}}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
                         <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
-                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>S'inscrire</a>
+                                class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>Ouvrir un compte</a>
                     </div>
                     @endguest
                 </div>
@@ -167,7 +170,7 @@ séjour, un terrain ou une maison à acheter...")
 <section data-bs-version="5.1" class="features3 cid-sLVFDQGTOP" id="features03-i">
     <div class="container">
         <div class="row">
-            @foreach ($offres as $offre)
+            @forelse ($offres as $offre)
             @if ($loop->index==3 || $loop->index==7 || $loop->index==10)
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
                 {!! Adsense::ads('responsive') !!}
@@ -176,7 +179,12 @@ séjour, un terrain ou une maison à acheter...")
             <div class="сol-12 col-sm-12 col-md-6 col-lg-4 md-pb mb-2">
                 <x-offre-item :offre="$offre" :agence="$agence" />
             </div>
-            @endforeach
+            @empty
+            <div class="alert alert-info" role="alert">
+                <strong>Il n'y aucune aucune offre pour le moment !</strong>
+            </div>
+            
+            @endforelse
         </div>
     </div>
 </section>

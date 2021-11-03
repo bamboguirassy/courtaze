@@ -30,7 +30,7 @@
                         <img class="w-100 lazyload"
                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                             loading="lazy"
-                            data-src="{{ asset('assets/images/logo.png') }}">
+                            data-src="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}">
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg m-auto">
@@ -204,7 +204,7 @@
                     <img class="w-100 md-pb lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
                         loading="lazy"
-                        data-src="assets/images/logo.png">
+                        data-src="assets/images/key-5284793-960-720-512x512.png">
                 </div>
                 <div class="col-lg-6 mx-auto mbr-form" data-form-type="formoid">
                     <!--Formbuilder Form-->
