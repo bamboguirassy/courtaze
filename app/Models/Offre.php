@@ -39,7 +39,10 @@ class Offre extends Model
         'latitude',
         'longitude',
         'geolocalise',
-        'nombreEtage'
+        'nombreEtage',
+        'villeLatitude',
+        'villeLongitude',
+        'nombreCuisine'
     ];
 
     /**

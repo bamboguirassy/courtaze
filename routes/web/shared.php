@@ -9,6 +9,7 @@ use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use SKAgarwal\GoogleApi\PlacesApi;
 
 Route::get('/', function (Agence $agence=null) {
     $categories = CategorieBien::orderby('nom')->get();
@@ -102,6 +103,12 @@ Route::post('/',function(Request $request, Agence $agence=null) {
     $categories = CategorieBien::orderby('nom')->get();
     return view('home',compact('offres','categories','agence'));
 })->name('offre.filter');
+
+Route::get('adresse-autocomplete', function(Request $request)  {
+    $googlePlaces = new PlacesApi(config('google.places.key'));
+    $response = $googlePlaces->placeAutocomplete($request->get('place'));
+    dd($response);
+});
 
 include "auth.php";
 

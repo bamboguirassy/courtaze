@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Katalog">
 
 <head>
     <meta charset="UTF-8">
@@ -81,7 +81,7 @@
     </script>
 </head>
 
-<body>
+<body ng-controller="MainController">
     <section data-bs-version="5.1" class="menu menu1 cid-sBTN7PNF8A" once="menu" id="menu1-1">
         <nav class="navbar navbar-dropdown navbar-expand-lg">
             <div class="container">
@@ -216,7 +216,8 @@
                         @endauth
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link link  text-black display-7" href="{{ route('login') }}?ret={{Request::url()}}">
+                            <a class="nav-link link  text-black display-7"
+                                href="{{ route('login') }}?ret={{Request::url()}}">
                                 <span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Se
                                 connecter</a>
                         </li>
@@ -268,8 +269,12 @@
     <script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
     <script src="{{ asset('assets/theme/js/script.js') }}"></script>
     <script src="{{ asset('assets/formoid.min.js') }}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key={{config('google.places.key')}}"></script>
     {{-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> --}}
+    <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
+    <script src="{{ asset('bower_components/angularjs-google-maps/dist/angularjs-google-maps.min.js') }}"></script>
+    <script src="{{ asset('angularjs/app.js') }}"></script>
     <script>
         "use strict";if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"],iframe[loading="lazy"]').forEach(e=>{e.src=e.dataset.src,e.style.paddingTop=100*e.getAttribute("data-aspectratio")+"%",e.style.height=0,e.onload=function(){e.removeAttribute("style")}})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js",document.body.appendChild(e)}
     </script>

@@ -240,12 +240,14 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville" style="">
                             <label for="ville-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Ville</strong></label>
-                            <input type="text" name="ville" placeholder="Ville" data-form-field="ville"
+                                <input type="number" name="villeLatitude" id="villeLatitude" ng-model="lat" step="any" hidden>
+                            <input type="number" name="villeLongitude" id="villeLongitude" ng-model="lng" step="any" hidden>
+                                <input gm-places-autocomplete ng-model="placeAutoComplete" type="text" name="ville" placeholder="Ville" data-form-field="ville"
                                 required="required" class="form-control display-7" value="{{ old('ville') }}" id="ville-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="adresse">
                             <label for="adresse-formbuilder-c"
-                                class="form-control-label mbr-fonts-style display-7"><strong>Adresse</strong></label>
+                                class="form-control-label mbr-fonts-style display-7"><strong>Adresse exacte (Quartier, rue, etc...)</strong></label>
                             <textarea name="adresse" placeholder="Adresse" data-form-field="adresse" required="required"
                                 class="form-control display-7" id="adresse-formbuilder-c">{{ old('adresse') }}</textarea>
                         </div>

@@ -95,8 +95,8 @@
                             </button>
                         </form>
                         @else
-                        <form style="display: inline-block;" action="{{ route('offre.unpin',compact('agence','offre')) }}"
-                            method="post">
+                        <form style="display: inline-block;"
+                            action="{{ route('offre.unpin',compact('agence','offre')) }}" method="post">
                             @csrf
                             @method('delete')
                             <button class="btn btn-lg btn-secondary-outline display-4" href="#"><span
@@ -169,6 +169,9 @@
                         @endif
                         @if ($offre->hasCuisine)
                         <li> <span class="fa fa-check"></span> Avec cuisine</li>
+                        @if($offre->nombreCuisine>0)
+                        <li> <span class="fa fa-check"></span> {{$offre->nombreCuisine}} cuisine(s)</li>
+                        @endif
                         @endif
                         @if ($offre->hasToilettePublique)
                         <li> <span class="fa fa-check"></span> Avec toilette visiteur</li>
@@ -197,7 +200,23 @@
         </div>
     </div>
 </section>
-
+<section data-bs-version="5.1" class="map1 cid-sNHz1kVgub" id="contacts01-4r">
+    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
+        <style type="text/css">
+            .st0
+        </style>
+        <path class="st0" d="M-1,15.7c200.1,0,200.7,13.8,400.9,13.8C600,29.5,600.4,9.3,800.5,9.3S998.8,36.8,1199,36.8
+	s201.9-21.1,402-21.1v24.1L-1,40V15.7z"></path>
+    </svg>
+    <div class="container">
+        <div class="google-map"><iframe frameborder="0" style="border:0"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" allowfullscreen=""
+                loading="lazy" class="lazyload"
+                data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q={{ $offre->ville }}"></iframe>
+        </div>
+    </div>
+</section>
 <section data-bs-version="5.1" class="gallery4 mbr-gallery cid-sM0rayBZvX" id="gallery4-27">
     <div class="container">
         <div class="row mbr-gallery mt-4">
