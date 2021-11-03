@@ -287,7 +287,7 @@ séjour, un terrain ou une maison à acheter...")
         <div id="map" class="google-map"><iframe frameborder="0" style="border:0"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" allowfullscreen=""
                 loading="lazy" class="lazyload"
-                data-src="https://www.google.com/maps/embed/v1/place?key={{config('google.places.key')}}&amp;q=null"></iframe>
+                data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q=null"></iframe>
         </div>
     </div>
 </section>
