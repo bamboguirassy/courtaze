@@ -14,9 +14,8 @@ class TemoignagePublicItem extends Component
      *
      * @return void
      */
-    public function __construct(Temoignage $temoignage)
+    public function __construct()
     {
-        $this->temoignage = $temoignage;
     }
 
     /**
@@ -26,6 +25,8 @@ class TemoignagePublicItem extends Component
      */
     public function render()
     {
+        $this->temoignage = DB::table('temoignages')->latest()->take(2)->get();
+
         return view('components.temoignage-public-item');
     }
 
