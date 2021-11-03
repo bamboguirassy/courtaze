@@ -64,10 +64,6 @@
                     @csrf
                     @method('post')
                     <input name="type" type="text" value="{{$type}}" hidden="hidden">
-                    <input type="hidden" name="g-recaptcha-response" data-form-captcha="true"
-                        value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06">
-                    <input type="hidden" name="email" data-form-email="true"
-                        value="uK53QrS3T24GDGuzh5TP+zyQ3rsTxLyoOHMDOowbNBkOaZffIIBiB7KGZF1Egiu09Ix6a5Sz/4NbWvpY9vlU7mxtzE1Cyi/+ovNQ93bl9PRJziqzRq7Blf5lWPYu4tRz.A4f03N3nsitNQnBMl7pwekTBitLkAyXwmz+ksPNuGphrwKJHDw1K5g7G10CsA8Ga8LvF7adlPCGj/TNBszd/aJlfv0XaCyj344myjUuJ+RefcC4/jzFTUrgIuztdzDDn.qAxZpS8XKbBepy17yXYVR/vh0XjdaTyfFX816v1dCKZi+4APucdF/P8srtXjw3QOMBI3jMAap8xmWsF3qIdXCmmT/1xG81XjkxW0YGGsm9cchAkAHKY8jo2V4UiWtU7X">
                     <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div data-for="name" class="col-lg-12 col-md-12 col-sm-12 form-group">

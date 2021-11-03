@@ -21,7 +21,7 @@ Route::get('/', function (Agence $agence=null) {
     return view('home',compact('categories','offres','agence'));
 })->name('home');
 
-Route::post('post-init',function(Request $request, Agence $agence=null) {
+Route::get('post-init',function(Request $request, Agence $agence=null) {
     $request->validate([
         'categorie_bien_id'=>'required|exists:categorie_biens,id'
     ]);

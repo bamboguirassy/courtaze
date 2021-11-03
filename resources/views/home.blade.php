@@ -55,14 +55,12 @@ séjour, un terrain ou une maison à acheter...")
                     <div class="mbr-section-btn mt-3 mb-2">
                         @auth
                         @if(auth()->user()->type!='Client')
-                        <form action="{{ route('offre.init.new',compact('agence')) }}" method="post"
+                        <form action="{{ route('offre.init.new',compact('agence')) }}"
                             style="display: inline-block;">
-                            @csrf
-                            @method('post')
                             <div class="mb-3">
                                 <select class="form-control" name="categorie_bien_id" id="categorie_bien_id">
                                     @foreach ($categories as $categorieBien)
-                                    <option value="{{$categorieBien->id}}}">{{$categorieBien->nom}}</option>
+                                    <option value="{{$categorieBien->id}}">{{$categorieBien->nom}}</option>
                                     @endforeach
                                 </select>
                             </div>

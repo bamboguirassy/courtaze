@@ -6,8 +6,6 @@
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sLW9sfV5gE" id="header01-t">
-
-
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" class="lottie__svg"
         preserveAspectRatio="none">
         <defs>
@@ -31,7 +29,7 @@
                 <div class="image-wrapper md-pb">
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                        loading="lazy" data-src="assets/images/mbr-998x665.jpg">
+                        loading="lazy" data-src="{{ asset('assets/images/mbr-998x665.jpg') }}">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
@@ -65,14 +63,8 @@
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
                 <!--Formbuilder Form-->
-                <form action="{{ route('pre.register.request',compact('agence')) }}" method="POST" class="mbr-form form-with-styler"
+                <form action="{{ route('pre.register',compact('agence')) }}" class="mbr-form form-with-styler"
                     data-form-title="registerForm">
-                    @csrf
-                    @method('post')
-                    <input type="hidden" name="g-recaptcha-response" data-form-captcha="true"
-                        value="6LcLaNIcAAAAALsGkwXbDA3AS4MvzPGyMbrj2h06">
-                    <input type="hidden" name="email" data-form-email="true"
-                        value="uK53QrS3T24GDGuzh5TP+zyQ3rsTxLyoOHMDOowbNBkOaZffIIBiB7KGZF1Egiu09Ix6a5Sz/4NbWvpY9vlU7mxtzE1Cyi/+ovNQ93bl9PRJziqzRq7Blf5lWPYu4tRz.A4f03N3nsitNQnBMl7pwekTBitLkAyXwmz+ksPNuGphrwKJHDw1K5g7G10CsA8Ga8LvF7adlPCGj/TNBszd/aJlfv0XaCyj344myjUuJ+RefcC4/jzFTUrgIuztdzDDn.qAxZpS8XKbBepy17yXYVR/vh0XjdaTyfFX816v1dCKZi+4APucdF/P8srtXjw3QOMBI3jMAap8xmWsF3qIdXCmmT/1xG81XjkxW0YGGsm9cchAkAHKY8jo2V4UiWtU7X">
                     <x-display-validation-errors :errors="$errors->all()" />
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">

@@ -40,16 +40,13 @@ Route::post('login',function(Request $request,Agence $agence=null) {
     return redirect()->route('home');
 })->name('login.request')->middleware('guest');
 
-Route::get('pre-register', function(Agence $agence=null) {
- return view('auth.pre-register',compact('agence'));
-})->name('pre.register.page')->middleware('guest');
-
-Route::post('pre-register', function(Request $request,Agence $agence=null) {
-    if(!$request->has('type')) {
-        toastr()->error('Le type de compte est obligatoire !');
+Route::get('pre-register', function(Request $request, Agence $agence=null) {
+    if($request->has('type')) {
+        return view('auth.register',compact('agence'))->with(['type'=>$request->get('type')]);
+    } else {
+        return view('auth.pre-register',compact('agence'));
     }
-    return view('auth.register',compact('agence'))->with(['type'=>$request->get('type')]);
-})->name('pre.register.request')->middleware('guest');
+})->name('pre.register')->middleware('guest');
 
 Route::post('register', function(Request $request,Agence $agence=null) {
     $request->validate([
