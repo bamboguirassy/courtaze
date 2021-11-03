@@ -186,4 +186,13 @@ class OffreController extends Controller
         }
         return back();
     }
+
+    public function getOffersForWs(Agence $agence=null) {
+        $query = Offre::where('visible',true)
+        ->with('categorieBien')->inRandomOrder();
+        if($agence!=null) {
+            $query = $query->where('agence_id',$agence->id);
+        }
+        return $offres = $query->get();
+    }
 }

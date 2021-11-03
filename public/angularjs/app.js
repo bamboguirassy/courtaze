@@ -1,5 +1,6 @@
 angular.module('Katalog',['gm'],()=>{})
-.controller('MainController',($scope, $http)=>{
+.controller('MainController',($scope, $rootScope)=>{
+    $rootScope.appUrl = window.location.protocol+'//'+window.location.host;
     $scope.lat = undefined;
     $scope.lng = undefined;
     
@@ -9,18 +10,31 @@ angular.module('Katalog',['gm'],()=>{})
         $scope.lng = location.lng();
         $scope.$apply();
     });
-}).controller('MapMarker',($scope) => {
+}).controller('MapMarker',($scope, $rootScope, $http) => {
     $scope.offres = [];
-    $scope.initOffres = (offres) => {
-        $scope.offres = offres;
-        console.log(offres);
-    }
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        const myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
-            center: myLatLng,
-        });
-    });
+    $scope.getOffres = () => {
+        $http.get($rootScope.appUrl+'/offers-ws')
+        .then((response)=>{
+            $scope.offres = response.data;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 10,
+                    center: myLatLng,
+                });
+                $scope.offres.forEach((offre)=>{
+                    if(offre.villeLongitude) {
+                        new google.maps.Marker({
+                            position: {lat: offre.villeLatitude, lng: offre.villeLongitude},
+                            map,
+                            title: offre.categorie_bien.nom,
+                          });
+                    }
+                })
+            });
+        },err=>alert(err.data.message));
+    }
+    $scope.getOffres();
+
 });

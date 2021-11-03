@@ -227,7 +227,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="ville" style="">
                             <label for="ville-formbuilder-c"
                                 class="form-control-label mbr-fonts-style display-7"><strong>Ville</strong></label>
-                            <input type="text" name="ville" placeholder="Ville" data-form-field="ville"
+                            <input gm-places-autocomplete ng-model="placeAutoComplete" type="text" name="ville" placeholder="Ville" data-form-field="ville"
                                 class="form-control display-7" value="" id="ville-formbuilder-c">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix">

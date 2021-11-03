@@ -48,6 +48,8 @@ Route::post('offre/{offre}/pin','App\Http\Controllers\OffreController@pin')
 Route::delete('offre/{offre}/unpin','App\Http\Controllers\OffreController@unpin')
 ->name('offre.unpin')->middleware('auth');
 
+Route::get('offers-ws','App\Http\Controllers\OffreController@getOffersForWs');
+
 Route::resource('offre', OffreController::class,[
     'only'=>['store','edit','update','destroy']
 ])->middleware('auth');
