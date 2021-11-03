@@ -100,7 +100,8 @@
                             @endisset
                         </a>
                     </span>
-                    <span class="navbar-caption-wrap"><a class="navbar-caption display-5" style="color: #C2C2C2;"
+                    <span class="navbar-caption-wrap">
+                        <a class="navbar-caption display-5 text-white"
                             href="{{ route('home',compact('agence')) }}">
                             @isset($agence)
                             {{ $agence->nom }}
@@ -281,6 +282,7 @@
     @jquery
     @toastr_js
     @toastr_render
+    @yield('scripts')
 </body>
 
 </html>

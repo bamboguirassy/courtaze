@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',"Accueil - ".(isset($agence)?$agence->nom:config('app.name')))
+@section('title',(isset($agence)?$agence->nom:config('app.name')))
 
 @section('description',"Bienvenue sur ".(isset($agence)?$agence->nom:config('app.name')).", votre plateforme pour
 trouver une location, un endroit de
@@ -31,8 +31,7 @@ séjour, un terrain ou une maison à acheter...")
                 <div class="image-wrapper md-pb">
                     <img class="w-100 lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""
-                        loading="lazy"
-                        data-src="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}">
+                        loading="lazy" data-src="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}">
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg m-auto">
@@ -44,19 +43,21 @@ séjour, un terrain ou une maison à acheter...")
                         @isset($agence)
                         {{$agence->description}}
                         @else
-                        Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à <strong>{{config('app.name')}}</strong>.
+                        Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à
+                        <strong>{{config('app.name')}}</strong>.
                         Vous êtes propriétaire, courtier ou agence ? Chacun y trouve son compte. <br>
-                        - Si vous êtes une agence, ouvrez votre agence en ligne et obtenez un site professionnel pour exposer vos services et biens. <br>
+                        - Si vous êtes une agence, ouvrez votre agence en ligne et obtenez un site professionnel pour
+                        exposer vos services et biens. <br>
                         - Si vous êtes courtier ou propriétaire de biens, il suffit de créer un compte. <br>
-                        - Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent aussi, vous pouvez vous inscrire.
+                        - Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent aussi, vous
+                        pouvez vous inscrire.
                         @endisset
                         <br>
                     </p>
                     <div class="mbr-section-btn mt-3 mb-2">
                         @auth
                         @if(auth()->user()->type!='Client')
-                        <form action="{{ route('offre.init.new',compact('agence')) }}"
-                            style="display: inline-block;">
+                        <form action="{{ route('offre.init.new',compact('agence')) }}" style="display: inline-block;">
                             <div class="mb-3">
                                 <select class="form-control" name="categorie_bien_id" id="categorie_bien_id">
                                     @foreach ($categories as $categorieBien)
@@ -72,9 +73,10 @@ séjour, un terrain ou une maison à acheter...")
                         @endif
                         @endauth
                         @guest
-                        <a class="btn btn-lg btn-success display-4" href="{{ route('login') }}?ret={{Request::url()}}"><span
+                        <a class="btn btn-lg btn-success display-4"
+                            href="{{ route('login') }}?ret={{Request::url()}}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
-                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register.page') }}"><span
+                        <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>Ouvrir un compte</a>
                     </div>
                     @endguest
@@ -181,7 +183,7 @@ séjour, un terrain ou une maison à acheter...")
             <div class="alert alert-info" role="alert">
                 <strong>Il n'y aucune aucune offre pour le moment !</strong>
             </div>
-            
+
             @endforelse
         </div>
     </div>
@@ -298,6 +300,23 @@ séjour, un terrain ou une maison à acheter...")
                     </span>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<section ng-controller="MapMarker" ng-init="initOffres({{$offres}})" data-bs-version="5.1" class="map1 cid-sNHz1kVgub" id="contacts01-4r">
+    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
+        <style type="text/css">
+            .st0
+        </style>
+        <path class="st0" d="M-1,15.7c200.1,0,200.7,13.8,400.9,13.8C600,29.5,600.4,9.3,800.5,9.3S998.8,36.8,1199,36.8
+	s201.9-21.1,402-21.1v24.1L-1,40V15.7z"></path>
+    </svg>
+    <div class="container">
+        <div id="map" class="google-map"><iframe frameborder="0" style="border:0"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" allowfullscreen=""
+                loading="lazy" class="lazyload"
+                data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q=null"></iframe>
         </div>
     </div>
 </section>

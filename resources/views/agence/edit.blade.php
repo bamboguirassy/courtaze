@@ -86,8 +86,8 @@
                         <div data-for="adresse" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="adresse-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Adresse de l'agence *</label>
-                            <textarea required="required" name="adresse" placeholder="Adresse" data-form-field="adresse"
-                                class="form-control display-7" id="adresse-formbuilder-u">{{old('adresse') ?? $agence->adresse}}</textarea>
+                            <input  gm-places-autocomplete ng-model="placeAutoComplete" required="required" name="adresse" placeholder="Adresse" data-form-field="adresse"
+                                class="form-control display-7" id="adresse-formbuilder-u" value="{{old('adresse') ?? $agence->adresse}}">
                         </div>
                         <div data-for="horaireOuverture" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="horaireOuverture-formbuilder-u"
