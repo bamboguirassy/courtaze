@@ -270,7 +270,7 @@
     <script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
     <script src="{{ asset('assets/theme/js/script.js') }}"></script>
     <script src="{{ asset('assets/formoid.min.js') }}"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key={{config('google.places.key')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key={{config('google.places.key')}}"></script>
     {{-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> --}}
     <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
