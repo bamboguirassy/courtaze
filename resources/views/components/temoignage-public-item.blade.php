@@ -1,5 +1,5 @@
 <div>
-   @foreach ($temoignage as $temoignages )
+
    <p class="mbr-text mbr-fonts-style mb-4 display-7">
     <em>{{$temoignages->message}}</em>
 </p>
@@ -21,6 +21,6 @@
         </p>
     </div>
 </div>
-   @endforeach
+
 
 </div>
