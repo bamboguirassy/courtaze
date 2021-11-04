@@ -29,7 +29,7 @@ angular.module('Katalog',['gm'],()=>{})
                             position: {lat: offre.villeLatitude, lng: offre.villeLongitude},
                             map,
                             title: offre.categorie_bien.nom,
-                            icon: '/assets/images/map-ico.png'
+                            // icon: '/assets/images/map-ico.png'
                           });
                     }
                 })
