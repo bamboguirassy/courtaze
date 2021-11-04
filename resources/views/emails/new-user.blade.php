@@ -1,5 +1,5 @@
 @component('mail::message')
-[![Logo Bambo GROUP](https://katalog.tech/assets/images/key-5284793-960-720-512x512.png)
+![Logo Bambo GROUP](https://katalog.tech/assets/images/key-5284793-960-720-512x512.png)
 
 
 Bonjour **{{$user->name}}**,  
