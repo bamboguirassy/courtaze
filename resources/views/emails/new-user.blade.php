@@ -1,16 +1,19 @@
 @component('mail::message')
-[![Logo Bambo GROUP](https://katalog.tech/assets/images/key-5284793-960-720-512x512.png)
+![Logo Bambo GROUP](https://katalog.tech/assets/images/key-5284793-960-720-512x512.png)
 
 
 Bonjour **{{$user->name}}**,  
-Bienvenue sur la plateforme ***{{ config('app.name') }}***.  
-Vous venez d'ouvrir un compte en utilisant l'adresse email {{$user->email}}.  
- Veuillez trouver ci-dessous vos identifiants de connexion: 
-- Email: **{{$user->email}}**
-- Mot de passe (à ne surtout pas partager): **{{$password}}**
+Bienvenue ***{{ config('app.name') }}***.  
+Vous venez d'ouvrir un compte sur la plateforme.  
+ Veuillez trouver ci-dessous vos identifiants de connexion:  
+- Email: **{{$user->email}}**  
+- Mot de passe (à ne surtout pas partager): **{{$password}}**  
 @if ($user->type=="Agence")
-|   Votre agence est en cours d'activation, une fois fait, vous serez contacté avec les informations d'hébergement.  
+|   Votre agence est en cours d'activation.  
+Une équipe travaille sur l'hébergement du site.  
+Une fois le travail terminé, vous serez contacté avec les informations d'hébergement.  
 @endif  
+
 Cordialement.  
 
 ---
