@@ -178,9 +178,9 @@
                 <strong>Témoignage de nos clients</strong>
             </h3>
             <div class="row justify-content-center">
-                @foreach ($temoignages as $temoignages)
+                @foreach ($temoignages as $temoignage)
                 <div class="card col-12 col-md-6">
-                    <x-temoignage-public-item :temoignages="$temoignages"/>
+                    <x-temoignage-public-item :temoignage="$temoignage"/>
                 </div>
                 @endforeach
 

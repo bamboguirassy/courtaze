@@ -7,15 +7,15 @@ use Illuminate\View\Component;
 
 class TemoignagePublicItem extends Component
 {
-   public  $temoignages;
+   public  $temoignage;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct( $temoignages)
+    public function __construct( $temoignage)
     {
-        $this->temoignages=$temoignages;
+        $this->temoignage=$temoignage;
     }
 
     /**
