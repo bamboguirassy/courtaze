@@ -1,8 +1,8 @@
 @extends('base')
 
-@section('title',"Formulaire de connexion")
+@section('title',"Se connecter")
 
-@section('description',"")
+@section('description',"Ouvrez un compte sur la plateforme et commencer à diffuser vos annonces.")
 
 @section('body')
 <section data-bs-version="5.1" class="header1 cid-sLWeJRPiCy" id="header01-z">

@@ -51,7 +51,7 @@
     </style>
     <meta name="theme-color" content="#8aceb5">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
-    <script src="sw-connect.js"></script>
+    <script src="{{ asset('sw-connect.js') }}"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-startup-image"
         media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
