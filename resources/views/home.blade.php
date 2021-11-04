@@ -260,9 +260,9 @@ séjour, un terrain ou une maison à acheter...")
                 </form>
                 <!--Formbuilder Form-->
             </div>
-            {{-- <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6">
                 {!! Adsense::ads('responsive') !!}
-            </div> --}}
+            </div>
         </div>
     </div>
 </section>
