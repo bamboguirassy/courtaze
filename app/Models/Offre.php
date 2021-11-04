@@ -42,7 +42,8 @@ class Offre extends Model
         'nombreEtage',
         'villeLatitude',
         'villeLongitude',
-        'nombreCuisine'
+        'nombreCuisine',
+        'visitsCount'
     ];
 
     /**

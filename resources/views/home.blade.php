@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',(isset($agence)?$agence->nom:config('app.name')))
+@section('title',(isset($agence)?$agence->nom:config('app.name').' - Votre catalogue de bien immobilier'))
 
 @section('description',"Bienvenue sur ".(isset($agence)?$agence->nom:config('app.name')).", votre plateforme pour
 trouver une location, un endroit de
@@ -45,12 +45,6 @@ séjour, un terrain ou une maison à acheter...")
                         @else
                         Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à
                         <strong>{{config('app.name')}}</strong>.
-                        Vous êtes propriétaire, courtier ou agence ? Chacun y trouve son compte. <br>
-                        - Si vous êtes une agence, ouvrez votre agence en ligne et obtenez un site professionnel pour
-                        exposer vos services et biens. <br>
-                        - Si vous êtes courtier ou propriétaire de biens, il suffit de créer un compte. <br>
-                        - Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent aussi, vous
-                        pouvez vous inscrire.
                         @endisset
                         <br>
                     </p>
@@ -85,7 +79,114 @@ séjour, un terrain ou une maison à acheter...")
         </div>
     </div>
 </section>
+<section data-bs-version="5.1" class="list3 cid-sNMOCmB5gI" id="list03-4s">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12 col-lg-10 m-auto">
+                <div class="content">
+                    <div class="mbr-section-head align-left mb-2">
+                        <h4 class="mbr-section-subtitle mb-2 mbr-fonts-style display-7">
+                            <strong>Nous voulons rendre plus facile la recherche de biens pour les clients avec un large éventail de choix. Nous n'avons oublié aucun acteur !</strong>
+                            </h4>
 
+                    </div>
+                    <div id="bootstrap-accordion_16" class="panel-group accordionStyles accordion" role="tablist"
+                        aria-multiselectable="true">
+                        <div class="card mb-3">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a role="button" class="panel-title collapsed" data-toggle="collapse"
+                                    data-bs-toggle="collapse" data-core="" href="#collapse1_16" aria-expanded="false"
+                                    aria-controls="collapse1">
+
+                                    <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-7">Vous êtes
+                                        une agence ?</h6>
+                                    <span class="sign mbr-iconfont mobi-mbri-plus"></span>
+                                </a>
+                            </div>
+                            <div id="collapse1_16" class="panel-collapse noScroll collapse" role="tabpanel"
+                                aria-labelledby="headingOne" data-parent="#bootstrap-accordion_16"
+                                data-bs-parent="#accordion">
+                                <div class="panel-body">
+                                    <p class="mbr-fonts-style panel-text display-4">Si vous êtes une agence, ouvrez
+                                        votre agence en ligne et obtenez un site professionnel pour exposer vos services
+                                        et biens. Obtenez un sous-nom de domaine et profitez pleinement de votre site.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a role="button" class="panel-title collapsed" data-toggle="collapse"
+                                    data-bs-toggle="collapse" data-core="" href="#collapse2_16" aria-expanded="false"
+                                    aria-controls="collapse2">
+
+                                    <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-7">Vous êtes
+                                        courtier ?</h6>
+                                    <span class="sign mbr-iconfont mobi-mbri-plus"></span>
+                                </a>
+                            </div>
+                            <div id="collapse2_16" class="panel-collapse noScroll collapse" role="tabpanel"
+                                aria-labelledby="headingOne" data-parent="#bootstrap-accordion_16"
+                                data-bs-parent="#accordion">
+                                <div class="panel-body">
+                                    <p class="mbr-fonts-style panel-text display-4">
+                                        Vous êtes courtier et vous disposez d'un ensemble de biens à vendre ou à louer,
+                                        il suffit de créer un compte et de diffuser et suivre vos annonces.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a role="button" class="panel-title collapsed" data-toggle="collapse"
+                                    data-bs-toggle="collapse" data-core="" href="#collapse3_16" aria-expanded="false"
+                                    aria-controls="collapse3">
+                                    <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-7">Vous êtes
+                                        propriétaire ?</h6>
+                                    <span class="sign mbr-iconfont mobi-mbri-plus"></span>
+                                </a>
+                            </div>
+                            <div id="collapse3_16" class="panel-collapse noScroll collapse" role="tabpanel"
+                                aria-labelledby="headingOne" data-parent="#bootstrap-accordion_16"
+                                data-bs-parent="#accordion">
+                                <div class="panel-body">
+                                    <p class="mbr-fonts-style panel-text display-4"></p>
+                                    <p>
+                                        Vous êtes propriétaire de bien et vous souhaitez diffuser vos propriétés sans
+                                        passer par des intermédiaires ? Ouvrez un compte dès maintenant et publier vos
+                                        biens pour que les clients puissent les retrouver.</p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a role="button" class="panel-title collapsed" data-toggle="collapse"
+                                    data-bs-toggle="collapse" data-core="" href="#collapse4_16" aria-expanded="false"
+                                    aria-controls="collapse4">
+                                    <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-7">Vous êtes
+                                        client ?</h6>
+                                    <span class="sign mbr-iconfont mobi-mbri-plus"></span>
+                                </a>
+                            </div>
+                            <div id="collapse4_16" class="panel-collapse noScroll collapse" role="tabpanel"
+                                aria-labelledby="headingOne" data-parent="#bootstrap-accordion_16"
+                                data-bs-parent="#accordion">
+                                <div class="panel-body">
+                                    <p class="mbr-fonts-style panel-text display-4">
+                                        Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent
+                                        aussi, vous pouvez vous inscrire.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 <x-separator />
 
 <x-categories :categoris="$categories" :agence="$agence" />
@@ -134,8 +235,9 @@ séjour, un terrain ou une maison à acheter...")
                         <div data-for="ville" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="ville-formbuilder-8"
                                 class="form-control-label mbr-fonts-style display-7">Ville</label>
-                            <input gm-places-autocomplete ng-model="placeAutoComplete" type="text" name="ville" data-form-field="ville" class="form-control display-7"
-                                value="" id="ville-formbuilder-8">
+                            <input gm-places-autocomplete ng-model="placeAutoComplete" type="text" name="ville"
+                                data-form-field="ville" class="form-control display-7" value=""
+                                id="ville-formbuilder-8">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix" style="">
                             <label for="prix-formbuilder-c"
@@ -158,9 +260,9 @@ séjour, un terrain ou une maison à acheter...")
                 </form>
                 <!--Formbuilder Form-->
             </div>
-            <div class="col-12 col-lg-6">
+            {{-- <div class="col-12 col-lg-6">
                 {!! Adsense::ads('responsive') !!}
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
@@ -269,11 +371,11 @@ séjour, un terrain ou une maison à acheter...")
         </div>
     </div>
 </section>
-<div class="row">
+{{-- <div class="row">
     <div class="col-12">
         {!! Adsense::ads('responsive') !!}
     </div>
-</div>
+</div> --}}
 <section ng-controller="MapMarker" data-bs-version="5.1" class="map1 cid-sNHz1kVgub" id="contacts01-4r">
     <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">

@@ -34,7 +34,7 @@
                         {{$offre->description}}
                         <hr>
                         <span style="font-size: 12px;">Publié par <b>{{$offre->user->name}}</b>, le
-                            {{date_format($offre->created_at,'d/m/Y')}}</span>
+                            {{date_format($offre->created_at,'d/m/Y')}}</span> &nbsp; - <span>{{ $offre->visitsCount }} <span class="fa fa-eye" aria-hidden="true"></span></span>
                     </p>
                     <div class="mbr-section-btn mt-3">
                         @auth

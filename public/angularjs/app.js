@@ -20,7 +20,7 @@ angular.module('Katalog',['gm'],()=>{})
             navigator.geolocation.getCurrentPosition(function(position) {
                 const myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
                 const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 10,
+                    zoom: 14,
                     center: myLatLng,
                 });
                 $scope.offres.forEach((offre)=>{
@@ -29,6 +29,7 @@ angular.module('Katalog',['gm'],()=>{})
                             position: {lat: offre.villeLatitude, lng: offre.villeLongitude},
                             map,
                             title: offre.categorie_bien.nom,
+                            icon: '/assets/images/map-ico.png'
                           });
                     }
                 })

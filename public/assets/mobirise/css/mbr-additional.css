@@ -981,6 +981,90 @@ section.lazy-placeholder:after {
 .cid-sBTN7vbAnD .mbr-section-btn {
   color: #000000;
 }
+.cid-sNMOCmB5gI {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background-color: #efefef;
+}
+.cid-sNMOCmB5gI .mbr-iconfont {
+  font-size: 1.2rem !important;
+  font-family: 'Moririse2' !important;
+  color: currentColor;
+  transition: all 0.3s;
+  transform: rotate(90deg);
+}
+.cid-sNMOCmB5gI .panel-group {
+  border: none;
+}
+.cid-sNMOCmB5gI .card-header {
+  padding: 1.2rem 0.5rem;
+}
+@media (max-width: 767px) {
+  .cid-sNMOCmB5gI .card-header {
+    padding: 1rem 0rem;
+  }
+}
+.cid-sNMOCmB5gI .panel-body {
+  padding: 0 0.5rem;
+  padding-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .cid-sNMOCmB5gI .panel-body {
+    padding: 0rem;
+    padding-bottom: 1rem;
+  }
+}
+.cid-sNMOCmB5gI .content {
+  margin: 5rem auto;
+}
+.cid-sNMOCmB5gI .img-col {
+  padding: 0;
+}
+.cid-sNMOCmB5gI .img-item {
+  height: 100%;
+}
+.cid-sNMOCmB5gI img {
+  height: 100%;
+  object-fit: cover;
+}
+.cid-sNMOCmB5gI .collapsed span {
+  transform: rotate(0deg);
+}
+.cid-sNMOCmB5gI .panel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cid-sNMOCmB5gI p {
+  margin-bottom: 0.3rem;
+}
+.cid-sNMOCmB5gI .mbri-arrow-up {
+  transform: rotate(45deg);
+}
+.cid-sNMOCmB5gI .panel-title-edit {
+  color: #000000;
+}
+.cid-sNMOCmB5gI .card .card-header {
+  background-color: transparent;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 10px;
+}
+.cid-sNMOCmB5gI .card {
+  background: white;
+  padding: 0rem 1rem;
+  border-radius: 10px!important;
+}
+.cid-sNMOCmB5gI .panel-title-edit,
+.cid-sNMOCmB5gI .mbr-iconfont {
+  color: #1b2026;
+}
+.cid-sNMOCmB5gI .panel-text {
+  color: #777777;
+}
+.cid-sNMOCmB5gI H4 {
+  color: #777777;
+}
 .cid-sNCKxYVD9N {
   padding-top: 0rem;
   padding-bottom: 2rem;
@@ -1732,7 +1816,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -2099,7 +2183,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -2662,7 +2746,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -3219,7 +3303,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -3804,7 +3888,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -4414,7 +4498,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -5084,7 +5168,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -5621,7 +5705,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -6413,7 +6497,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -6955,7 +7039,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -7640,7 +7724,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -8610,7 +8694,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -9423,7 +9507,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -10055,7 +10139,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -10727,7 +10811,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -11309,7 +11393,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -11857,7 +11941,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -12405,7 +12489,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -13134,7 +13218,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -13836,7 +13920,7 @@ section.lazy-placeholder:after {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 .cid-sBTN7PNF8A button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;

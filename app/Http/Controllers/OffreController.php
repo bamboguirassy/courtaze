@@ -88,6 +88,7 @@ class OffreController extends Controller
      */
     public function show(Agence $agence = null, Offre $offre)
     {
+        $offre->update(['visitsCount'=>++$offre->visitsCount]);
         return view('shared.offre.show', compact('offre', 'agence'));
     }
 

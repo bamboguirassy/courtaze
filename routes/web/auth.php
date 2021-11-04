@@ -82,13 +82,16 @@ Route::post('register', function(Request $request,Agence $agence=null) {
             $agence->user_id = $user->id;
             $agence->save();
         }
-        Mail::to($user->email)->cc(config('mail.cc'))->send(new NewUserRegistered($user,$request->get('password')));
+        Mail::to($user->email)->bcc(config('mail.cc'))->send(new NewUserRegistered($user,$request->get('password')));
         DB::commit();
     } catch(Exception $e) {
         DB::rollback();
         throw $e;
     }
     toastr()->success("Votre compte est créé avec succès sur la plateforme....");
+    if($request->get('type')=='Agence') {
+        return redirect()->route('registration.confirmation.page',compact('agence'));
+    }
     return redirect()->route('login',compact('agence'));
 })->name('register.request');
 

@@ -21,6 +21,20 @@ Route::get('/', function (Agence $agence=null) {
     return view('home',compact('categories','offres','agence'));
 })->name('home');
 
+Route::get('/home', function (Agence $agence=null) {
+    $categories = CategorieBien::orderby('nom')->get();
+    $query = Offre::where('visible',true)->inRandomOrder();
+    if($agence!=null) {
+        $query = $query->where('agence_id',$agence->id);
+    }
+    $offres = $query->paginate(72);
+    return view('home',compact('categories','offres','agence'));
+})->name('home.page');
+
+Route::get('registration-confirmation',function(Agence $agence=null) {
+    return view('shared.register-confirmation',compact('agence'));
+})->name('registration.confirmation.page');
+
 Route::get('post-init',function(Request $request, Agence $agence=null) {
     $request->validate([
         'categorie_bien_id'=>'required|exists:categorie_biens,id'
