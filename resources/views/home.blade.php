@@ -70,6 +70,9 @@ séjour, un terrain ou une maison à acheter...")
                         <a class="btn btn-lg btn-success display-4"
                             href="{{ route('login') }}?ret={{Request::url()}}"><span
                                 class="fa fa-sign-in mbr-iconfont mbr-iconfont-btn"></span>Se connecter</a>
+                        <a class="btn btn-lg btn-primary display-4"
+                            href="{{ route('pre.register') }}?type=Agence"><span
+                                class="fa fa-plus mbr-iconfont mbr-iconfont-btn"></span>Créer une agence</a>
                         <a class="btn btn-lg btn-info display-4" href="{{ route('pre.register') }}"><span
                                 class="icon54-v1-login-form2 mbr-iconfont mbr-iconfont-btn"></span>Ouvrir un compte</a>
                     </div>
