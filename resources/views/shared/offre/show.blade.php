@@ -1,9 +1,15 @@
 @extends('base')
 
-@section('title',"Détails offre - ".$offre)
+@section('title',$offre)
 
 @section('description',$offre->description)
 
+@section('twitter-sharing')
+<meta name="twitter:image:src"
+    content="{{count($offre->images)?asset('uploads/offre/images/'.$offre->images[0]->nom):asset('assets/images/key-5284793-960-720-512x512.png')}}">
+<meta property="og:image"
+    content="{{count($offre->images)?asset('uploads/offre/images/'.$offre->images[0]->nom):asset('assets/images/key-5284793-960-720-512x512.png')}}">
+@endsection
 @section("body")
 <section data-bs-version="5.1" class="header1 cid-sM0jdhQLxE" id="header01-24">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" class="lottie__svg"
@@ -34,7 +40,8 @@
                         {{$offre->description}}
                         <hr>
                         <span style="font-size: 12px;">Publié par <b>{{$offre->user->name}}</b>, le
-                            {{date_format($offre->created_at,'d/m/Y')}}</span> &nbsp; - <span>{{ $offre->visitsCount }} <span class="fa fa-eye" aria-hidden="true"></span></span>
+                            {{date_format($offre->created_at,'d/m/Y')}}</span> &nbsp; - <span>{{ $offre->visitsCount }}
+                            <span class="fa fa-eye" aria-hidden="true"></span></span>
                     </p>
                     <div class="mbr-section-btn mt-3">
                         @auth
@@ -284,6 +291,35 @@
             </div>
         </div>
     </div>
+    </div>
+</section>
+<section data-bs-version="5.1" class="social-buttons2 luxurym4_social-buttons2 cid-sM17msauDb" id="social-buttons2-2w">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-10 col-lg-8 align-center">
+                <h2 class="mbr-section-title mbr-fonts-style pb-3 display-2">
+                    Partager sur</h2>
+                <div class="mbr-social-likes">
+                    <span class="btn btn-social socicon-bg-facebook facebook mx-2" title="Share link on Facebook">
+                        <i class="socicon socicon-facebook"></i>
+                    </span>
+                    <span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
+                        <i class="socicon socicon-twitter"></i>
+                    </span>
+
+                    <span class="btn btn-social vkontakte socicon-bg-vkontakte mx-2" title="Share link on VKontakte">
+                        <i class="socicon socicon-vkontakte"></i>
+                    </span>
+
+                    <span class="btn btn-social pinterest socicon-bg-pinterest mx-2" title="Share link on Pinterest">
+                        <i class="socicon socicon-pinterest"></i>
+                    </span>
+                    <span class="btn btn-social mailru socicon-bg-mail mx-2" title="Share link on Mailru">
+                        <i class="socicon socicon-mail"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 @endsection

@@ -100,6 +100,42 @@ Route::get('/ads.txt', function () {
     return response($content, 200)
         ->header('content-Type', 'text');
 });
+Route::get('/robots.txt', function () {
+    $content = view('robots');
+    return response($content, 200)
+        ->header('content-Type', 'text');
+});
+Route::get('/sitemap.xml', function () {
+    $agences= Agence::where('enabled',true)->get();
+    $offres = Offre::where('visible',true)->get();
+    $sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'.
+	'<url>'.
+    '<loc>https://katalog.tech</loc>'.
+	'</url>'.
+	'<url>'.
+    '<loc>https://katalog.tech/login</loc>'.
+	'</url>'.
+	'<url>'.
+    '<loc>https://katalog.tech/pre-register</loc>'.
+	'</url>';
+    foreach ($agences as $agence) {
+        $sitemap = $sitemap.
+        '<url>'.
+		"<loc>https://{$agence->domain}.katalog.tech/</loc>".
+	    '</url>';
+    }
+    foreach ($offres as $offre) {
+        $sitemap = $sitemap.
+        '<url>'.
+		"<loc>https://katalog.tech/categorie-bien/{$offre->id}</loc>".
+	    '</url>';
+    }
+	
+$sitemap = $sitemap.'</urlset>';
+    $content = view('sitemap',compact('sitemap'));
+    return response($content, 200)
+        ->header('content-Type', 'xml');
+});
 
 Route::get('liste-envie',function(Agence $agence=null) {
 return view('shared.liste-envie',compact('agence'));

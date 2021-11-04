@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="twitter:card" content="summary_large_image" />
+    @hasSection('twitter-sharing')
+    @yield('twitter-sharing')
+    @else
+    <meta name="twitter:image:src"
+        content="{{isset($agence)?asset('uploads/agence/logos/'.$agence->logo):asset('assets/images/key-5284793-960-720-512x512.png')}}">
+    <meta property="og:image"
+        content="{{isset($agence)?asset('uploads/agence/logos/'.$agence->logo):asset('assets/images/key-5284793-960-720-512x512.png')}}">
+        @endif
+    <meta name="twitter:title" content="@yield('title')">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}" type="image/x-icon">
     <meta name="description" content="@yield('description')">
@@ -101,8 +111,7 @@
                         </a>
                     </span>
                     <span class="navbar-caption-wrap">
-                        <a class="navbar-caption display-5 text-white"
-                            href="{{ route('home',compact('agence')) }}">
+                        <a class="navbar-caption display-5 text-white" href="{{ route('home',compact('agence')) }}">
                             @isset($agence)
                             {{ $agence->nom }}
                             @else
@@ -270,7 +279,9 @@
     <script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
     <script src="{{ asset('assets/theme/js/script.js') }}"></script>
     <script src="{{ asset('assets/formoid.min.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key={{config('google.places.key')}}"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key={{config('google.places.key')}}">
+    </script>
     {{-- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> --}}
     <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
