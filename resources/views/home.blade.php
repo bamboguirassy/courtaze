@@ -377,14 +377,14 @@ séjour, un terrain ou une maison à acheter...")
     </div>
 </div> --}}
 <section ng-controller="MapMarker" data-bs-version="5.1" class="map1 cid-sNHz1kVgub" id="contacts01-4r">
-    <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    {{-- <svg class="svg-top" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1600 40" style="enable-background:new 0 0 1600 40;" preserveAspectRatio="none">
         <style type="text/css">
             .st0
         </style>
         <path class="st0" d="M-1,15.7c200.1,0,200.7,13.8,400.9,13.8C600,29.5,600.4,9.3,800.5,9.3S998.8,36.8,1199,36.8
 	s201.9-21.1,402-21.1v24.1L-1,40V15.7z"></path>
-    </svg>
+    </svg> --}}
     <div class="container">
         <div id="map" class="google-map"><iframe frameborder="0" style="border:0"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" allowfullscreen=""
