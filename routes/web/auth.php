@@ -25,7 +25,7 @@ Route::post('login',function(Request $request,Agence $agence=null) {
         'password'=>'min:6',
     ]);
     // 'g-recaptcha-response' => 'recaptcha',
-    Auth::attempt($request->only('email','password'), true);
+    if(Auth::attempt($request->only('email','password'), true)) {
     if($agence!=null) {
         if(Auth::user()->id!=$agence->user_id && Auth::user()->type!='Client' && Auth::user()->type!='Admin') {
             Auth::logout();
@@ -37,7 +37,12 @@ Route::post('login',function(Request $request,Agence $agence=null) {
         session()->remove('ret');
         return redirect($url);
     }
+    toastr()->success("Authentification reussie !");
     return redirect()->route('home');
+} else {
+    toastr()->error("Vos identifiants de connexion sont invalides, merci de vérifier !");
+    return back();
+}
 })->name('login.request')->middleware('guest');
 
 Route::get('pre-register', function(Request $request, Agence $agence=null) {
