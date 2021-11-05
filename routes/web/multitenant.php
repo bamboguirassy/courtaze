@@ -41,6 +41,7 @@ Route::domain('{agence:domain}.'.Config::get('app.url'))->group(function() {
             $services = Service::where('agence_id',$agence->id)
             ->get();
             $temoignages = Temoignage::where('agence_id',$agence->id)
+            ->latest()->take(2)
             ->get();
             $socialLinks = AgenceSocialLink::where('agence_id',$agence->id)
             ->get();
