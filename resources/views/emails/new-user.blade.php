@@ -3,7 +3,7 @@
 
 
 Bonjour **{{$user->name}}**,  
-Bienvenue ***{{ config('app.name') }}***.  
+Bienvenue sur ***{{ config('app.name') }}***.  
 Vous venez d'ouvrir un compte sur la plateforme.  
  Veuillez trouver ci-dessous vos identifiants de connexion:  
 - Email: **{{$user->email}}**  
