@@ -32,12 +32,12 @@ Route::post('login',function(Request $request,Agence $agence=null) {
             toastr()->error("Vous n'êtes pas autorisés à vous connecter à cette agence !");
         }
     }
+    toastr()->success("Authentification reussie !");
     if(session()->exists('ret')) {
         $url = session('ret');
         session()->remove('ret');
         return redirect($url);
     }
-    toastr()->success("Authentification reussie !");
     return redirect()->route('home');
 } else {
     toastr()->error("Vos identifiants de connexion sont invalides, merci de vérifier !");
