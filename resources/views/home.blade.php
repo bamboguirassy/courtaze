@@ -243,8 +243,9 @@ séjour, un terrain ou une maison à acheter...")
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="prix" style="">
                             <label for="prix-formbuilder-c"
-                                class="form-control-label mbr-fonts-style display-7"><strong>Budget
-                                    (CFA)</strong></label>
+                                class="form-control-label mbr-fonts-style display-7">
+                                <strong>Budget</strong>
+                            </label>
                             <input type="number" name="prix" min="0" step="1" data-form-field="prix"
                                 class="form-control display-7" value="" id="prix-formbuilder-c">
                         </div>
