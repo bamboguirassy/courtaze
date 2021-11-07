@@ -43,7 +43,7 @@ séjour, un terrain ou une maison à acheter...")
                         @isset($agence)
                         {{$agence->description}}
                         @else
-                        <strong>{{config('app.name')}}</strong>, première plateforme francophone de catalogage immobilier à travers le monde.
+                        <strong>{{config('app.name')}}</strong>, première plateforme francophone de catalogage de biens immobiliers à travers le monde.
                         @endisset
                         <br>
                     </p>
