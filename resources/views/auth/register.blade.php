@@ -54,7 +54,7 @@
 
 <x-separator />
 
-<section class="form cid-sLWaxOklPM" id="formbuilder-u">
+<section class="form cid-sLWaxOklPM" id="formbuilder-u" ng-controller="CountriesController">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form">
@@ -78,6 +78,15 @@
                                 data-form-field="name" class="form-control display-7" required="required" value=""
                                 id="name-formbuilder-u">
                         </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="country">
+                            <div class="mb-3">
+                                <label for="country" class="form-label">Pays</label>
+                                <select required="required" ng-model="selectedCountry" class="form-control" name="country" id="country">
+                                    <option value="" disabled selected>Sélectionner votre pays</option>
+                                    <option value="@{{country.cca3}}" ng-show="country.name_fr" ng-repeat="country in countries"> <span ng-bind-html="@{{country.flag['flag-icon']}}"></span> @{{country.admin}}</option>
+                                </select>
+                            </div>
+                        </div>
                         @if ($type=='Agence')
                         <div data-for="slogan" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="slogan-formbuilder-u"
@@ -86,13 +95,6 @@
                                 placeholder="Slogan de l'agence" data-form-field="slogan" class="form-control display-7"
                                 required="required" value="" id="slogan-formbuilder-u">
                         </div>
-                        {{-- <div data-for="domain" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <label for="domain-formbuilder-u"
-                                class="form-control-label mbr-fonts-style display-7">Domaine d'hébergement</label>
-                            <input value="{{ old('domain') }}" type="text" name="domain" placeholder="Nom de domaine"
-                                data-form-field="domain" required="required" class="form-control display-7" value=""
-                                id="domain-formbuilder-u">
-                        </div> --}}
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="color">
                             <label for="color-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Couleur du site WEB</label>
@@ -109,8 +111,10 @@
                         <div data-for="adresse" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="adresse-formbuilder-u"
                                 class="form-control-label mbr-fonts-style display-7">Adresse de l'agence</label>
-                            <input gm-places-autocomplete ng-model="placeAutoComplete" required="required" name="adresse" placeholder="Adresse" data-form-field="adresse"
-                                class="form-control display-7" id="adresse-formbuilder-u" value="{{old('adresse') ?? ''}}">
+                            <input gm-places-autocomplete ng-model="placeAutoComplete" required="required"
+                                name="adresse" placeholder="Adresse" data-form-field="adresse"
+                                class="form-control display-7" id="adresse-formbuilder-u"
+                                value="{{old('adresse') ?? ''}}">
                         </div>
                         <div data-for="horaireOuverture" class="col-lg-12 col-md-12 col-sm-12 form-group">
                             <label for="horaireOuverture-formbuilder-u"
@@ -142,7 +146,7 @@
                                 Numéro de Téléphone
                                 @endif
                             </label>
-                            <input value="{{ old('telephoneWhatsapp') }}" type="tel" name="telephoneWhatsapp"
+                            <input ng-value="countries[selectedCountry].calling_codes[0]" type="tel" name="telephoneWhatsapp"
                                 data-form-field="telephoneWhatsapp" required="required" class="form-control display-7"
                                 value="" id="telephoneWhatsapp-formbuilder-u">
                         </div>
@@ -152,7 +156,7 @@
                                 class="form-control-label mbr-fonts-style display-7">Téléphone
                                 Personnel
                             </label>
-                            <input value="{{ old('telephonePersonnel') }}" type="tel" name="telephonePersonnel"
+                            <input  ng-value="countries[selectedCountry].calling_codes[0]" type="tel" name="telephonePersonnel"
                                 placeholder="Téléphone personnel" data-form-field="telephonePersonnel"
                                 class="form-control display-7" value="" id="telephonePersonnel-formbuilder-u">
                         </div>
@@ -186,7 +190,8 @@
                                 class="form-control display-7" value="" id="password_confirmation-formbuilder-u">
                         </div>
                         {{-- <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Confirmer que vous n'êtes pas un robot</label>
+                            <label class="col-md-4 col-form-label text-md-right">Confirmer que vous n'êtes pas un
+                                robot</label>
                             <div class="col-md-6"> {!! htmlFormSnippet() !!} </div>
                         </div> --}}
                         <div class="col-lg-12 col-md-12 col-sm-12">

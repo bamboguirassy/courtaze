@@ -38,4 +38,8 @@ angular.module('Katalog',['gm'],()=>{})
     }
     $scope.getOffres();
 
+}).controller('CountriesController',function($http, $scope) {
+    $http.get('/countries').then(response=>{
+        $scope.countries = response.data;
+    },err=>alert('Une erreur est survenue lors de la récupération de la liste des pays !'));
 });

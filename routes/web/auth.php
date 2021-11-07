@@ -3,7 +3,6 @@
 use App\Mail\NewUserRegistered;
 use App\Models\Agence;
 use App\Models\User;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use PragmaRX\Countries\Package\Countries;
+use PragmaRX\Countries\Package\Services\Config;
 
 Route::get('login', function(Request $request, Agence $agence=null) {
     if($request->has('ret')) {
@@ -60,10 +61,24 @@ Route::post('register', function(Request $request,Agence $agence=null) {
         'email'=>'required|unique:users',
         'password'=>'required|min:6|confirmed',
         'type'=>'required',
+        'country'=>'required'
     ]);
+    $countrieSrv = new Countries(new Config([
+        'hydrate' => [
+            'elements' => [
+                'currencies' => true,
+                'flag' => true,
+            ],
+        ],
+    ]));
+    $currency = $this->currency = $countrieSrv->where('cca3', $request->get('country'))
+    ->first()
+    ->currencies
+    ->first()->units->major->symbol;
     // 'g-recaptcha-response' => 'recaptcha',
     DB::beginTransaction();
     $user = new User($request->all());
+    $user->currency = $currency;
     try {
         /** hash password */
         $user->password = Hash::make($request->get('password'));

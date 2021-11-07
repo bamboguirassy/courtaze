@@ -9,7 +9,8 @@ use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use SKAgarwal\GoogleApi\PlacesApi;
+use PragmaRX\Countries\Package\Countries;
+use PragmaRX\Countries\Package\Services\Config;
 
 Route::get('/', function (Agence $agence=null) {
     $categories = CategorieBien::orderby('nom')->get();
@@ -156,10 +157,23 @@ Route::post('/',function(Request $request, Agence $agence=null) {
     return view('home',compact('offres','categories','agence'));
 })->name('offre.filter');
 
+/** not used for now */
 Route::get('adresse-autocomplete', function(Request $request)  {
-    $googlePlaces = new PlacesApi(config('google.places.key'));
-    $response = $googlePlaces->placeAutocomplete($request->get('place'));
-    dd($response);
+   /* $googlePlaces = new PlacesApi(config('google.places.key'));
+    $response = $googlePlaces->placeAutocomplete($request->get('place'));*/
+});
+
+/** for ws */
+Route::get('countries',function() {
+    $countrieSrv = new Countries(new Config([
+        'hydrate' => [
+            'elements' => [
+                'currencies' => true,
+                'flag' => true,
+            ],
+        ],
+    ]));
+    return $countrieSrv->all();
 });
 
 include "auth.php";

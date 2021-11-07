@@ -10,7 +10,7 @@
             <h6 class="item-subtitle align-left mb-1 mbr-fonts-style display-8">{{ $offre->categorieBien->nom }} à {{$offre->proposition=="Vente"?"vendre":"louer"}} à {{ $offre->ville }}</h6>
             <div class="mbr-flex mt-3">
                 <p class="price align-right mb-0 mbr-fonts-style display-6">{{$offre->categorieBien->nom}}</p>
-                <p class="price align-right mb-0 mbr-fonts-style display-6">{{$offre->prix}}CFA</p>
+                <p class="price align-right mb-0 mbr-fonts-style display-6">{{$offre->prix}} {{ $offre->user->currency }}</p>
             </div>
             <p class="mbr-text align-right mt-3 mb-0 mbr-fonts-style display-4">{{  \Illuminate\Support\Str::limit($offre->adresse,30,'...') }}</p>
         </div>

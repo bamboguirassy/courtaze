@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Katalog">
+<html ng-app="Katalog" lang="{{ config('app.locale') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assets/dropdown/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/recaptcha.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icons.min.css') }}">
     <link rel="preload"
         href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,400,500,600,700,800,100i,200i,300i,400i,500i,600i,700i,800i&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">

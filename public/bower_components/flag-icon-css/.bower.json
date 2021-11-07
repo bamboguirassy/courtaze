@@ -1,0 +1,15 @@
+{
+  "name": "flag-icon-css",
+  "homepage": "https://github.com/lipis/flag-icon-css",
+  "version": "4.1.5",
+  "_release": "4.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.1.5",
+    "commit": "cb1decf5c1730ad98fa36091f7af12e9f542ab5a"
+  },
+  "_source": "https://github.com/lipis/flag-icon-css.git",
+  "_target": "^4.1.5",
+  "_originalSource": "flag-icon-css",
+  "_direct": true
+}

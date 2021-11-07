@@ -43,7 +43,7 @@ séjour, un terrain ou une maison à acheter...")
                         @isset($agence)
                         {{$agence->description}}
                         @else
-                        Trouver un logement au Sénégal est un véritable casse-tête. C’est pourquoi nous avons pensé à
+                        Trouver un logement est un véritable casse-tête. C’est pourquoi nous avons pensé à
                         <strong>{{config('app.name')}}</strong>.
                         @endisset
                         <br>
@@ -91,7 +91,6 @@ séjour, un terrain ou une maison à acheter...")
                         <h4 class="mbr-section-subtitle mb-2 mbr-fonts-style display-7">
                             <strong>Nous voulons rendre plus facile la recherche de biens pour les clients avec un large éventail de choix. Nous n'avons oublié aucun acteur !</strong>
                             </h4>
-
                     </div>
                     <div id="bootstrap-accordion_16" class="panel-group accordionStyles accordion" role="tablist"
                         aria-multiselectable="true">

@@ -5,6 +5,8 @@ namespace App\View\Components;
 use App\Models\Agence;
 use App\Models\Offre;
 use Illuminate\View\Component;
+use PragmaRX\Countries\Package\Countries;
+use PragmaRX\Countries\Package\Services\Config;
 
 class OffreItem extends Component
 {
