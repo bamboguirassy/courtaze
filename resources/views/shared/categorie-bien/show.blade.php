@@ -72,7 +72,7 @@
                                 <label for="country" class="form-label">Pays</label>
                                 <select required="required" ng-model="selectedCountry" class="form-control" name="country" id="country">
                                     <option value="" disabled selected>Sélectionner votre pays</option>
-                                    <option value="@{{country.cca3}}" ng-show="country.name_fr" ng-repeat="country in countries"> <span ng-bind-html="@{{country.flag['flag-icon']}}"></span> @{{country.name_fr}}</option>
+                                    <option value="@{{country.cca3}}" ng-show="country.name_en" ng-repeat="country in countries"> <span ng-bind-html="@{{country.flag['flag-icon']}}"></span> @{{country.name_en}}</option>
                                 </select>
                             </div>
                         </div>
