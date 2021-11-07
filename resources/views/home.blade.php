@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',(isset($agence)?$agence->nom:config('app.name').' - Votre catalogue de bien immobilier'))
+@section('title',(isset($agence)?$agence->nom:config('app.name').' - Votre plateforme de catalogage de biens immobiliers'))
 
 @section('description',"Bienvenue sur ".(isset($agence)?$agence->nom:config('app.name')).", votre plateforme pour
 trouver une location, un endroit de

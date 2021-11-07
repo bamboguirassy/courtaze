@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="{{ asset('assets/images/key-5284793-960-720-512x512.png') }}" type="image/x-icon">
     <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="immobilier,catalogage,agence,en ligne,courtier,propriètaire,location,vente,katalog, biens immobiliers,katalog.tech">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Material-Design-Icons/css/material.css') }}">
