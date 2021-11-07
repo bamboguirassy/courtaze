@@ -132,10 +132,9 @@ Route::get('/sitemap.xml', function () {
 	    '</url>';
     }
 	
-$sitemap = $sitemap.'</urlset>';
-    $content = view('sitemap',compact('sitemap'));
-    return response($content, 200)
-        ->header('content-Type', 'xml');
+    $sitemap = $sitemap.'</urlset>';
+    return response($sitemap, 200)
+        ->header('content-Type', 'application/xml');
 });
 
 Route::get('liste-envie',function(Agence $agence=null) {
