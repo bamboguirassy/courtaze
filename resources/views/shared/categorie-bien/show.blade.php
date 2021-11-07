@@ -48,7 +48,7 @@
 
 <x-separator />
 
-<section class="form cid-sLVhzdzOtv" id="formbuilder-8" ng-controller="CountriesController">
+<section class="form cid-sLVhzdzOtv" id="formbuilder-8">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
@@ -70,9 +70,13 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="country">
                             <div class="mb-3">
                                 <label for="country" class="form-label">Pays</label>
-                                <select required="required" ng-model="selectedCountry" class="form-control" name="country" id="country">
+                                <select class="form-control" name="country" id="country">
                                     <option value="" disabled selected>Sélectionner votre pays</option>
-                                    <option value="@{{country.cca3}}" ng-show="country.name_en" ng-repeat="country in countries"> <span ng-bind-html="@{{country.flag['flag-icon']}}"></span> @{{country.name_en}}</option>
+                                    @foreach ($countries as $country)
+                                    <option value="{{$country['cca3']}}">
+                                        {!! $country['flag']['flag-icon'] !!} {{$country['name_en']}}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

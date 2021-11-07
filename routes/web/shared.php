@@ -23,7 +23,16 @@ Route::get('/', function (Agence $agence=null) {
         $query = $query->where('agence_id',$agence->id);
     }
     $offres = $query->paginate(72);
-    return view('home',compact('categories','offres','agence'));
+    $countrieSrv = new Countries(new Config([
+        'hydrate' => [
+            'elements' => [
+                'currencies' => true,
+                'flag' => true,
+            ],
+        ],
+    ]));
+    $countries = $countrieSrv->all();
+    return view('home',compact('categories','offres','agence','countries'));
 })->name('home');
 
 Route::get('/home', function (Agence $agence=null) {
@@ -94,7 +103,16 @@ Route::post('categorie-bien/{categorie}',function(Request $request, Agence $agen
     } else {
         toastr()->warning("Aucun résultat n'est trouvé pour vos critères de recherche...");
     }
-    return view('shared.categorie-bien.show',['categorieBien'=>$categorie,'offres'=>$offres,'agence'=>$agence]);
+    $countrieSrv = new Countries(new Config([
+        'hydrate' => [
+            'elements' => [
+                'currencies' => true,
+                'flag' => true,
+            ],
+        ],
+    ]));
+    $countries = $countrieSrv->all();
+    return view('shared.categorie-bien.show',['categorieBien'=>$categorie,'offres'=>$offres,'agence'=>$agence,'countries'=>$countries]);
 })->name('categorie.offre.filter');
 
 Route::resource('categorie-bien', CategorieBienController::class,[
@@ -167,7 +185,16 @@ Route::post('/',function(Request $request, Agence $agence=null) {
         toastr()->warning("Aucun résultat n'est trouvé pour vos critères de recherche...");
     }
     $categories = CategorieBien::orderby('nom')->get();
-    return view('home',compact('offres','categories','agence'));
+    $countrieSrv = new Countries(new Config([
+        'hydrate' => [
+            'elements' => [
+                'currencies' => true,
+                'flag' => true,
+            ],
+        ],
+    ]));
+    $countries = $countrieSrv->all();
+    return view('home',compact('offres','categories','agence','countries'));
 })->name('offre.filter');
 
 /** not used for now */

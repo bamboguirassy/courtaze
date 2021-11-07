@@ -6,9 +6,10 @@ use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\TryCatch;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use PragmaRX\Countries\Package\Countries;
+use PragmaRX\Countries\Package\Services\Config;
 
 class CategorieBienController extends Controller
 {
@@ -69,7 +70,16 @@ class CategorieBienController extends Controller
             $query = $query->where('agence_id',$agence->id);
         }
         $offres = $query->paginate(36);
-        return view('shared.categorie-bien.show',compact('categorieBien','offres','agence'));
+        $countrieSrv = new Countries(new Config([
+            'hydrate' => [
+                'elements' => [
+                    'currencies' => true,
+                    'flag' => true,
+                ],
+            ],
+        ]));
+        $countries = $countrieSrv->all();
+        return view('shared.categorie-bien.show',compact('categorieBien','offres','agence','countries'));
     }
 
     /**
