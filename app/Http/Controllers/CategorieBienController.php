@@ -8,6 +8,7 @@ use App\Models\Offre;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class CategorieBienController extends Controller
 {
@@ -61,6 +62,9 @@ class CategorieBienController extends Controller
     public function show(Agence $agence=null, CategorieBien $categorieBien)
     {
         $query = Offre::where('visible',true)->where('categorie_bien_id',$categorieBien->id);
+        if(Auth::user()) {
+            $query = $query->whereRelation('user','country',Auth::user()->country);
+        }
         if($agence!=null) {
             $query = $query->where('agence_id',$agence->id);
         }

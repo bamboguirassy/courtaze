@@ -8,6 +8,7 @@ use App\Models\Agence;
 use App\Models\CategorieBien;
 use App\Models\Offre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use PragmaRX\Countries\Package\Countries;
 use PragmaRX\Countries\Package\Services\Config;
@@ -15,6 +16,9 @@ use PragmaRX\Countries\Package\Services\Config;
 Route::get('/', function (Agence $agence=null) {
     $categories = CategorieBien::orderby('nom')->get();
     $query = Offre::where('visible',true)->inRandomOrder();
+    if(Auth::user()) {
+        $query = $query->whereRelation('user','country',Auth::user()->country);
+    }
     if($agence!=null) {
         $query = $query->where('agence_id',$agence->id);
     }
@@ -74,8 +78,13 @@ Route::resource('offre', OffreController::class,[
 ]);
 
 /** Filtre des biens par catégorie bien */
-Route::post('categorie-bien/{categorie}',function(Agence $agence=null, CategorieBien $categorie) {
+Route::post('categorie-bien/{categorie}',function(Request $request, Agence $agence=null, CategorieBien $categorie) {
     $query = Offre::where('visible',true)->where('categorie_bien_id',$categorie->id);
+    if($request->has('country')) {
+        $query = $query->whereRelation('user','country',$request->get('country'));
+    } elseif(Auth::user()) {
+        $query = $query->whereRelation('user','country',Auth::user()->country);
+    }
     if($agence!=null) {
         $query = $query->where('agence_id',$agence->id);
     }
@@ -143,6 +152,11 @@ return view('shared.liste-envie',compact('agence'));
 
 Route::post('/',function(Request $request, Agence $agence=null) {
     $query = Offre::where('visible',true);
+    if($request->has('country')) {
+        $query = $query->whereRelation('user','country',$request->get('country'));
+    } elseif(Auth::user()) {
+        $query = $query->whereRelation('user','country',Auth::user()->country);
+    }
     if($agence!=null) {
         $query = $query->where('agence_id',$agence->id);
     }

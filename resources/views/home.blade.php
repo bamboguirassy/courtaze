@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title',(isset($agence)?$agence->nom:config('app.name').' - Votre plateforme de catalogage de biens immobiliers'))
+@section('title',(isset($agence)?$agence->nom:config('app.name').' - Première plateforme francophone de catalogage de biens immobiliers à travers le monde'))
 
 @section('description',"Bienvenue sur ".(isset($agence)?$agence->nom:config('app.name')).", votre plateforme pour
 trouver une location, un endroit de
@@ -43,8 +43,7 @@ séjour, un terrain ou une maison à acheter...")
                         @isset($agence)
                         {{$agence->description}}
                         @else
-                        Trouver un logement est un véritable casse-tête. C’est pourquoi nous avons pensé à
-                        <strong>{{config('app.name')}}</strong>.
+                        <strong>{{config('app.name')}}</strong>, première plateforme francophone de catalogage immobilier à travers le monde.
                         @endisset
                         <br>
                     </p>
@@ -176,7 +175,7 @@ séjour, un terrain ou une maison à acheter...")
                                 <div class="panel-body">
                                     <p class="mbr-fonts-style panel-text display-4">
                                         Si vous êtes clients et que vous voulez épingler les offres qui vous intéressent
-                                        aussi, vous pouvez vous inscrire.</p>
+                                        , vous pouvez vous inscrire. Si vous ne voulez voir que les offres d'un pays spécifique, merci de vous inscrire...</p>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +194,7 @@ séjour, un terrain ou une maison à acheter...")
 
 <x-separator />
 
-<section class="form cid-sLVhzdzOtv" id="formbuilder-8">
+<section class="form cid-sLVhzdzOtv" id="formbuilder-8" ng-controller="CountriesController">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mbr-form">
@@ -211,6 +210,15 @@ séjour, un terrain ou une maison à acheter...")
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-5">Retrouvez rapidement ce que vous recherchez...
                             </h4>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="country">
+                            <div class="mb-3">
+                                <label for="country" class="form-label">Pays</label>
+                                <select required="required" ng-model="selectedCountry" class="form-control" name="country" id="country">
+                                    <option value="" disabled selected>Sélectionner votre pays</option>
+                                    <option value="@{{country.cca3}}" ng-show="country.name_fr" ng-repeat="country in countries"> <span ng-bind-html="@{{country.flag['flag-icon']}}"></span> @{{country.name_fr}}</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie_id">
                             <label for="categorie_id-formbuilder-8"
@@ -295,7 +303,7 @@ séjour, un terrain ou une maison à acheter...")
 </section>
 
 <x-separator />
-
+@if(!isset($agence))
 <section data-bs-version="5.1" class="extFeatures cid-sLVGOAXOM0" id="extSocialButtons3-l">
     <div class="container">
         <div class="row justify-content-center">
@@ -374,6 +382,7 @@ séjour, un terrain ou une maison à acheter...")
         </div>
     </div>
 </section>
+@endisset
 {{-- <div class="row">
     <div class="col-12">
         {!! Adsense::ads('responsive') !!}
