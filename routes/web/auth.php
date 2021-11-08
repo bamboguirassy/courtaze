@@ -127,7 +127,7 @@ Route::get('profile', function(Agence $agence=null) {
 return view('auth.profile',compact('agence'));
 })->middleware('auth')->name('profile');
 
-Route::put('change-password',function(Request $request, Agence $agence=null) {
+Route::put('changepassword',function(Request $request, Agence $agence=null) {
     $request->validate([
         'currentPassword'=>'required|min:6',
         'password'=>'confirmed'
