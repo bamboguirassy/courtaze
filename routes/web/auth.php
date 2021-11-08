@@ -46,7 +46,7 @@ Route::post('login',function(Request $request,Agence $agence=null) {
 }
 })->name('login.request')->middleware('guest');
 
-Route::get('pre-register', function(Request $request, Agence $agence=null) {
+Route::get('preregister', function(Request $request, Agence $agence=null) {
     if($request->has('type')) {
         return view('auth.register',compact('agence'))->with(['type'=>$request->get('type')]);
     } else {
