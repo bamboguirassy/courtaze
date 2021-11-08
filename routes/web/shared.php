@@ -45,11 +45,11 @@ Route::get('/home', function (Agence $agence=null) {
     return view('home',compact('categories','offres','agence'));
 })->name('home.page');
 
-Route::get('registrationconfirmation',function(Agence $agence=null) {
+Route::get('registration-confirmation',function(Agence $agence=null) {
     return view('shared.register-confirmation',compact('agence'));
 })->name('registration.confirmation.page');
 
-Route::get('postinit',function(Request $request, Agence $agence=null) {
+Route::get('post-init',function(Request $request, Agence $agence=null) {
     $request->validate([
         'categorie_bien_id'=>'required|exists:categorie_biens,id'
     ]);
@@ -57,7 +57,7 @@ Route::get('postinit',function(Request $request, Agence $agence=null) {
     return view('shared.offre.new',['categorieBien'=>$categorieBien,'agence'=>$agence]);
 })->middleware('auth')->name('offre.init.new');
 
-Route::get('mesoffres',function(Agence $agence=null) {
+Route::get('mes-offres',function(Agence $agence=null) {
     $offreActives = Offre::where('visible',true)->where('user_id',Auth()->user()->id)->paginate(18);
     $offreInactives = Offre::where('visible',false)->where('user_id',Auth()->user()->id)->paginate(18);
     $categorieBiens = CategorieBien::orderby('nom')->get();
@@ -87,7 +87,7 @@ Route::resource('offre', OffreController::class,[
 ]);
 
 /** Filtre des biens par catégorie bien */
-Route::post('categoriebien/{categorie}',function(Request $request, Agence $agence=null, CategorieBien $categorie) {
+Route::post('categorie-bien/{categorie}',function(Request $request, Agence $agence=null, CategorieBien $categorie) {
     $query = Offre::where('visible',true)->where('categorie_bien_id',$categorie->id);
     if($request->has('country')) {
         $query = $query->whereRelation('user','country',$request->get('country'));
@@ -115,7 +115,7 @@ Route::post('categoriebien/{categorie}',function(Request $request, Agence $agenc
     return view('shared.categorie-bien.show',['categorieBien'=>$categorie,'offres'=>$offres,'agence'=>$agence,'countries'=>$countries]);
 })->name('categorie.offre.filter');
 
-Route::resource('categoriebien', CategorieBienController::class,[
+Route::resource('categorie-bien', CategorieBienController::class,[
     'only'=>['show']
 ]);
 
@@ -164,7 +164,7 @@ Route::get('/sitemap.xml', function () {
         ->header('content-Type', 'application/xml');
 });
 
-Route::get('listeenvie',function(Agence $agence=null) {
+Route::get('liste-envie',function(Agence $agence=null) {
 return view('shared.liste-envie',compact('agence'));
 })->name('user.liste.envie')->middleware('auth');
 
